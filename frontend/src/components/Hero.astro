@@ -11,18 +11,18 @@ import '../styles/hero.css';
 <section class="hero" aria-labelledby="hero-heading">
   <div class="hero__inner site-container">
     <img class="hero__rings" src={ringsPattern.src} alt="" aria-hidden="true" />
-    <picture class="hero__portrait">
-      <source media="(min-width: 75rem)" srcset={profileDesktop.src} />
-      <source media="(min-width: 45rem)" srcset={profileTablet.src} />
-      <img
-        src="../assets/portfolio/images/pattern-rings.svg"
-        width={profileMobile.width}
-        height={profileMobile.height}
-        alt={portfolio.hero.portraitAlt}
-        fetchpriority="high"
-      />
-    </picture>
     <div class="hero__content">
+      <picture class="hero__portrait">
+        <source media="(min-width: 75rem)" srcset={profileDesktop.src} />
+        <source media="(min-width: 45rem)" srcset={profileTablet.src} />
+        <img
+          src={profileMobile.src}
+          width={profileMobile.width}
+          height={profileMobile.height}
+          alt={portfolio.hero.portraitAlt}
+          fetchpriority="high"
+        />
+      </picture>
       <h1 id="hero-heading">
         Nice to meet you! I’m <span class="hero__name">Adam Keyes.</span>
       </h1>
