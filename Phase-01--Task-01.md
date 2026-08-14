@@ -173,20 +173,20 @@ None. The implementation stays within P01-T01: it introduces no hero, project, c
 ## 17. Output Lineage
 
 - Parent task-start verification: `VER-020` reconfirmed `SRC-DS-001`; `VER-021` reconfirmed the repository starting state at `52f1380d6f3e976561ce9d46e31073a334780517`, an expected Stage 9 descendant of `SRC-REPO-001`.
-- Implementation output snapshot/commit: pending CLI completion after the implementation commit.
+- Implementation output snapshot/commit: immutable `SRC-REPO-002` at `61858844bb83ace50961fa2cf312794c83bf11d8`, created by the CLI after all required checks passed.
 - Produced by task: `P01-T01`.
 - Downstream interface: `P01-T02` and `P01-T03` may consume `portfolio.css` tokens, `.site-container`, `.portfolio-main`, and the shared interaction/error hooks while preserving P01-T01-owned header, skills, and footer geometry.
 
 ## 18. Definition of Done
 
-- [ ] The objective, acceptance criteria, and declared validation pass.
-- [ ] Required snapshot verification and output lineage are recorded.
-- [ ] No unverified asset, source change, or hidden cross-task change remains.
-- [ ] Task/index documentation, deviations, and downstream interface notes are updated.
+- [x] The objective, acceptance criteria, and declared validation pass.
+- [x] Required snapshot verification and output lineage are recorded.
+- [x] No unverified asset, source change, or hidden cross-task change remains.
+- [x] Task/index documentation, deviations, and downstream interface notes are updated.
 
 ## 19. Completion Report
 
-- Files: `frontend/src/pages/index.astro`, `frontend/src/layouts/Layout.astro`, `frontend/src/styles/portfolio.css`, `PortfolioHeader.astro`, `SocialLinks.astro`, `Skills.astro`, `PortfolioFooter.astro`, and only the five mapped local portfolio assets.
+- Files and output: `frontend/src/pages/index.astro`, `frontend/src/layouts/Layout.astro`, `frontend/src/styles/portfolio.css`, `PortfolioHeader.astro`, `SocialLinks.astro`, `Skills.astro`, `PortfolioFooter.astro`, and only the five mapped local portfolio assets; immutable implementation output `SRC-REPO-002` at `61858844bb83ace50961fa2cf312794c83bf11d8`.
 - Behavior: the source order is semantic header, main/interim `h1`, skills, then footer. Both identity regions contain the four named `#` social actions; skill copy is HTML, CSS, Javascript, and Accessibility with four years of experience, plus React and Sass with three years.
 - Validation: the local `./node_modules/.bin/astro build` fallback generated one static page successfully; `git diff --check` passed. Headless production captures at 1440, 768, and 375 px verified the intended 3/2/1 skill layouts and readable mobile identity/footer. Runtime checks found no horizontal overflow at 1440, 1024, 768, 520, or 375 px, including a long skill name. Keyboard navigation reached GitHub, Frontend Mentor, LinkedIn, and Twitter in the header and then footer, with all eight links reporting `:focus-visible`.
 - Assets: the font and four social SVG checksum mappings are recorded in `DISC-P01-T01-002`; no other starter or Figma asset was introduced.
