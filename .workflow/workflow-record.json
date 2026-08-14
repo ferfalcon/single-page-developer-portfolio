@@ -6,7 +6,7 @@
     "executionMode": "Gated"
   },
   "state": {
-    "stage": 4,
+    "stage": 5,
     "status": "In progress",
     "activeInputs": [
       "SRC-DS-001",
@@ -162,6 +162,22 @@
       "method": "Git commit and scoped diff comparison",
       "evidence": "HEAD is 41d4974fc5e2107f4bdf3e9600bca11ac281f91a. Compared with SRC-REPO-001 commit 5f7ec3d0781d4a3237d051e00e8893c68f0a23b0, committed changes are workflow records/generated projections and approved process narratives including DESIGN.md; the known AGENTS.md guideline change is non-material. No frontend application code changed. The uncommitted SPEC.md and Stage 4 workflow updates are current process output; a later implementation task must pin its own task-start commit.",
       "checkedAt": "2026-08-14T07:01:00.391Z"
+    },
+    {
+      "id": "VER-014",
+      "snapshot": "SRC-DS-001",
+      "result": "Unchanged",
+      "method": "Figma MCP metadata reinspection of the scoped root canvas",
+      "evidence": "On 2026-08-14, root node 7:2 again resolved desktop 7:687 (1440 x 3872), tablet 7:226 (768 x 3563), mobile 7:3 (375 x 5013), Components 42:3249, and Design System / Documentation 62:5602 with the audited component/state variants. No named Figma version or checksum is available; this remains a Time-bound scope verification.",
+      "checkedAt": "2026-08-14T07:29:16.047Z"
+    },
+    {
+      "id": "VER-015",
+      "snapshot": "SRC-REPO-001",
+      "result": "Expected workflow output",
+      "method": "Git commit and scoped diff comparison",
+      "evidence": "HEAD is 9a8b87587e362b80e4ede262c778bbb486889d12. Compared with SRC-REPO-001 commit 5f7ec3d0781d4a3237d051e00e8893c68f0a23b0, committed changes are workflow records/generated projections and approved process narratives including SPEC.md; the known AGENTS.md guideline change is non-material. No frontend application code changed. The uncommitted Stage 5 documentation review/corrections are current process output; a later implementation task must pin its own task-start commit.",
+      "checkedAt": "2026-08-14T07:29:16.161Z"
     }
   ],
   "artifacts": [
@@ -185,7 +201,7 @@
       "id": "ART-PROJECT-CONTEXT",
       "type": "PROJECT-CONTEXT",
       "path": "PROJECT-CONTEXT.md",
-      "status": "Approved",
+      "status": "Reviewed",
       "baseline": [
         "SRC-DS-001",
         "SRC-REPO-001",
@@ -193,15 +209,15 @@
         "SRC-DOC-002",
         "SRC-ASSET-001"
       ],
-      "statusChangedAt": "2026-08-14T06:20:11.882Z",
-      "statusEvidence": "Fer approved the Stage 0 context, including frontend-only IndexedDB persistence and literal # placeholders for unavailable external destinations.",
+      "statusChangedAt": "2026-08-14T07:35:03.736Z",
+      "statusEvidence": "Stage 5 pass 1 and pass 2 reviewed the corrected historical context. It now delegates mutable stage/profile/gate state to the CLI record, distinguishes confirmed user contact outcomes from open architecture details, and remains compatible with active sources verified by VER-014 and VER-015.",
       "statusBy": "Fer"
     },
     {
       "id": "ART-WORKFLOW-STATE",
       "type": "WORKFLOW-STATE",
       "path": "WORKFLOW-STATE.md",
-      "status": "Approved",
+      "status": "Reviewed",
       "baseline": [
         "SRC-DS-001",
         "SRC-REPO-001",
@@ -209,8 +225,8 @@
         "SRC-DOC-002",
         "SRC-ASSET-001"
       ],
-      "statusChangedAt": "2026-08-14T06:20:11.937Z",
-      "statusEvidence": "Fer approved the recorded scope, Full profile, Gated execution mode, risks, assumptions, and next-stage workflow state.",
+      "statusChangedAt": "2026-08-14T07:35:04.583Z",
+      "statusEvidence": "Stage 5 pass 1 and pass 2 reviewed the corrected historical workflow-state narrative. It retains questions and rationale only, delegates canonical operational state to the CLI record, and assigns local JSON/IndexedDB representation decisions to Stage 6 architecture; active sources are VER-014 and VER-015.",
       "statusBy": "Fer"
     },
     {
@@ -230,26 +246,26 @@
       "id": "ART-REQUIREMENTS",
       "type": "REQUIREMENTS",
       "path": "REQUIREMENTS.md",
-      "status": "Approved",
+      "status": "Reviewed",
       "baseline": [
         "SRC-DS-001",
         "SRC-REPO-001"
       ],
-      "statusChangedAt": "2026-08-14T06:43:43.381Z",
-      "statusEvidence": "Fer approved the reviewed Stage 2 requirements on 2026-08-14.",
+      "statusChangedAt": "2026-08-14T07:35:05.398Z",
+      "statusEvidence": "Stage 5 pass 1 and pass 2 reviewed requirements after the user decisions. Contact success clears fields and exposes an accessible message; local failure preserves values, exposes an accessible message, and retries by resubmission. Local JSON is the confirmed dynamic-content boundary. Current sources are VER-014 and VER-015; unresolved items are explicit.",
       "statusBy": "Fer"
     },
     {
       "id": "ART-DESIGN",
       "type": "DESIGN",
       "path": "DESIGN.md",
-      "status": "Approved",
+      "status": "Reviewed",
       "baseline": [
         "SRC-DS-001",
         "SRC-REPO-001"
       ],
-      "statusChangedAt": "2026-08-14T06:54:54.625Z",
-      "statusEvidence": "Fer approved the reviewed Stage 3 design intent on 2026-08-14.",
+      "statusChangedAt": "2026-08-14T07:35:06.199Z",
+      "statusEvidence": "Stage 5 pass 1 and pass 2 reviewed design intent. It keeps Figma success/failure absence as a source limitation, references approved target behavior in SPEC, and records VER-014/VER-015 without overstating Figma immutability or inferring application changes.",
       "statusBy": "Fer"
     },
     {
@@ -261,8 +277,21 @@
         "SRC-DS-001",
         "SRC-REPO-001"
       ],
-      "statusChangedAt": "2026-08-14T07:20:09.722Z",
-      "statusEvidence": "Stage 4 specification was reopened and revised after direct user decisions: successful local persistence clears fields and exposes a message; failed persistence preserves fields, exposes a message, and retries by resubmission; project technology labels and image alternatives use frontend-local JSON data. Two review passes, source verifications VER-012/VER-013, identifier checks, workflow validation, and whitespace validation passed."
+      "statusChangedAt": "2026-08-14T07:35:06.986Z",
+      "statusEvidence": "Stage 5 pass 1 and pass 2 reviewed the testable specification. SPEC-VAL-003/004 and SPEC-DATA-002 reflect confirmed user outcomes without prescribing architecture. Traceability, uncertainty, and current source verification VER-014/VER-015 are consistent.",
+      "statusBy": "Fer"
+    },
+    {
+      "id": "ART-DOCUMENT-REVIEW",
+      "type": "DOCUMENT-REVIEW",
+      "path": "DOCUMENT-REVIEW.md",
+      "status": "Reviewed",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001"
+      ],
+      "statusChangedAt": "2026-08-14T07:35:07.808Z",
+      "statusEvidence": "Completed Stage 5 consolidated two-pass review. DOCUMENT-REVIEW.md verifies the active source baseline with VER-014/VER-015, records corrected cross-document findings DOC-001 through DOC-005, and carries content, CTA, asset, and architecture decisions forward without unsupported resolution."
     }
   ],
   "traceItems": [],
@@ -359,6 +388,32 @@
       ],
       "evidence": "Fer approved Stage 3 design intent with documented source limitations and open behavior decisions carried into specification.",
       "recordedAt": "2026-08-14T06:54:54.777Z",
+      "approvedBy": "Fer"
+    },
+    {
+      "id": "GATE-005",
+      "stage": 4,
+      "status": "Active",
+      "result": "Passed with assumptions",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001"
+      ],
+      "verifications": [
+        "VER-012",
+        "VER-013"
+      ],
+      "artifacts": [
+        "ART-SOURCE-BASELINE",
+        "ART-PROJECT-CONTEXT",
+        "ART-WORKFLOW-STATE",
+        "ART-DESIGN-AUDIT",
+        "ART-REQUIREMENTS",
+        "ART-DESIGN",
+        "ART-SPEC"
+      ],
+      "evidence": "Fer approved Stage 4 specification with architecture-owned JSON schema and IndexedDB lifecycle details carried to Stage 6.",
+      "recordedAt": "2026-08-14T07:22:08.190Z",
       "approvedBy": "Fer"
     }
   ],

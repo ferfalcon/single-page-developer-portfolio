@@ -86,21 +86,21 @@ The project replaces the generated Astro starter with the supplied developer-por
 
 ### REQ-FR-004 — Provide the visible contact form fields and feedback states
 
-- **Classification:** Confirmed for visible fields and state affordances; validation triggers remain open.
+- **Classification:** Confirmed for visible fields, blank/malformed-email validation conditions, and user-approved local-submission feedback.
 - **Priority:** Must.
-- **Description:** The contact experience shall provide name, email, and message input controls plus a send action. It shall support the source-demonstrated focus/active appearance and error feedback pattern; the exact validation rules, messages, and submit-success experience require specification.
+- **Description:** The contact experience shall provide name, email, and message input controls plus a send action. It shall support the source-demonstrated focus/active/error appearance. Blank fields and malformed email block submission with accessible field feedback. After a successful local persistence, fields clear and a message is shown; after a failed local persistence, values remain, a message is shown, and the visitor can resubmit. Exact message copy and storage representation remain later-stage decisions.
 - **Rationale:** All Product / Home frames include this form-like interaction, and Figma includes input and textarea Active/Error variants.
-- **Evidence:** `EVD-001`, `EVD-002`, `EVD-003`, `EVD-006`, `AUD-004`.
-- **Acceptance criteria:** `AC-004`, `AC-007`.
+- **Evidence:** `EVD-001`, `EVD-002`, `EVD-003`, `EVD-006`, `AUD-004`; root repository brief in `SRC-REPO-001`; user decisions dated 2026-08-14.
+- **Acceptance criteria:** `AC-004`, `AC-007`, `AC-018`, `AC-019`, `AC-021`.
 
 ### REQ-FR-005 — Persist contact submissions in IndexedDB
 
 - **Classification:** Confirmed boundary; data lifecycle details are open.
 - **Priority:** Must.
-- **Description:** A submitted contact entry shall be persisted in the browser’s IndexedDB. The contact flow shall remain frontend-only and shall not depend on a server submission or external persistence service.
+- **Description:** A valid submitted contact entry shall be persisted in the browser’s IndexedDB. Only after successful local persistence, clear the fields and show a message. If local persistence fails, retain values, show a message, and allow resubmission. The contact flow shall remain frontend-only and shall not depend on a server submission or external persistence service.
 - **Rationale:** This is the user’s explicit product and data-scope decision.
 - **Evidence:** User decision dated 2026-08-14; `AUD-004` documents the design-source gap.
-- **Acceptance criteria:** `AC-005`, `AC-013`.
+- **Acceptance criteria:** `AC-005`, `AC-013`, `AC-020`, `AC-021`.
 
 ## 6. Acceptance Criteria
 
@@ -122,7 +122,7 @@ Name, email, and message controls plus the send action are available; the final 
 
 ### AC-005 — Browser-local persistence on a successful submission
 
-When the later specification defines a contact submission as successful, its name, email, and message values are persisted in IndexedDB without requiring a remote endpoint.
+When Name, Email, and Message are valid and local persistence succeeds, their values are persisted in IndexedDB without a remote endpoint; the fields clear and an accessible confirmation message is shown.
 
 ### AC-006 — Approved unavailable destinations
 
@@ -166,8 +166,8 @@ Contact fields and stored submissions are not sent to a remote endpoint, third-p
 
 ### REQ-BR-002 — Preserve source authority boundaries
 
-- **Description:** Figma governs the approved visible composition and demonstrated visual states. The starter-content file is supporting content/asset evidence only. The four conflicting technology-label lists require an explicit later decision rather than a silent implementation choice.
-- **Evidence:** `EVD-001`–`EVD-003`, `EVD-010`, `AUD-008`; `SOURCE-BASELINE.md`.
+- **Description:** Figma governs the approved visible composition and demonstrated visual states. The starter-content file is supporting content/asset evidence only. Project technology labels and project-image alternative treatments are supplied from frontend-local JSON content; neither conflicting source list may be silently hard-coded as its runtime authority.
+- **Evidence:** `EVD-001`–`EVD-003`, `EVD-010`, `AUD-008`; `SOURCE-BASELINE.md`; user decision dated 2026-08-14.
 - **Affected requirements:** `REQ-FR-002`.
 
 ### REQ-BR-003 — Keep contact handling local to the frontend
@@ -183,7 +183,7 @@ Contact fields and stored submissions are not sent to a remote endpoint, third-p
 - **Classification:** Inferred from the visible form and confirmed persistence boundary.
 - **Description:** A stored contact submission shall include the visitor-provided values corresponding to the visible Name, Email, and Message controls. Record identifiers, timestamps, schema version, optional fields, and migration behavior are not yet defined.
 - **Required and optional data:** Name, email, and message are the only source-demonstrated values. All other data fields are open.
-- **Validation or ownership:** Future specification owns input validation; architecture owns data representation and versioning.
+- **Validation or ownership:** `SPEC.md` owns blank/malformed-email validation and local-submission feedback. Architecture owns data representation and versioning.
 - **Privacy or retention evidence:** The user confirmed local IndexedDB only. Retention, deletion/export, sensitive-data policy, and privacy notice requirements are open.
 - **Evidence:** `EVD-006`; user decision dated 2026-08-14; `AUD-004`.
 
@@ -192,7 +192,7 @@ Contact fields and stored submissions are not sent to a remote endpoint, third-p
 - **Classification:** Confirmed.
 - **Description:** Contact data shall be owned by the browser-local IndexedDB boundary for this project. No remote synchronization, account association, authentication, or shared persistence is in scope.
 - **Required and optional data:** Local storage boundary is required; lifecycle details are open.
-- **Validation or ownership:** Architecture must define available-storage, versioning, migration, and failure treatment before implementation.
+- **Validation or ownership:** Architecture must define available-storage, versioning, migration, retention, and privacy treatment before implementation. User-visible persistence failure handling is defined in `SPEC-VAL-004`.
 - **Privacy or retention evidence:** User decision dated 2026-08-14; `AUD-004`.
 
 ## 9. Accessibility Requirements
@@ -213,7 +213,7 @@ Contact fields and stored submissions are not sent to a remote endpoint, third-p
 
 ### REQ-AR-003 — Make an intentional alternative-text decision for supplied imagery
 
-- **Description:** Each project image and portrait shall receive a documented alternative-text treatment appropriate to its final role; decorative rings and circle shall be excluded from the accessibility tree if they remain decorative.
+- **Description:** Each project image and portrait shall receive a documented alternative-text treatment appropriate to its final role. Project-image alternatives are supplied from frontend-local JSON content; the hero portrait treatment must be supplied before acceptance. Decorative rings and circle shall be excluded from the accessibility tree if they remain decorative.
 - **Rationale:** Figma shows the assets but does not define their text alternatives; repository guidance requires informative images to have useful alt text and decorative images to have empty alt text.
 - **Evidence or standard:** `EVD-009`, `EVD-010`, `AUD-005`; `SRC-REPO-001` repository guidance.
 - **Acceptance criteria:** `AC-009`.
@@ -286,7 +286,7 @@ Contact fields and stored submissions are not sent to a remote endpoint, third-p
 
 ### REQ-CON-004 — Keep contact persistence frontend-only in IndexedDB
 
-- **Description:** The contact flow is frontend-only and persists submissions in IndexedDB. Schema, versioning, retention, deletion/export, validation, error/success behavior, and browser-availability handling remain unspecified.
+- **Description:** The contact flow is frontend-only and persists submissions in IndexedDB. Schema, versioning, retention, deletion/export, privacy, and browser-availability handling remain unspecified. Validation and local-success/failure behavior are defined in `SPEC.md`.
 - **Evidence:** User decision dated 2026-08-14; `AUD-004`.
 - **Impact:** Requires Full-profile specification, architecture, and validation coverage without authorizing an unrecorded behavior.
 
@@ -304,7 +304,7 @@ Contact fields and stored submissions are not sent to a remote endpoint, third-p
 
 ### REQ-CON-007 — Do not invent unresolved product behavior
 
-- **Description:** Do not invent real URLs, input validation rules, success/failure states, browser support, IndexedDB schema/versioning, data retention/deletion/export behavior, privacy policy, or performance targets.
+- **Description:** Do not invent real URLs, browser support, IndexedDB schema/versioning, data retention/deletion/export behavior, privacy policy, performance targets, or local-content values. Validation and local success/failure states must follow approved `SPEC-*` behavior rather than be independently reinterpreted.
 - **Evidence:** `AUD-002`–`AUD-005`, `AUD-009`; user decision dated 2026-08-14.
 - **Impact:** The owning specification/architecture artifacts must resolve or explicitly defer these details.
 
@@ -328,9 +328,9 @@ Contact fields and stored submissions are not sent to a remote endpoint, third-p
 
 ### Blocking questions
 
-- `Q-001`: What IndexedDB schema, versioning/migration, validation, submit success/failure, retention/deletion/export, data sensitivity, browser-availability, and privacy-notice requirements apply? Owner: user/product owner and later architecture/specification owners. Required before contact behavior is complete.
-- `Q-003`: Which project technology labels are final for the four Figma/starter conflicts? Owner: user/product owner. Required before content acceptance.
-- `Q-004`: What semantic alternative text is appropriate for the portrait and project images? Owner: user/product owner with accessibility review. Required before accessibility acceptance.
+- `Q-001`: What IndexedDB schema, versioning/migration, retention/deletion/export, data sensitivity, browser-availability, and privacy-notice requirements apply? Owner: user/product owner and later architecture owners. Required before contact architecture is complete; validation and user-visible success/failure behavior are specified.
+- `Q-003`: What final technology-label values will populate the six frontend-local JSON records? Owner: user/product owner. Required before content acceptance.
+- `Q-004`: What final hero-portrait treatment and project-image alternative values will populate local content data? Owner: user/product owner with accessibility review. Required before accessibility acceptance.
 
 ### Non-blocking questions
 
@@ -343,9 +343,9 @@ Contact fields and stored submissions are not sent to a remote endpoint, third-p
 | Risk | Impact | Likelihood | Mitigation | Blocking |
 |---|---|---|---|---|
 | Figma changes without a named version | Visual evidence may drift | Medium | Reverify/rebaseline before each later gate and task. | No for requirements; yes if material upstream change occurs. |
-| IndexedDB lifecycle is unspecified | Contact flow could become inconsistent or privacy-incomplete | High | Resolve `Q-001` in specification and architecture. | Yes for contact completion. |
+| IndexedDB lifecycle is unspecified | Storage representation or privacy behavior could become inconsistent | High | Resolve `Q-001` in architecture; specified user-visible success/failure behavior remains fixed. | Yes for contact completion. |
 | Real destinations are absent | Links cannot be finally validated | High | Use confirmed `#` placeholders; collect real URLs later. | No for placeholder work; yes for final link acceptance. |
-| Figma/starter technology conflict | Project-card content can be inconsistent | Medium | Resolve `Q-003` before final content acceptance. | Yes for final content. |
+| Local content values are incomplete | Project-card labels or image alternatives can be inconsistent | Medium | Complete and validate the frontend-local records before acceptance. | Yes for final content/accessibility. |
 | Temporary Figma assets/error icon | Visual implementation could break or drift | Medium | Map verified local assets or obtain an approved durable export. | Yes for exact asset parity. |
 | Semantics/accessibility are not proved by Figma | Visual parity might exclude keyboard or assistive-tech access | High | Carry `REQ-AR-*` into specification, task validation, and manual checks. | Yes for acceptance. |
 
@@ -380,26 +380,26 @@ Contact fields and stored submissions are not sent to a remote endpoint, third-p
 
 - [x] Requirements cover the agreed page scope, project collection, action labels, contact, data boundary, accessibility, responsive, security, quality, asset, and source-integrity concerns.
 - [x] Must-have requirements are outcome-focused and use acceptance criteria or later-owner boundaries.
-- [x] Unprovided URLs, validation, retention, browser, performance, privacy, and schema rules remain open rather than invented.
+- [x] Unprovided URLs, retention, browser, performance, privacy, schema, and local-content values remain open rather than invented; specified validation and local feedback behavior is preserved.
 - [x] Active snapshots and approved Stage 1 evidence are explicitly referenced.
 
-**Pass 1 corrections:** separated Figma-visible form states from unproven validation behavior; marked contact record fields as an inference; and carried the Figma/starter technology conflict as a blocking content question rather than choosing a source silently.
+**Pass 1 corrections:** separated Figma-visible form states from unproven validation behavior; marked contact record fields as an inference; and carried the Figma/starter technology conflict as a blocking content question rather than choosing a source silently. Stage 5 then incorporated the user’s approved validation/outcome and frontend-local JSON decisions.
 
 ### Pass 2 — Consistency, traceability, source integrity, risks, and uncertainty
 
 - [x] Requirement, acceptance-criterion, question, and source/evidence identifiers follow the canonical namespaces.
 - [x] Every material visual requirement references approved `EVD-*`/`AUD-*` or an identified direct user decision.
-- [x] `SRC-DS-001` remains Time-bound (`VER-008`) and `SRC-REPO-001` remains pinned to the verified commit (`VER-009`); no source is presented as silently updated.
+- [x] The Stage 2 verification events `VER-008` and `VER-009` remain historical evidence; the Stage 5 recheck is `VER-014` (Figma unchanged) and `VER-015` (expected workflow-only repository output). No source is presented as silently updated.
 - [x] Confirmed, inferred, recommended, and open information remain distinct.
 - [x] Blocking questions, dependencies, risks, and later-stage ownership are explicit.
 
-**Pass 2 corrections:** reconciled `REQ-CON-001`–`REQ-CON-006` with the identifiers already introduced in the approved Stage 0 context, added `REQ-CON-007` for the new non-invention guardrail, limited the no-remote-submission requirement to the user-approved project scope, removed implied retention, encryption, browser-support, or performance thresholds, and clarified that final destination validation is deferred even while `#` is required now.
+**Pass 2 corrections:** reconciled `REQ-CON-001`–`REQ-CON-006` with the identifiers already introduced in the approved Stage 0 context, added `REQ-CON-007` for the new non-invention guardrail, limited the no-remote-submission requirement to the user-approved project scope, removed implied retention, encryption, browser-support, or performance thresholds, and clarified that final destination validation is deferred even while `#` is required now. Stage 5 corrected stale references to now-specified contact behavior and recorded local JSON as the approved dynamic-content boundary.
 
 ## 20. Completion Summary
 
 - Files created or modified: `REQUIREMENTS.md`.
-- Inputs used: `SRC-DS-001` (`VER-008`), `SRC-REPO-001` (`VER-009`), `EVD-001`–`EVD-010`, `AUD-001`–`AUD-009`, and the user’s 2026-08-14 decisions.
-- Major confirmed requirements: full single-page portfolio scope, `#` placeholders, frontend-only IndexedDB contact persistence, no remote submission, responsive source outcomes, and accessibility expectations.
+- Inputs used: `SRC-DS-001` (historical `VER-008`; latest `VER-014`), `SRC-REPO-001` (historical `VER-009`; latest `VER-015`), `EVD-001`–`EVD-010`, `AUD-001`–`AUD-009`, and the user’s 2026-08-14 decisions.
+- Major confirmed requirements: full single-page portfolio scope, `#` placeholders, frontend-only IndexedDB persistence with specified field/message outcomes, no remote submission, frontend-local JSON content delivery, responsive source outcomes, and accessibility expectations.
 - Material inferred requirements: the three visible fields comprise the stored contact content; CTA/contact relationship; decorative image treatment.
-- Blocking later decisions: `Q-001`, `Q-003`, `Q-004`.
+- Blocking later decisions: IndexedDB architecture details (`Q-001`) and complete approved local content values for labels/image alternatives (`Q-003`, `Q-004`).
 - Ready for design-intent work: **Yes, with recorded blocking questions carried forward.**

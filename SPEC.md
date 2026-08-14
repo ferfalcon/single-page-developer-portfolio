@@ -424,7 +424,7 @@ Existing requirement-owned `AC-001`–`AC-013` remain applicable. These addition
 
 - [x] Material composition, interactions, states, responsive outcomes, accessibility, data, validation, errors, failure/recovery behavior, and acceptance criteria are covered.
 - [x] Blank-field and malformed-email conditions are derived from the inspected root repository brief, not guessed from Figma.
-- [x] Each specified test has observable conditions/results; unprovided success and persistence-failure behavior is explicitly marked pending instead of invented.
+- [x] Each specified test has observable conditions/results; user-approved success and persistence-failure behavior is testable without claiming it came from Figma.
 - [x] The specification does not prescribe repository paths, component structure, storage schema, task order, or breakpoint numbers.
 
 **Pass 1 corrections:** added the repository brief’s empty-field and malformed-email requirements; separated local submission from prohibited remote delivery; and, after the user’s clarification, defined local-persistence success/failure feedback and the local JSON content boundary without prescribing implementation structure.
@@ -432,8 +432,8 @@ Existing requirement-owned `AC-001`–`AC-013` remain applicable. These addition
 ### Pass 2 — Consistency, traceability, source integrity, risks, and uncertainty
 
 - [x] `SPEC-BEH-*`, `SPEC-INT-*`, `SPEC-ACC-*`, `SPEC-DATA-*`, `SPEC-VAL-*`, and new `AC-*` identifiers are unique and stable.
-- [x] Material specifications reference approved requirements/design intent and the active source snapshots actually inspected; Figma scope is `VER-012` unchanged and repository documentation-only output is `VER-013`.
-- [x] Source evidence is classified: repository brief validation rules are observed, IndexedDB/`#` are confirmed user decisions, and unshown contact outcomes remain open/proposed.
+- [x] Material specifications reference approved requirements/design intent and the active source snapshots actually inspected; the historical Stage 4 check is `VER-012`/`VER-013` and the latest Stage 5 check is `VER-014` (Figma unchanged) / `VER-015` (expected workflow-only repository output).
+- [x] Source evidence is classified: repository brief validation rules are observed; IndexedDB/`#`, local submission messages, retry behavior, and local JSON delivery are confirmed user decisions; Figma’s missing success/failure visual state remains a source limitation, not a target-behavior gap.
 - [x] No arbitrary breakpoint, focus trap, validation regex, storage schema, data lifecycle, real URL, or nonlocal fallback is asserted.
 - [x] User decisions resolve post-save/failure UX and the local JSON delivery boundary; remaining architecture/content-record completeness is visible for its stated acceptance outcomes.
 
@@ -442,7 +442,7 @@ Existing requirement-owned `AC-001`–`AC-013` remain applicable. These addition
 ## 16. Completion Summary
 
 - File created: `SPEC.md`.
-- Inputs used: approved requirements/design intent, `SRC-DS-001` (`VER-012`), `SRC-REPO-001` (`VER-013`), Figma evidence, and the root repository brief’s validation statements.
+- Inputs used: approved requirements/design intent, `SRC-DS-001` (historical `VER-012`; latest `VER-014`), `SRC-REPO-001` (historical `VER-013`; latest `VER-015`), Figma evidence, and the root repository brief’s validation statements.
 - Testable confirmed behavior: full page composition, responsive outcomes, visible focus/state treatment, `#` placeholders, blank/malformed-email rejection, valid IndexedDB persistence, and no remote contact transmission.
 - Approval decisions incorporated: post-save feedback/reset, IndexedDB failure/recovery, and frontend-local JSON delivery for technology labels and image alternatives.
 - Remaining acceptance inputs: complete approved local record values, hero portrait treatment, and later IndexedDB architecture details.

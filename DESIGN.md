@@ -33,8 +33,8 @@ The intended experience is consistent across the three supplied compositions: id
 
 ## 3. Source and Scope
 
-- **Design snapshot:** `SRC-DS-001`, a mutable Figma file inspected as a Time-bound snapshot. Latest Stage 3 reinspection: `VER-010`.
-- **Repository snapshot:** `SRC-REPO-001`, pinned originally at `5f7ec3d0781d4a3237d051e00e8893c68f0a23b0`; its later documentation-only process output is recorded in `VER-011` and does not alter visual intent.
+- **Design snapshot:** `SRC-DS-001`, a mutable Figma file inspected as a Time-bound snapshot. Stage 3 reinspection is `VER-010`; the latest Stage 5 reinspection is `VER-014` unchanged.
+- **Repository snapshot:** `SRC-REPO-001`, pinned originally at `5f7ec3d0781d4a3237d051e00e8893c68f0a23b0`; its later documentation-only process output is recorded historically in `VER-011` and latest in `VER-015`, neither of which alters visual intent.
 - **Included design regions:** Product / Home desktop `7:687` (1440 × 3872), tablet `7:226` (768 × 3563), mobile `7:3` (375 × 5013), Components `42:3249`, and Design System / Documentation `62:5602`.
 - **Excluded regions:** Components and Design System canvases are reference material, not website routes. No additional route, modal, prototype connection, loading screen, success screen, or motion timeline was supplied.
 - **Reproduction limits:** Figma has no named version/checksum; its MCP asset URLs are temporary; the Stage 3 design-context adapter was unavailable as noted above. The visual source is authoritative for demonstrated composition and states, not unshown behavior.
@@ -96,7 +96,7 @@ Desktop uses side-by-side hero and contact content, a three-column skill list, a
 - **Intent:** Name/email/message fields visibly distinguish default, active, and error treatments. Submitted contact information remains browser-local under the user-approved IndexedDB boundary.
 - **Evidence:** `EVD-006`; `AUD-004`, `AUD-006`; user decision dated 2026-08-14.
 - **Requirement references:** `REQ-FR-004`, `REQ-FR-005`, `REQ-DR-001`, `REQ-DR-002`, `REQ-AR-002`, `REQ-SEC-001`.
-- **Implications:** This document does not define validation timing, valid values, error copy, success acknowledgement, storage failure/recovery, schema, retention, or privacy policy.
+- **Implications:** Figma does not define validation timing, valid values, success/failure visuals, schema, retention, or privacy policy. Approved target validation and local-persistence feedback live in `SPEC-VAL-001`–`SPEC-VAL-004`; this design artifact retains only the source-visible active/error visual intent.
 
 ### DES-006 — Keep unresolved content and assets visible as explicit gaps
 
@@ -179,7 +179,7 @@ Desktop uses side-by-side hero and contact content, a three-column skill list, a
 - **Intended result:** Active fields receive an accent divider; error fields receive a coral divider, icon, and visible caption.
 - **Pattern:** Visual feedback is consistent between single-line inputs and textarea.
 - **Motion:** Not supplied.
-- **Focus or keyboard implication:** The source supports focus/error visibility, while actual validation trigger, error text, announcement, status, and focus movement are unspecified.
+- **Focus or keyboard implication:** The source supports focus/error visibility, while it does not demonstrate validation triggers, status-message appearance, or focus movement. Approved target behavior is defined in `SPEC-INT-003` and `SPEC-VAL-001`–`SPEC-VAL-004`.
 - **Evidence and snapshot:** `SRC-DS-001`; `EVD-006`; `70:1431`, `70:1442`, `78:1236`, `78:1239`; `AUD-004`–`AUD-006`.
 
 ### DES-INT-004 — Keep unshown navigation and submission behavior open
@@ -235,7 +235,7 @@ Desktop uses side-by-side hero and contact content, a three-column skill list, a
 | Tablet/mobile project cards | Default, Hover, Focus component variants | Compact compositions show persistent actions; exact overlay behavior is not a behavioral contract. |
 | Name/email fields | Default, Active, Error | Accent/coral divider and error icon/caption are observed. Validation rule and copy are not established. |
 | Message field | Default, Active, Error | Same visual-state system as input fields. |
-| Contact submission | No success/loading/failure state supplied | IndexedDB is confirmed; success acknowledgment, storage failure, duplicate handling, and recovery are open. |
+| Contact submission | No Figma success/loading/failure state supplied | The approved target clears fields and shows a message after successful local persistence; failed local persistence keeps values, shows a message, and permits resubmission (`SPEC-VAL-003`, `SPEC-VAL-004`). Duplicate rules remain open. |
 | Long/missing content or asset | Not supplied | Must be specified before final acceptance; project labels/image alternatives/error icon are known gaps. |
 | Disabled/selected | Not supplied | Do not invent a visible state without later behavior evidence. |
 
@@ -245,7 +245,7 @@ Desktop uses side-by-side hero and contact content, a three-column skill list, a
 - **Observed:** input and textarea error variants pair color with an icon and caption; Figma component documentation indicates the text should be exposed to assistive technology (`EVD-006`).
 - **Required by approved requirements:** interactive actions must be keyboard-operable with visible focus; contact controls need associated labels and programmatically available non-color-only error feedback (`REQ-AR-001`, `REQ-AR-002`).
 - **Inferred:** visual order should become the semantic reading order; the hero title and section labels imply a heading hierarchy, but exact elements are not proved by Figma.
-- **Open:** field types, autocomplete, requiredness, keyboard submit, focus movement, announcement strategy, contrast testing, touch-target metrics, portrait/project-image alternatives, and intermediate zoom/reflow behavior.
+- **Open:** field types, autocomplete, error-focus movement, contrast testing, touch-target metrics, hero-portrait treatment, complete local project-image alternatives, and intermediate zoom/reflow behavior. Requiredness, keyboard submission, and local submission messages are specified in `SPEC.md`.
 - **Decorative intent:** rings and circle are inferred decorative background artwork and should receive a final intentional alternative-text decision; their currently inferred empty alternative treatment is not proof that the portrait or project images are decorative.
 
 ## 13. Assets and Design-system Mapping
@@ -254,7 +254,7 @@ Desktop uses side-by-side hero and contact content, a three-column skill list, a
 |---|---|---|---|---|
 | Space Grotesk typography | `EVD-005`, `EVD-010` | `docs/starter-code/assets/fonts/SpaceGrotesk-VariableFont_wght.ttf` | Verify durable integration/licensing record before use. | Bundle lacks the full OFL text. |
 | Hero portraits | `EVD-009`, `EVD-010` | `docs/starter-code/assets/images/image-profile-{desktop,tablet,mobile}.webp` | Verify visual mapping/crop before later integration. | Exact Figma-to-local identity is unverified. |
-| Six project images | `EVD-007`, `EVD-010` | `docs/starter-code/assets/images/thumbnail-project-{1..6}-{large,small}.webp` | Confirm each card/image mapping and final alternative text. | Mapping and content-label conflict remain open. |
+| Six project images | `EVD-007`, `EVD-010` | `docs/starter-code/assets/images/thumbnail-project-{1..6}-{large,small}.webp` | Confirm each card/image mapping and local-content alternative value. | Mapping and complete local-content values remain open. |
 | Social icons | `EVD-008`, `EVD-010` | `docs/starter-code/assets/images/icon-{github,frontend-mentor,linkedin,twitter}.svg` | Verify glyph mapping before later integration; use confirmed `#` destinations meanwhile. | Real destinations absent. |
 | Rings and circle | `EVD-009`, `EVD-010` | `docs/starter-code/assets/images/pattern-rings.svg`, `pattern-circle.svg` | Keep low-emphasis decorative intent and verify placement. | Could cause overflow if unbounded. |
 | Field error icon | `EVD-006`, `AUD-007` | No verified committed counterpart | Obtain/map a durable approved export before exact error parity. | Temporary Figma asset URL cannot be committed as a dependency. |
@@ -265,7 +265,7 @@ Desktop uses side-by-side hero and contact content, a three-column skill list, a
 ### Inferred
 
 - `CONTACT ME` likely relates to the contact experience because the page has a contact section; Figma does not demonstrate a destination.
-- Rings and circle are background decoration, while the portrait and project media may be informative; their final alternatives require a content/accessibility decision.
+- Rings and circle are background decoration, while the portrait and project media may be informative; project-image alternatives are delivered through local JSON content and the hero portrait treatment still needs a content decision.
 - The visible Name, Email, and Message controls are the values intended for browser-local contact records; no record schema follows from the visual source.
 
 ### Recommended
@@ -273,14 +273,14 @@ Desktop uses side-by-side hero and contact content, a three-column skill list, a
 - Preserve source content order as the keyboard/assistive-technology reading order and retain a visible focus treatment for every interactive item.
 - Validate and map durable local asset candidates before implementation; do not depend on temporary Figma MCP URLs.
 - Define responsive behavior between source examples from content constraints, not from copied canvas widths.
-- Resolve the technology-label conflict and the error-icon source before final visual/content acceptance.
+- Complete the local JSON values for technology labels and alternatives, and resolve the error-icon source before final visual/content acceptance.
 
 ### Open questions
 
-- `Q-001`: What validation, IndexedDB schema/migration, success/failure feedback, availability handling, retention/deletion/export, and privacy conditions apply?
+- `Q-001`: What IndexedDB schema/migration, availability handling, retention/deletion/export, data-sensitivity, and privacy conditions apply? Validation and user-visible local success/failure behavior are specified.
 - `Q-002`: What real URLs will replace confirmed `#` placeholders?
-- `Q-003`: Are the Figma two-tag cards final, or should four starter-code JavaScript labels be reinstated?
-- `Q-004`: What alternative text is correct for portrait and each project image?
+- `Q-003`: What final technology-label values will populate the frontend-local JSON records?
+- `Q-004`: What final hero-portrait treatment and project-image alternative values will populate local content records?
 - `Q-005`: What responsive behavior applies between/beyond 375, 768, and 1440 px?
 - `Q-006`: What durable approved error-icon asset is available?
 
@@ -292,9 +292,9 @@ Desktop uses side-by-side hero and contact content, a three-column skill list, a
 | Design-context adapter unavailable without a desktop selection | Stage 3 adapter error; `AUD-001` | No fresh reference-code/screenshot context was available; metadata-only reinspection cannot replace it for code implementation. | Connected Figma user/adapter owner |
 | No prototype, destinations, or motion evidence | `AUD-002`, `AUD-009` | Action behavior and final link validation remain undefined. | Product owner / specification |
 | Only three responsive examples | `AUD-003` | Intermediate layout can be inconsistent unless specified. | Design/specification owner |
-| Contact lifecycle is unshown | `AUD-004`–`AUD-006` | IndexedDB field behavior, status, and recovery cannot be accepted from visuals alone. | Product owner / architecture / specification |
+| Contact lifecycle is unshown in Figma | `AUD-004`–`AUD-006` | The design source cannot establish behavior, but target validation, local message, and retry behavior is now specified; storage architecture remains later work. | Architecture / specification owner |
 | Asset durability and error icon uncertain | `AUD-007`, `EVD-010` | Exact visual parity may be blocked. | Asset/content owner |
-| Figma/starter technology labels conflict | `AUD-008` | Project cards could silently show wrong final content. | Product owner |
+| Figma/starter technology labels conflict | `AUD-008` | Project cards could silently show wrong final content unless the approved local JSON records are complete. | Product/content owner |
 | Expected workflow-output repository commit after baseline | `VER-011` | Original source pin remains useful, but later task start must be separately pinned. | Workflow owner |
 
 ## 16. Review
@@ -304,24 +304,24 @@ Desktop uses side-by-side hero and contact content, a three-column skill list, a
 - [x] Information architecture, layout, visual roles, repeated components, demonstrated states, interaction intent, supplied viewport transformations, accessibility intent, and asset limitations are covered.
 - [x] Design intent is described as outcomes and distinctions, not copied reference implementation code.
 - [x] Every source-backed decision maps to `EVD-*`/`AUD-*`, `SRC-DS-001`, and relevant `REQ-*` entries.
-- [x] Unshown navigation, contact lifecycle, motion, semantic, and responsive details remain explicit gaps.
+- [x] Unshown navigation, source-level contact lifecycle, motion, semantic, and responsive details remain explicit gaps; approved target behavior is referenced where later specification resolves it.
 
-**Pass 1 corrections:** separated observed desktop overlay/focus visuals from unproven action semantics; identified `#` and IndexedDB as user-confirmed boundaries rather than Figma evidence; and retained long-content, loading, success, disabled, and asset behavior as unresolved rather than filling them in.
+**Pass 1 corrections:** separated observed desktop overlay/focus visuals from unproven action semantics; identified `#` and IndexedDB as user-confirmed boundaries rather than Figma evidence; and retained long-content, loading, success, disabled, and asset behavior as source-level unknowns rather than filling them in. Stage 5 then linked source-level gaps to the user-approved specification where target behavior is now defined.
 
 ### Pass 2 — Consistency, traceability, source integrity, risks, and uncertainty
 
 - [x] `DES-*`, `DES-RWD-*`, and `DES-INT-*` identifiers are unique and follow `Identifier-Conventions.md`.
 - [x] Decisions trace to evidence, snapshots, approved requirements, or clearly identified user decisions.
-- [x] The Figma source is consistently identified as Time-bound and its Stage 3 metadata reinspection is recorded as `VER-010`.
-- [x] Expected documentation-only repository output is separated from the original immutable baseline as `VER-011`; no application-code change is inferred.
-- [x] Observed, inferred, recommended, and open information remain distinct; no arbitrary breakpoint, browser policy, persistence schema, validation rule, or final URL is asserted.
+- [x] The Figma source is consistently identified as Time-bound; its Stage 3 metadata reinspection is `VER-010` and its latest Stage 5 reinspection is `VER-014` unchanged.
+- [x] Expected documentation-only repository output is separated from the original immutable baseline as `VER-011` historically and `VER-015` currently; no application-code change is inferred.
+- [x] Observed, inferred, recommended, and open information remain distinct; no arbitrary breakpoint, browser policy, persistence schema, or final URL is asserted. Source absence is not presented as absence of approved target behavior.
 
 **Pass 2 corrections:** corrected the scaffold’s undefined asset-snapshot metadata reference to an empty list and the IndexedDB terminology, explicitly recorded the failed design-context adapter as a limitation rather than source evidence, and carried the full set of requirements questions into the design risks and open questions.
 
 ## 17. Completion Summary
 
 - File created: `DESIGN.md`.
-- Inputs used: `SRC-DS-001` (`VER-010`), `SRC-REPO-001` (`VER-011`), `EVD-001`–`EVD-010`, `AUD-001`–`AUD-009`, approved requirements, and the user’s 2026-08-14 decisions.
+- Inputs used: `SRC-DS-001` (historical `VER-010`; latest `VER-014`), `SRC-REPO-001` (historical `VER-011`; latest `VER-015`), `EVD-001`–`EVD-010`, `AUD-001`–`AUD-009`, approved requirements, and the user’s 2026-08-14 decisions.
 - Confirmed visual intent: one continuous portfolio, dark visual system, three supplied responsive compositions, reusable action/form state treatment, `#` placeholders, and browser-local IndexedDB boundary.
-- Material uncertainty retained: actual action/submission behavior, IndexedDB lifecycle, intermediate responsive rules, card tags, alternatives, durable exact assets, and Figma adapter access.
+- Material uncertainty retained: `CONTACT ME` destination, IndexedDB architecture, intermediate responsive rules, complete local content values, durable exact assets, and Figma adapter access. Contact validation and local success/failure target behavior are specified elsewhere.
 - Ready for Stage 3 review: **Yes, with the listed questions and risks carried forward.**

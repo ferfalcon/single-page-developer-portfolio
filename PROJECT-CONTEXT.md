@@ -14,7 +14,7 @@ updated: 2026-08-14
 - **Project name:** Single-page developer portfolio.
 - **Goal:** Implement the provided Design source.
 - **Project type:** Static, single-page developer portfolio in an existing Astro application.
-- **Selected profile:** Full, pending completion of `PROFILE-001` through the Gated human approval process.
+- **Selected profile:** Full. Profile-transition and gate history are owned by the CLI workflow record, not this Stage 0 context narrative.
 - **Profile rationale:** The supplied page remains one route with three responsive compositions and reusable stateful patterns. The user has now confirmed frontend-only IndexedDB persistence for contact submissions. The workflow's Full profile is required for persistence and the resulting data-ownership, privacy, reliability, and architecture review—even though no server API, authentication, or external service is in scope.
 - **Created and last updated:** 2026-08-14.
 
@@ -50,7 +50,7 @@ No production, preview, staging, or local runtime snapshot exists or was created
 - Translate the supplied portfolio page's approved visual source into the existing `frontend/` Astro application after the workflow reaches an authorized implementation task.
 - Preserve the supplied page's desktop, tablet, and mobile design-source scope, including header/identity, hero, skills, projects, contact, and footer as observed at the high level.
 - Use repository conventions and source-supported assets, typography, and content only after they are audited and planned.
-- Implement the contact flow as frontend-only persistence in IndexedDB after its behavior, schema, privacy, and failure handling are specified and approved.
+- Implement the contact flow as frontend-only persistence in IndexedDB after its architecture details are specified and approved; validation and user-visible success/failure behavior are defined in `SPEC.md`.
 - Use literal `#` placeholders for social, project, and code links until real destinations are supplied.
 
 ### Excluded
@@ -61,7 +61,7 @@ No production, preview, staging, or local runtime snapshot exists or was created
 
 ### Deferred
 
-- Exact component structure, breakpoints, IndexedDB record schema/versioning, form validation and state behavior, data retention/deletion, accessibility treatment, replacement link destinations, and test plan. These require later-stage evidence and explicit ownership.
+- Exact component structure, breakpoints, IndexedDB record schema/versioning, data retention/deletion, browser-availability/privacy behavior, complete local content values, replacement link destinations, and test plan. These require later-stage evidence and explicit ownership.
 
 ## 7. Authoritative Sources
 
@@ -94,7 +94,7 @@ No source conflict is currently confirmed. Any mismatch between Figma and the st
 | `REQ-CON-001` | `frontend/` is the implementation source of truth; no alternate root app, framework, or build layer may be added. | `SRC-REPO-001` | Governs all later file and architecture decisions. | Confirmed |
 | `REQ-CON-002` | Supplied starter assets remain source material until an approved task intentionally integrates them; preserve filenames unless replacement is intentional. | `SRC-REPO-001`, `SRC-ASSET-001` | Prevents premature or accidental asset migration. | Confirmed |
 | `REQ-CON-003` | Only the supplied Figma node/frame scope is an approved visual target; a mutable Figma URL must be reverified before material work. | `SRC-DS-001` | Protects visual traceability. | Confirmed |
-| `REQ-CON-004` | The contact flow is frontend-only and persists submissions in IndexedDB. Exact schema, versioning, retention, deletion/export, validation, error/success behavior, and availability handling remain unspecified. | User follow-up decision; `SRC-REPO-001` | Requires Full-profile architecture, specification, and validation coverage; it does not authorize implementation in Stage 0. | Confirmed boundary / open details |
+| `REQ-CON-004` | The contact flow is frontend-only and persists submissions in IndexedDB. Schema, versioning, retention, deletion/export, privacy, and availability handling remain unspecified; validation and user-visible success/failure behavior are defined in `SPEC.md`. | User follow-up decisions; `SRC-REPO-001` | Requires Full-profile architecture and validation coverage; it does not authorize implementation in Stage 0. | Confirmed boundary / open architecture details |
 | `REQ-CON-005` | Generated workflow views are read-only and code edits are forbidden at this stage. | `SRC-DOC-001` | Constrains current work to registered Stage 0 narrative artifacts and CLI state changes. | Confirmed |
 | `REQ-CON-006` | Until real external destinations are supplied, social, project, and code links use literal `#` placeholders. | User follow-up decision | Prevents inventing URLs while providing a specified frontend placeholder. | Confirmed |
 
@@ -103,7 +103,7 @@ No source conflict is currently confirmed. Any mismatch between Figma and the st
 | Decision | Owner | Evidence | Status |
 |---|---|---|---|
 | Implement the supplied Figma portfolio source in the current repository. | User | User request; `SRC-DS-001`; `SRC-REPO-001` | Confirmed |
-| Upgrade Standard to Full because browser persistence is now in scope. | Workflow control record; pending human transition approval | User follow-up decision; `SRC-DOC-001`; `PROFILE-001` | In progress |
+| Upgrade Standard to Full because browser persistence is in scope. | Workflow control record | User follow-up decision; `SRC-DOC-001`; `PROFILE-001` | Historical decision; current control state is canonical in the workflow record. |
 | Use Gated execution mode. | User and workflow control record | User request; `SRC-DOC-001` | Confirmed |
 | Keep contact data frontend-only in IndexedDB. | User | User follow-up decision | Confirmed boundary |
 | Use `#` while external destinations are unavailable. | User | User follow-up decision | Confirmed |
@@ -114,7 +114,7 @@ No source conflict is currently confirmed. Any mismatch between Figma and the st
 
 ### Blocking for later decisions, not for Stage 0 capture
 
-- `Q-001`: What IndexedDB record schema, versioning/migration strategy, retention/deletion behavior, validation, error/success states, and privacy requirements apply? Required before the contact flow is specified or completed.
+- `Q-001`: What IndexedDB record schema, versioning/migration strategy, retention/deletion behavior, browser-availability, data-sensitivity, and privacy requirements apply? Required before the contact architecture is complete; validation and user-visible success/failure behavior are specified.
 - `Q-002`: What real destinations will replace the approved `#` placeholders? Required before final external-link validation, but not before placeholder implementation.
 
 ### Non-blocking
@@ -133,4 +133,4 @@ No source conflict is currently confirmed. Any mismatch between Figma and the st
 - [x] Full-profile transition rationale and Gated execution mode are documented.
 - [x] Source-supported quality expectations, constraints, limitations, risks, and unresolved decisions are visible.
 - [x] `WORKFLOW-STATE.md` references the same inputs and records the remaining decision path.
-- [ ] Human completion of `PROFILE-001`, source/context approval, and the Stage 0 gate are pending in Gated mode.
+- [x] This historical Stage 0 context captured the required source scope and decision path. Current approvals and stage status are intentionally not duplicated here; use the CLI workflow record.
