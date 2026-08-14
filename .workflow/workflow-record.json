@@ -6,7 +6,7 @@
     "executionMode": "Gated"
   },
   "state": {
-    "stage": 1,
+    "stage": 2,
     "status": "In progress",
     "activeInputs": [
       "SRC-DS-001",
@@ -114,6 +114,22 @@
       "method": "Git HEAD and scoped source-material inspection",
       "evidence": "HEAD remains 5f7ec3d0781d4a3237d051e00e8893c68f0a23b0. The known one-line AGENTS.md working-tree change remains non-material; workflow artifacts are uncommitted process output. docs/starter-code source material and frontend Astro structure were inspected without application code changes.",
       "checkedAt": "2026-08-14T06:24:11.245Z"
+    },
+    {
+      "id": "VER-008",
+      "snapshot": "SRC-DS-001",
+      "result": "Unchanged",
+      "method": "Figma MCP metadata reinspection of the scoped root canvas",
+      "evidence": "On 2026-08-14, root node 7:2 again resolved desktop 7:687 (1440 x 3872), tablet 7:226 (768 x 3563), mobile 7:3 (375 x 5013), Components 42:3249, and Design System / Documentation 62:5602 with the previously audited component variants. No named Figma version or checksum is available; this is a Time-bound scope verification.",
+      "checkedAt": "2026-08-14T06:39:30.786Z"
+    },
+    {
+      "id": "VER-009",
+      "snapshot": "SRC-REPO-001",
+      "result": "Unchanged",
+      "method": "Git HEAD and working-tree scope reinspection",
+      "evidence": "HEAD remains 5f7ec3d0781d4a3237d051e00e8893c68f0a23b0. The known AGENTS.md one-line working-tree edit is non-material; workflow artifacts and the new requirements narrative are uncommitted process output. No application implementation code was changed.",
+      "checkedAt": "2026-08-14T06:39:30.886Z"
     }
   ],
   "artifacts": [
@@ -169,13 +185,26 @@
       "id": "ART-DESIGN-AUDIT",
       "type": "DESIGN-AUDIT",
       "path": "DESIGN-AUDIT.md",
+      "status": "Approved",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001"
+      ],
+      "statusChangedAt": "2026-08-14T06:34:18.210Z",
+      "statusEvidence": "Fer approved the reviewed Stage 1 design audit, including documented evidence gaps, source limitations, and carried-forward questions.",
+      "statusBy": "Fer"
+    },
+    {
+      "id": "ART-REQUIREMENTS",
+      "type": "REQUIREMENTS",
+      "path": "REQUIREMENTS.md",
       "status": "Reviewed",
       "baseline": [
         "SRC-DS-001",
         "SRC-REPO-001"
       ],
-      "statusChangedAt": "2026-08-14T06:31:07.673Z",
-      "statusEvidence": "Stage 1 audit completed after Figma MCP inspection of desktop, tablet, mobile, Components, and Design System evidence; source verification VER-006/VER-007; documented review pass 1 and pass 2; validation and whitespace checks passed."
+      "statusChangedAt": "2026-08-14T06:41:02.575Z",
+      "statusEvidence": "Stage 2 requirements completed after approved Stage 1 audit evidence, direct user decisions, source verifications VER-008/VER-009, two documented review passes, identifier reconciliation, and passing workflow/whitespace checks."
     }
   ],
   "traceItems": [],
@@ -200,6 +229,29 @@
       ],
       "evidence": "Fer approved Stage 0 after both review passes. The Figma URL remains a Time-bound mutable source; actual external destinations remain intentionally deferred and use # placeholders; IndexedDB implementation details will be resolved in later Full-profile architecture and specification stages.",
       "recordedAt": "2026-08-14T06:20:12.003Z",
+      "approvedBy": "Fer"
+    },
+    {
+      "id": "GATE-002",
+      "stage": 1,
+      "status": "Active",
+      "result": "Passed with assumptions",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001"
+      ],
+      "verifications": [
+        "VER-006",
+        "VER-007"
+      ],
+      "artifacts": [
+        "ART-SOURCE-BASELINE",
+        "ART-PROJECT-CONTEXT",
+        "ART-WORKFLOW-STATE",
+        "ART-DESIGN-AUDIT"
+      ],
+      "evidence": "Fer approved Stage 1. The audit is sufficient for requirements while documented Time-bound source, responsive, content, link, contact-state, accessibility, and asset-mapping gaps are carried forward for their owning later artifacts.",
+      "recordedAt": "2026-08-14T06:34:18.376Z",
       "approvedBy": "Fer"
     }
   ],
