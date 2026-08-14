@@ -6,7 +6,7 @@
     "executionMode": "Gated"
   },
   "state": {
-    "stage": 9,
+    "stage": 10,
     "status": "In progress",
     "activeInputs": [
       "SRC-DS-001",
@@ -373,61 +373,66 @@
       "id": "ART-TASKS-INDEX",
       "type": "TASKS-INDEX",
       "path": "TASKS-INDEX.md",
-      "status": "Reviewed",
+      "status": "Approved",
       "baseline": [
         "SRC-DS-001",
         "SRC-REPO-001"
       ],
-      "statusChangedAt": "2026-08-14T08:31:01.982Z",
-      "statusEvidence": "Re-review after Fer decisions: VER-019 confirms the starter page mock source; the index records approved mock records, title-derived alternatives, #contact CTA, browser-native invalid feedback/focus, and remaining controlled risks."
+      "statusChangedAt": "2026-08-14T14:43:54.971Z",
+      "statusEvidence": "Fer approved the reviewed Stage 9 task index, including starter-page-derived mock records, #contact CTA, and browser-native invalid feedback/focus decision.",
+      "statusBy": "Fer"
     },
     {
       "id": "ART-TASK-P01-T01",
       "type": "TASK",
       "path": "Phase-01--Task-01.md",
-      "status": "Reviewed",
+      "status": "Approved",
       "baseline": [
         "SRC-DS-001",
         "SRC-REPO-001"
       ],
-      "statusChangedAt": "2026-08-14T08:18:25.482Z",
-      "statusEvidence": "Stage 9 review completed: the task has bounded foundation scope, current snapshot instructions, file ownership, states, accessibility/responsive requirements, and declared executable validation."
+      "statusChangedAt": "2026-08-14T14:43:55.050Z",
+      "statusEvidence": "Fer approved the reviewed P01-T01 foundation task.",
+      "statusBy": "Fer"
     },
     {
       "id": "ART-TASK-P01-T02",
       "type": "TASK",
       "path": "Phase-01--Task-02.md",
-      "status": "Reviewed",
+      "status": "Approved",
       "baseline": [
         "SRC-DS-001",
         "SRC-REPO-001"
       ],
-      "statusChangedAt": "2026-08-14T08:31:02.101Z",
-      "statusEvidence": "Re-review after Fer approval: the task contains a complete starter-page-derived mock record table, approved hero alternative, #contact CTA, fresh source verification, and no unresolved content/CTA blocker."
+      "statusChangedAt": "2026-08-14T14:43:55.120Z",
+      "statusEvidence": "Fer approved the reviewed P01-T02 data-driven hero and projects task with the mock local-content authority.",
+      "statusBy": "Fer"
     },
     {
       "id": "ART-TASK-P01-T03",
       "type": "TASK",
       "path": "Phase-01--Task-03.md",
-      "status": "Reviewed",
+      "status": "Approved",
       "baseline": [
         "SRC-DS-001",
         "SRC-REPO-001"
       ],
-      "statusChangedAt": "2026-08-14T08:31:02.211Z",
-      "statusEvidence": "Re-review after Fer approval: browser-native invalid feedback and focus replace the custom error icon/summary/focus assumption; the intentional visual deviation and validation are explicit."
+      "statusChangedAt": "2026-08-14T14:43:55.198Z",
+      "statusEvidence": "Fer approved the reviewed P01-T03 IndexedDB contact task with browser-native invalid feedback and focus.",
+      "statusBy": "Fer"
     },
     {
       "id": "ART-TASK-P01-T04",
       "type": "TASK",
       "path": "Phase-01--Task-04.md",
-      "status": "Reviewed",
+      "status": "Approved",
       "baseline": [
         "SRC-DS-001",
         "SRC-REPO-001"
       ],
-      "statusChangedAt": "2026-08-14T08:31:02.318Z",
-      "statusEvidence": "Re-review after Fer approval: integrated validation now treats the mock/CTA/native-error decisions as approved behavior and retains only controlled future-change/source risks."
+      "statusChangedAt": "2026-08-14T14:43:55.264Z",
+      "statusEvidence": "Fer approved the reviewed P01-T04 integrated validation task.",
+      "statusBy": "Fer"
     }
   ],
   "traceItems": [
@@ -1046,6 +1051,41 @@
       ],
       "evidence": "Fer approved the corrected ART-PLAN and ART-PLAN-REVIEW. Stage 8 two-pass review corrected data-bound Hero ordering and asset ownership; all residual content, CTA, lifecycle, source, and browser-policy risks are explicitly task-scoped.",
       "recordedAt": "2026-08-14T08:03:11.062Z",
+      "approvedBy": "Fer"
+    },
+    {
+      "id": "GATE-010",
+      "stage": 9,
+      "status": "Active",
+      "result": "Passed",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001"
+      ],
+      "verifications": [
+        "VER-014",
+        "VER-018"
+      ],
+      "artifacts": [
+        "ART-SOURCE-BASELINE",
+        "ART-PROJECT-CONTEXT",
+        "ART-WORKFLOW-STATE",
+        "ART-DESIGN-AUDIT",
+        "ART-REQUIREMENTS",
+        "ART-DESIGN",
+        "ART-SPEC",
+        "ART-DOCUMENT-REVIEW",
+        "ART-ARCHITECTURE",
+        "ART-PLAN",
+        "ART-PLAN-REVIEW",
+        "ART-TASKS-INDEX",
+        "ART-TASK-P01-T01",
+        "ART-TASK-P01-T02",
+        "ART-TASK-P01-T03",
+        "ART-TASK-P01-T04"
+      ],
+      "evidence": "Fer approved the complete reviewed Stage 9 task set. All tasks are Ready, required traceability paths resolve, validation definitions are declared, and only task-start re-verification remains before execution.",
+      "recordedAt": "2026-08-14T14:43:55.329Z",
       "approvedBy": "Fer"
     }
   ],
