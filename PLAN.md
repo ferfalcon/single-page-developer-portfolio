@@ -76,7 +76,7 @@ The Stage 6 web-form guidance influenced the plan by keeping a native form and c
 | `frontend/src/layouts/Layout.astro` | Modify | Existing | Set portfolio document metadata/language/body baseline while preserving the layout slot. | Existing generated layout; `SRC-REPO-001`. |
 | `frontend/src/styles/portfolio.css` | Create | Proposed | Shared font-face, tokens, reset/base rules, container/section primitives, shared CTA/focus/error styles. | No existing shared style layer; repository permits clearly named shared stylesheet. |
 | `frontend/src/components/PortfolioHeader.astro` | Create | Proposed | Identity and four named social links using literal `#` placeholders. | Design audit/social evidence; `SPEC-BEH-003`. |
-| `frontend/src/components/Hero.astro` | Create | Proposed | Hero copy, portrait/decorations, and visibly styled `CONTACT ME` control without inventing its unresolved target. | `DES-003`, `DES-RWD-002`, `DOC-007`. |
+| `frontend/src/components/Hero.astro` | Create | Proposed | Hero copy, portrait/decorations, and visibly styled `CONTACT ME` control; receives the local content record’s approved portrait treatment without inventing its unresolved target. | `DES-003`, `DES-RWD-002`, `SPEC-DATA-002`, `DOC-007`. |
 | `frontend/src/components/Skills.astro` | Create | Proposed | Semantic six-skill collection and responsive grid behavior. | `DES-004`, `DES-RWD-003`, `SPEC-BEH-001`. |
 | `frontend/src/components/Projects.astro` | Create | Proposed | Projects section/list, maps stable project identities to cards and local data. | `DES-004`, `SPEC-BEH-002`. |
 | `frontend/src/components/ProjectCard.astro` | Create | Proposed | Source-backed media/title/action presentation plus data-supplied labels/alternative treatment and responsive hover/focus behavior. | `DES-004`, `DES-INT-002`, `SPEC-INT-002`. |
@@ -94,27 +94,27 @@ The Stage 6 web-form guidance influenced the plan by keeping a native form and c
 
 - **Objective:** Replace the generated Astro page shell with semantic portfolio composition and the reusable visual foundation needed by every section.
 - **Requirement and specification references:** `REQ-FR-001`, `REQ-NFR-001`, `REQ-NFR-002`, `REQ-AR-001`, `SPEC-BEH-001`, `SPEC-BEH-006`, `SPEC-BEH-007`, `SPEC-ACC-001`.
-- **Design references:** `DES-001`, `DES-002`, `DES-003`, `DES-RWD-001`–`DES-RWD-004`.
+- **Design references:** `DES-001`, `DES-002`, `DES-004`, `DES-RWD-001`, `DES-RWD-003`, `DES-RWD-004`.
 - **Source snapshots:** `SRC-DS-001` (`VER-014`), `SRC-REPO-001` (`VER-017`).
-- **File impact:** Modify `frontend/src/pages/index.astro` and `frontend/src/layouts/Layout.astro`; create `frontend/src/styles/portfolio.css`, `PortfolioHeader.astro`, `Hero.astro`, `Skills.astro`, and `PortfolioFooter.astro`; integrate needed files under `frontend/src/assets/portfolio/` without removing source assets.
-- **Dependencies:** Approved local asset mapping for any integrated asset; section data is not required for static shell/skills.
-- **Implementation approach:** Define design tokens and document baseline first, then compose ordered semantic landmarks/headings and source-backed static sections. Use component-local styles for section geometry and shared class-based tokens for common action/focus/error treatment.
-- **Integrated accessibility, responsive, state, and error work:** Keep one `h1`, semantic header/main/footer/sections, named social icons, decorative-asset empty alternatives, source-consistent focus treatment, and source-driven hero/skills transformations. Preserve DOM order when layouts stack; select media-query transition values from content/layout failure after comparison—not from familiar device widths.
-- **Validation:** Build production output; inspect order/landmarks/heading hierarchy; keyboard-tab through social actions and hero CTA; compare header/hero/skills/footer at 1440, 768, and 375 px; check no horizontal overflow at extra narrow/medium/wide widths.
-- **Risks:** Exact portrait/ring/circle mapping and hero alternative treatment are open; hero CTA destination is not authorized (`DOC-007`).
+- **File impact:** Modify `frontend/src/pages/index.astro` and `frontend/src/layouts/Layout.astro`; create `frontend/src/styles/portfolio.css`, `PortfolioHeader.astro`, `Skills.astro`, and `PortfolioFooter.astro`; integrate only verified foundation assets under `frontend/src/assets/portfolio/` without removing source assets.
+- **Dependencies:** Approved local asset mapping for each asset used. Content data is not required for the header/skills/footer foundation; data-bound hero rendering belongs to PLAN-002.
+- **Implementation approach:** Define design tokens and document baseline first, then compose ordered semantic landmarks/headings and source-backed foundation sections. Use component-local styles for section geometry and shared class-based tokens for common action/focus/error treatment.
+- **Integrated accessibility, responsive, state, and error work:** Keep one `h1`, semantic header/main/footer/sections, named social icons, decorative-asset empty alternatives, source-consistent focus treatment, and source-driven header/skills transformations. Preserve DOM order when layouts stack; select media-query transition values from content/layout failure after comparison—not from familiar device widths.
+- **Validation:** Build production output; inspect order/landmarks/heading hierarchy; keyboard-tab through social actions; compare header/skills/footer at 1440, 768, and 375 px; check no horizontal overflow at extra narrow/medium/wide widths.
+- **Risks:** Exact source-asset mapping remains open; hero content/portrait treatment and CTA behavior are deliberately owned by PLAN-002 and its listed decisions.
 
-### PLAN-002 — Integrate data-driven project cards and durable source assets
+### PLAN-002 — Integrate data-driven imagery and project cards
 
-- **Objective:** Render all six project cards from source-backed presentation plus approved local JSON technology/alternative metadata without silently resolving conflicts.
-- **Requirement and specification references:** `REQ-FR-002`, `REQ-BR-002`, `REQ-AR-003`, `REQ-NFR-003`, `SPEC-BEH-002`, `SPEC-INT-002`, `SPEC-DATA-002`, `AC-023`–`AC-025`.
-- **Design references:** `DES-004`, `DES-006`, `DES-RWD-003`, `DES-INT-002`.
+- **Objective:** Render the data-bound hero imagery and all six project cards from source-backed presentation plus approved local JSON technology/alternative metadata without silently resolving conflicts.
+- **Requirement and specification references:** `REQ-FR-001`, `REQ-FR-002`, `REQ-BR-002`, `REQ-AR-003`, `REQ-NFR-003`, `SPEC-BEH-001`, `SPEC-BEH-002`, `SPEC-INT-002`, `SPEC-DATA-002`, `AC-023`–`AC-025`.
+- **Design references:** `DES-003`, `DES-004`, `DES-006`, `DES-RWD-002`, `DES-RWD-003`, `DES-INT-002`.
 - **Source snapshots:** `SRC-DS-001` (`VER-014`), `SRC-REPO-001` (`VER-017`).
-- **File impact:** Create `frontend/src/data/portfolio.json`, `frontend/src/data/portfolio.ts`, `Projects.astro`, and `ProjectCard.astro`; modify `index.astro` and shared/component styles; copy selected thumbnails/icons/patterns under `frontend/src/assets/portfolio/` while retaining `docs/starter-code/assets/`.
-- **Dependencies:** Stable identity mapping between each rendered card and its local record; user/content owner must supply complete approved technology-label arrays and project/hero alternative treatments before related acceptance can pass.
-- **Implementation approach:** Validate local JSON at build/development time, resolve records by stable ID rather than card position, and pass only data-owned fields to card components. Keep title/media/action text in the existing source-backed scope. Use imported durable local assets, not remote Figma URLs.
-- **Integrated accessibility, responsive, state, and error work:** Provide intentional project-image alternatives from local records, empty alternatives for approved decoration, named action context, desktop hover/focus overlay that remains keyboard reachable, and tablet/mobile visible actions. Use 2/2/1 visual outcomes with content-driven breakpoints and prevent long labels/titles from producing overflow.
-- **Validation:** Verify exactly six cards/skills; compare labels and alternatives with the JSON records; inspect image/asset paths; keyboard-test project actions and desktop focus overlay; visually compare supplied viewport outcomes; test incomplete/malformed JSON handling without a fallback.
-- **Risks:** Actual local values, hero treatment, exact asset mappings, and durable error-icon source remain open; final destinations remain literal `#` for social/project/code actions.
+- **File impact:** Create `frontend/src/data/portfolio.json`, `frontend/src/data/portfolio.ts`, `Hero.astro`, `Projects.astro`, and `ProjectCard.astro`; modify `index.astro` and shared/component styles; copy verified portrait, thumbnail, and associated decorative assets under `frontend/src/assets/portfolio/` while retaining `docs/starter-code/assets/`.
+- **Dependencies:** Stable identity mapping between each rendered card and its local record; user/content owner must supply complete approved technology-label arrays and project/hero alternative treatments before data-bound imagery is implemented or related acceptance can pass; Fer must decide the `CONTACT ME` target before that action is bound.
+- **Implementation approach:** Validate local JSON at build/development time, resolve records by stable ID rather than card position, and pass only data-owned fields to hero/project components. Keep title/media/action text in the existing source-backed scope. Use imported durable local assets, not remote Figma URLs.
+- **Integrated accessibility, responsive, state, and error work:** Provide intentional project-image alternatives and hero treatment from local records, empty alternatives for approved decoration, named action context, desktop hover/focus overlay that remains keyboard reachable, and tablet/mobile visible actions. Use source hero movement and 2/2/1 project outcomes with content-driven breakpoints; prevent long labels/titles from producing overflow.
+- **Validation:** Verify exactly six cards/skills; compare hero/project labels and alternatives with the JSON records; inspect image/asset paths; keyboard-test project actions and desktop focus overlay; visually compare supplied viewport outcomes; test incomplete/malformed JSON handling without a fallback; test the CTA only after its destination is approved.
+- **Risks:** Actual local values, hero treatment, CTA target, exact asset mappings, and durable error-icon source remain open; final destinations remain literal `#` for social/project/code actions.
 
 ### PLAN-003 — Implement the accessible local contact form and IndexedDB boundary
 
@@ -144,8 +144,8 @@ The Stage 6 web-form guidance influenced the plan by keeping a native form and c
 
 ## 7. Recommended Phase Shape
 
-1. **Foundation:** PLAN-001 establishes semantic structure, source tokens/styles, durable asset integration, and responsive base behavior.
-2. **Data-driven projects:** PLAN-002 establishes the local JSON boundary and project cards with integrated media alternatives and responsive interaction.
+1. **Foundation:** PLAN-001 establishes semantic structure, source tokens/styles, verified foundation assets, and responsive base behavior.
+2. **Data-driven imagery/projects:** PLAN-002 establishes the local JSON boundary, hero imagery, and project cards with integrated alternatives and responsive interaction.
 3. **Local contact interaction:** PLAN-003 adds validated IndexedDB behavior, accessible feedback, and failure recovery within the contact feature itself.
 4. **Integrated verification:** PLAN-004 verifies and corrects cross-section regressions after the behaviors exist; it does not defer the initial accessibility/responsive/error work to this phase.
 

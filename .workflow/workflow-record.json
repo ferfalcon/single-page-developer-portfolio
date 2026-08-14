@@ -6,7 +6,7 @@
     "executionMode": "Gated"
   },
   "state": {
-    "stage": 7,
+    "stage": 8,
     "status": "In progress",
     "activeInputs": [
       "SRC-DS-001",
@@ -336,8 +336,21 @@
         "SRC-DS-001",
         "SRC-REPO-001"
       ],
-      "statusChangedAt": "2026-08-14T07:55:30.245Z",
-      "statusEvidence": "Stage 7 two-pass plan review completed. PLAN.md is grounded in reverified repository baseline VER-017 and Time-bound design verification VER-014; it distinguishes existing Astro starter paths from proposed portfolio modules, integrates accessibility/responsiveness/errors/tests in PLAN-001 through PLAN-003, contains no invented dependency or breakpoint, and carries JSON-content, CTA, error-icon, lifecycle, browser-policy, and URL decisions explicitly."
+      "statusChangedAt": "2026-08-14T08:01:18.138Z",
+      "statusEvidence": "Stage 8 corrections PLANREV-001 and PLANREV-002 were reviewed. PLAN.md now gives one owner to data-bound Hero/portrait metadata, project data/cards, and CTA dependency; separates foundation versus imagery asset responsibility; preserves explicit task-level content blockers; and passes all source and workflow checks.",
+      "statusBy": "Fer"
+    },
+    {
+      "id": "ART-PLAN-REVIEW",
+      "type": "PLAN-REVIEW",
+      "path": "PLAN-REVIEW.md",
+      "status": "Reviewed",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001"
+      ],
+      "statusChangedAt": "2026-08-14T08:01:18.897Z",
+      "statusEvidence": "Completed Stage 8 two-pass adversarial review. PLAN-REVIEW.md verifies the starter baseline, corrects plan ordering/asset ownership, confirms accessibility/responsive/error/privacy/validation integration, and records remaining product/content/task-start risks without unsupported resolution."
     }
   ],
   "traceItems": [],
@@ -515,6 +528,35 @@
       ],
       "evidence": "Fer approved ART-ARCHITECTURE. The required Full-profile architecture has two completed review passes, records local JSON and IndexedDB boundaries, and carries only explicitly visible later product/content decisions.",
       "recordedAt": "2026-08-14T07:49:38.754Z",
+      "approvedBy": "Fer"
+    },
+    {
+      "id": "GATE-008",
+      "stage": 7,
+      "status": "Active",
+      "result": "Passed",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001"
+      ],
+      "verifications": [
+        "VER-014",
+        "VER-017"
+      ],
+      "artifacts": [
+        "ART-SOURCE-BASELINE",
+        "ART-PROJECT-CONTEXT",
+        "ART-WORKFLOW-STATE",
+        "ART-DESIGN-AUDIT",
+        "ART-REQUIREMENTS",
+        "ART-DESIGN",
+        "ART-SPEC",
+        "ART-DOCUMENT-REVIEW",
+        "ART-ARCHITECTURE",
+        "ART-PLAN"
+      ],
+      "evidence": "Fer approved ART-PLAN. The plan has two review passes, current repository verification VER-017, Time-bound Figma handling, integrated accessibility/responsiveness/errors/validation, and explicit task-level blockers without unsupported scope.",
+      "recordedAt": "2026-08-14T07:57:30.519Z",
       "approvedBy": "Fer"
     }
   ],
