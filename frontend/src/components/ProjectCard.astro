@@ -28,20 +28,22 @@ const projectImages: Record<ProjectId, { large: ImageMetadata; small: ImageMetad
   'art-gallery-showcase': { large: projectSixLarge, small: projectSixSmall },
 };
 
+import { getImage, Image } from 'astro:assets';
+
 const images = projectImages[project.id];
+
+const largeImage = await getImage({
+  src: images.large,
+  format: 'webp',
+});
+
 ---
 
 <article class="project-card">
   <div class="project-card__media">
     <picture>
-      <source media="(min-width: 45rem)" srcset={images.large.src} />
-      <img
-        src={images.small.src}
-        width={images.small.width}
-        height={images.small.height}
-        alt={project.imageAlt}
-        loading="lazy"
-      />
+      <source media="(min-width: 45rem)" srcset={largeImage.src} />
+      <Image src={images.small} alt={project.imageAlt} loading="lazy" />
     </picture>
   </div>
   <div class="project-card__details">
