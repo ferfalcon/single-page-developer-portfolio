@@ -22,7 +22,7 @@ execution_mode: Gated
 
 ## 1. Status
 
-`In progress` — the CLI registry records `P01-T02` as the active Stage 10 task. Implementation and validation evidence are ready to be recorded before the task-output snapshot is created.
+`Complete` — the CLI registry records `P01-T02` complete with implementation output `SRC-REPO-003` at commit `30c36791ce46af13be1f3d7124a8fde7aff6446e`.
 
 ## 2. Objective
 
@@ -35,7 +35,7 @@ Implement the source-backed hero and all six project cards using durable local a
 - Requirement IDs: `REQ-FR-001`–`REQ-FR-003`, `REQ-BR-001`–`REQ-BR-002`, `REQ-AR-001`, `REQ-AR-003`, `REQ-NFR-001`, `REQ-NFR-003`, and `REQ-CON-002`–`REQ-CON-003`, `REQ-CON-006`–`REQ-CON-007`.
 - Specifications/acceptance: `SPEC-BEH-001`–`SPEC-BEH-003`, `SPEC-BEH-006`–`SPEC-BEH-007`, `SPEC-INT-001`–`SPEC-INT-002`, `SPEC-ACC-001`, and `SPEC-DATA-002`; `AC-014`–`AC-017`, `AC-023`–`AC-025`.
 - `DESIGN.md`: `DES-003`, `DES-004`, `DES-006`, `DES-RWD-002`–`DES-RWD-003`, and `DES-INT-002`/`DES-INT-004`.
-- Design evidence: scoped desktop `7:687`, tablet `7:226`, mobile `7:3`; latest verification `VER-014` remains Time-bound.
+- Design evidence: scoped desktop `7:687`, tablet `7:226`, mobile `7:3`; fresh verification `VER-022` confirms the Time-bound source showed no material drift before implementation.
 - Architecture: ADR-001/002; `ARCHITECTURE.md` §§9–10, 13, and 17.
 - Related tasks: requires `P01-T01`; enables `P01-T04`; must not take contact persistence from `P01-T03`.
 
@@ -57,7 +57,7 @@ Hero treatment is informative with approved mock alternative text: **“Portrait
 ## 4. Snapshot Verification
 
 - Design inputs applicable: Yes. Reinspect root `7:2` and the relevant responsive frames immediately before work.
-- Repository commit checked out: Unverified at execution. Verify the P01-T01 output/current commit descends from `SRC-REPO-001`; classify it as expected previous-task output only if its recorded lineage and scope match.
+- Repository commit checked out: `12581470c0506f403bf059af2fdf11df88c51bac` at task start, verified clean and an expected descendant of `SRC-REPO-001` (`VER-023`).
 - Upstream rebaseline: required for material unexpected source or frontend changes; otherwise no.
 - Limitation: a task-output snapshot does not replace the immutable input baseline. Do not use temporary Figma image URLs.
 
@@ -159,13 +159,13 @@ The original repository is the unmodified Astro starter described in `VER-018`; 
 
 ## 13. Acceptance Criteria
 
-- [ ] `AC-014` all hero/projects render in source-backed page order at target viewports.
-- [ ] `AC-015` and `AC-016` responsive cards/actions have no overflow or pointer-only behavior.
-- [ ] `AC-017` every unresolved external social/project/code link is literal `#`; `CONTACT ME` targets approved `#contact`.
-- [ ] `AC-023` every visual alternative is intentionally sourced from local data or decorative treatment.
-- [ ] `AC-024` every integrated asset is durable/local and source-mapped.
-- [ ] `AC-025` complete approved JSON records resolve technology-label conflicts without a silent fallback.
-- [ ] Snapshot verification, declared validation, output lineage, and task/index documentation are complete.
+- [x] `AC-014` all hero/projects render in source-backed page order at target viewports.
+- [x] `AC-015` and `AC-016` responsive cards/actions have no overflow or pointer-only behavior.
+- [x] `AC-017` every unresolved external social/project/code link is literal `#`; `CONTACT ME` targets approved `#contact`.
+- [x] `AC-023` every visual alternative is intentionally sourced from local data or decorative treatment.
+- [x] `AC-024` every integrated asset is durable/local and source-mapped.
+- [x] `AC-025` complete approved JSON records resolve technology-label conflicts without a silent fallback.
+- [x] Snapshot verification, declared validation, output lineage, and task/index documentation are complete.
 
 ## 14. Risks and Considerations
 
@@ -188,18 +188,21 @@ None. The approved mock-record set and `#contact` are user decisions, not guesse
 
 ## 17. Output Lineage
 
-- Parent task-start snapshot: the current verified committed descendant after P01-T01 (and any previously completed sibling task), recorded at execution.
-- Implementation output snapshot/commit: pending.
+- Parent task-start verification: `VER-023`, at clean descendant `12581470c0506f403bf059af2fdf11df88c51bac` of immutable input `SRC-REPO-001`.
+- Implementation output snapshot/commit: `SRC-REPO-003`, immutable implementation output at `30c36791ce46af13be1f3d7124a8fde7aff6446e`.
 - Produced by task: `P01-T02`.
-- Approved as next task start: pending successful completion/validation.
+- Approved as next task start: `P01-T03` is Ready. `P01-T04` remains dependent on both `P01-T02` and `P01-T03`.
 
 ## 18. Definition of Done
 
-- [ ] The approved mock records, alternatives, hero treatment, and `#contact` target were verified before binding related output.
-- [ ] Objective, acceptance criteria, and declared validation pass.
-- [ ] No missing data/asset is silently substituted; output lineage and task/index documentation are recorded.
+- [x] The approved mock records, alternatives, hero treatment, and `#contact` target were verified before binding related output.
+- [x] Objective, acceptance criteria, and declared validation pass.
+- [x] No missing data/asset is silently substituted; output lineage and task/index documentation are recorded.
 
 ## 19. Completion Report
 
-- Files, source/task-start verification, behavior, validation, output snapshot, deviations, and risks: pending execution.
-- Next unblocked task: `P01-T04` after P01-T03 also completes.
+- Implemented `Hero`, `Projects`, `ProjectCard`, a validated build-time local JSON reader/data source, the responsive project/hero styles, and all verified local portrait, decoration, and thumbnail assets. `frontend/src/pages/index.astro` now composes the new sections in page order.
+- Fresh source/task-start verification is recorded in `VER-022` and `VER-023`; the output is `SRC-REPO-003` at `30c36791ce46af13be1f3d7124a8fde7aff6446e`. No deviations were recorded.
+- Passed build, local data-contract, and Headless Chrome checks. Chrome covered 1440/768/375 px layouts, no horizontal overflow, placeholder and CTA destinations, keyboard-focus-visible desktop overlays, touch-visible actions, and lazy project-image loading after scroll.
+- Remaining risk: the approved starter-derived mock content is deliberately local and must be replaced only through the documented source/content-change process.
+- Next unblocked task: `P01-T03`; `P01-T04` becomes startable only after `P01-T03` also completes.
