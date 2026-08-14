@@ -20,7 +20,7 @@ execution_mode: Gated
 
 ## 1. Status
 
-`Not started` — it requires completed P01-T01 and fresh source/repository verification. The CLI task registry is authoritative.
+`Complete` — the CLI registry records `P01-T03` complete with implementation output `SRC-REPO-004` at commit `98f256f5684768c84cabd040f7680c4ad0445cc4`.
 
 ## 2. Objective
 
@@ -140,12 +140,12 @@ No custom error-icon asset, error summary, or focus relocation is permitted. No 
 
 ## 13. Acceptance Criteria
 
-- [ ] `AC-018` and `AC-019` invalid inputs prevent storage and show the approved browser-native validation feedback/focus.
-- [ ] `AC-020` valid values persist only to IndexedDB, then clear and expose an accessible message after completed transaction.
-- [ ] `AC-021` every local persistence failure preserves values, announces failure, has no fallback/false success, and retries by resubmission.
-- [ ] `AC-022` contact controls/errors/status are keyboard and assistive-technology accessible.
-- [ ] `AC-015`/`AC-016` responsive/focus states avoid overflow and pointer dependence.
-- [ ] Fresh snapshots, declared validation, output lineage, and task/index documentation are complete.
+- [x] `AC-018` and `AC-019` invalid inputs prevent storage and show the approved browser-native validation feedback/focus.
+- [x] `AC-020` valid values persist only to IndexedDB, then clear and expose an accessible message after completed transaction.
+- [x] `AC-021` every local persistence failure preserves values, announces failure, has no fallback/false success, and retries by resubmission.
+- [x] `AC-022` contact controls/errors/status are keyboard and assistive-technology accessible.
+- [x] `AC-015`/`AC-016` responsive/focus states avoid overflow and pointer dependence.
+- [x] Fresh snapshots, declared validation, output lineage, and task/index documentation are complete.
 
 ## 14. Risks and Considerations
 
@@ -169,19 +169,22 @@ User-approved deviation: browser-native validation errors and native invalid-con
 
 ## 17. Output Lineage
 
-- Parent task-start snapshot: the current verified committed descendant after P01-T01 (and any previously completed sibling task), recorded at execution.
-- Implementation output snapshot/commit: pending.
+- Parent task-start verification: `VER-025`, at clean descendant `9ec41c968d74d32a149b48cbc047dcf3d74e56ec` of immutable input `SRC-REPO-001`.
+- Implementation output snapshot/commit: `SRC-REPO-004`, immutable implementation output at `98f256f5684768c84cabd040f7680c4ad0445cc4`.
 - Produced by task: `P01-T03`.
-- Approved as next task start: pending successful completion/validation.
+- Approved as next task start: `P01-T04` is Ready after the completed P01-T02/P01-T03 outputs.
 
 ## 18. Definition of Done
 
-- [ ] The contact objective and all stated acceptance criteria pass.
-- [ ] Required source/repository verification and output lineage are recorded.
-- [ ] No contact data transport, fallback, or unapproved state/focus behavior is introduced.
-- [ ] Task/index documentation and remaining visual/focus risk records are updated.
+- [x] The contact objective and all stated acceptance criteria pass.
+- [x] Required source/repository verification and output lineage are recorded.
+- [x] No contact data transport, fallback, or unapproved state/focus behavior is introduced.
+- [x] Task/index documentation and remaining visual/focus risk records are updated.
 
 ## 19. Completion Report
 
-- Files, input/output snapshots, behavior, validation, deviations, and risks: pending execution.
-- Next unblocked task: `P01-T04` after P01-T02 also completes.
+- Implemented `ContactForm.astro`, `contact-store.ts`, and `contact-form.ts`, then composed the form into the Astro page and added its responsive/form/status styles. The only persistence boundary is IndexedDB v1; records are technical `id`, Name, Email, and Message.
+- Fresh Figma/repository task-start checks are `VER-024`/`VER-025`; the completed implementation output is `SRC-REPO-004` at `98f256f5684768c84cabd040f7680c4ad0445cc4`.
+- Passed the native WSL Astro production build, `git diff --check`, and Headless Chrome checks for browser-native invalid focus/feedback, blank/malformed no-write behavior, successful persistence/reset/status, unavailable-IndexedDB preservation/failure/retry, semantic labels/status, keyboard focus, 375/768/1440 px reflow, no console errors, and no submit-time network request.
+- The sole deviation remains the user-approved browser-native invalid feedback/focus in place of Figma's custom error icon/summary. Data lifecycle/privacy policy and browser support policy remain intentionally open; no claim or feature for either was added.
+- Next unblocked task: `P01-T04` integrated validation and finding-driven correction.
