@@ -1,4 +1,4 @@
-# Single-page developer portfolio solution
+# Single-page developer portfolio
 
 ![Preview of Single-page developer portfolio](./preview.jpg)
 
