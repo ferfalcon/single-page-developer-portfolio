@@ -6,7 +6,7 @@
     "executionMode": "Gated"
   },
   "state": {
-    "stage": 8,
+    "stage": 9,
     "status": "In progress",
     "activeInputs": [
       "SRC-DS-001",
@@ -198,6 +198,22 @@
       "method": "Git commit, scoped frontend diff, and repository inspection",
       "evidence": "On 2026-08-14, HEAD is ddb7d25b48e64dad29d82e036baad3e20f9d73e1. Compared with immutable input commit 5f7ec3d0781d4a3237d051e00e8893c68f0a23b0, the committed frontend diff is empty. Inspected frontend/package.json, astro.config.mjs, tsconfig.json, src/pages/index.astro, src/layouts/Layout.astro, src/components/Welcome.astro, and starter asset inventory: the current application remains the Astro starter with no target page, client state, persistence, data module, test suite, or additional dependency. The uncommitted Stage 7 PLAN.md and generated workflow state are current process output only.",
       "checkedAt": "2026-08-14T07:50:07.257Z"
+    },
+    {
+      "id": "VER-018",
+      "snapshot": "SRC-REPO-001",
+      "result": "Expected workflow output",
+      "method": "Git commit, scoped frontend diff, and task-decomposition repository reinspection",
+      "evidence": "On 2026-08-14, HEAD is 3f3190b7428d152b329933f840845bf18a23810f. Compared with immutable input commit 5f7ec3d0781d4a3237d051e00e8893c68f0a23b0, the committed and working-tree frontend diff is empty. Reinspected frontend/package.json, astro.config.mjs, tsconfig.json, src/pages/index.astro, src/layouts/Layout.astro, src/components/Welcome.astro, and the full frontend file inventory: the application remains the Astro starter with no target page, client state, persistence, data module, test suite, or additional dependency. Current uncommitted files are Stage 9 workflow/task-index output only; no implementation code changed.",
+      "checkedAt": "2026-08-14T08:05:34.461Z"
+    },
+    {
+      "id": "VER-019",
+      "snapshot": "SRC-DOC-002",
+      "result": "Unchanged",
+      "method": "Pinned starter-page content reinspection and Git scoped-diff comparison",
+      "evidence": "On 2026-08-14, docs/starter-code/index.html is unchanged from immutable input commit 5f7ec3d0781d4a3237d051e00e8893c68f0a23b0 and SHA-256 remains c476fa0b639219d5b01652b722ad82f2195fb0e068d8d403bdab1b196e740d8e. It contains six observed project titles and technology labels: Design portfolio (HTML, CSS); E-learning landing page (HTML, CSS); Todo web app (HTML, CSS, JavaScript); Entertainment web app (HTML, CSS, JavaScript); Memory Game (HTML, CSS, JavaScript); Art gallery showcase (HTML, CSS, JavaScript). It contains no image alternatives or error-icon asset reference. Fer explicitly approved it as the source for mock local-JSON records; generated alternatives must be clearly marked as mock content derived from these titles.",
+      "checkedAt": "2026-08-14T08:26:24.117Z"
     }
   ],
   "artifacts": [
@@ -331,29 +347,472 @@
       "id": "ART-PLAN",
       "type": "PLAN",
       "path": "PLAN.md",
-      "status": "Reviewed",
+      "status": "Approved",
       "baseline": [
         "SRC-DS-001",
         "SRC-REPO-001"
       ],
-      "statusChangedAt": "2026-08-14T08:01:18.138Z",
-      "statusEvidence": "Stage 8 corrections PLANREV-001 and PLANREV-002 were reviewed. PLAN.md now gives one owner to data-bound Hero/portrait metadata, project data/cards, and CTA dependency; separates foundation versus imagery asset responsibility; preserves explicit task-level content blockers; and passes all source and workflow checks.",
+      "statusChangedAt": "2026-08-14T08:03:02.412Z",
+      "statusEvidence": "Fer approved the corrected Stage 8 PLAN.md after PLANREV-001/002 moved data-bound hero imagery and CTA dependency into PLAN-002 and clarified asset ownership.",
       "statusBy": "Fer"
     },
     {
       "id": "ART-PLAN-REVIEW",
       "type": "PLAN-REVIEW",
       "path": "PLAN-REVIEW.md",
+      "status": "Approved",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001"
+      ],
+      "statusChangedAt": "2026-08-14T08:03:03.271Z",
+      "statusEvidence": "Fer approved the Stage 8 adversarial PLAN-REVIEW.md, including its corrected ordering, source checks, accepted risks, and task-level blockers.",
+      "statusBy": "Fer"
+    },
+    {
+      "id": "ART-TASKS-INDEX",
+      "type": "TASKS-INDEX",
+      "path": "TASKS-INDEX.md",
       "status": "Reviewed",
       "baseline": [
         "SRC-DS-001",
         "SRC-REPO-001"
       ],
-      "statusChangedAt": "2026-08-14T08:01:18.897Z",
-      "statusEvidence": "Completed Stage 8 two-pass adversarial review. PLAN-REVIEW.md verifies the starter baseline, corrects plan ordering/asset ownership, confirms accessibility/responsive/error/privacy/validation integration, and records remaining product/content/task-start risks without unsupported resolution."
+      "statusChangedAt": "2026-08-14T08:31:01.982Z",
+      "statusEvidence": "Re-review after Fer decisions: VER-019 confirms the starter page mock source; the index records approved mock records, title-derived alternatives, #contact CTA, browser-native invalid feedback/focus, and remaining controlled risks."
+    },
+    {
+      "id": "ART-TASK-P01-T01",
+      "type": "TASK",
+      "path": "Phase-01--Task-01.md",
+      "status": "Reviewed",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001"
+      ],
+      "statusChangedAt": "2026-08-14T08:18:25.482Z",
+      "statusEvidence": "Stage 9 review completed: the task has bounded foundation scope, current snapshot instructions, file ownership, states, accessibility/responsive requirements, and declared executable validation."
+    },
+    {
+      "id": "ART-TASK-P01-T02",
+      "type": "TASK",
+      "path": "Phase-01--Task-02.md",
+      "status": "Reviewed",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001"
+      ],
+      "statusChangedAt": "2026-08-14T08:31:02.101Z",
+      "statusEvidence": "Re-review after Fer approval: the task contains a complete starter-page-derived mock record table, approved hero alternative, #contact CTA, fresh source verification, and no unresolved content/CTA blocker."
+    },
+    {
+      "id": "ART-TASK-P01-T03",
+      "type": "TASK",
+      "path": "Phase-01--Task-03.md",
+      "status": "Reviewed",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001"
+      ],
+      "statusChangedAt": "2026-08-14T08:31:02.211Z",
+      "statusEvidence": "Re-review after Fer approval: browser-native invalid feedback and focus replace the custom error icon/summary/focus assumption; the intentional visual deviation and validation are explicit."
+    },
+    {
+      "id": "ART-TASK-P01-T04",
+      "type": "TASK",
+      "path": "Phase-01--Task-04.md",
+      "status": "Reviewed",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001"
+      ],
+      "statusChangedAt": "2026-08-14T08:31:02.318Z",
+      "statusEvidence": "Re-review after Fer approval: integrated validation now treats the mock/CTA/native-error decisions as approved behavior and retains only controlled future-change/source risks."
     }
   ],
-  "traceItems": [],
+  "traceItems": [
+    {
+      "id": "REQ-FR-001",
+      "owner": "ART-REQUIREMENTS",
+      "status": "Active",
+      "required": true,
+      "references": []
+    },
+    {
+      "id": "REQ-FR-002",
+      "owner": "ART-REQUIREMENTS",
+      "status": "Active",
+      "required": true,
+      "references": []
+    },
+    {
+      "id": "REQ-FR-003",
+      "owner": "ART-REQUIREMENTS",
+      "status": "Active",
+      "required": true,
+      "references": []
+    },
+    {
+      "id": "REQ-FR-004",
+      "owner": "ART-REQUIREMENTS",
+      "status": "Active",
+      "required": true,
+      "references": []
+    },
+    {
+      "id": "REQ-FR-005",
+      "owner": "ART-REQUIREMENTS",
+      "status": "Active",
+      "required": true,
+      "references": []
+    },
+    {
+      "id": "SPEC-BEH-001",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "REQ-FR-001"
+      ]
+    },
+    {
+      "id": "SPEC-BEH-002",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "REQ-FR-002"
+      ]
+    },
+    {
+      "id": "SPEC-BEH-003",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "REQ-FR-003"
+      ]
+    },
+    {
+      "id": "SPEC-BEH-004",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "REQ-FR-004"
+      ]
+    },
+    {
+      "id": "SPEC-BEH-005",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "REQ-FR-005"
+      ]
+    },
+    {
+      "id": "SPEC-BEH-006",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "REQ-FR-001"
+      ]
+    },
+    {
+      "id": "SPEC-INT-001",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "REQ-FR-003"
+      ]
+    },
+    {
+      "id": "SPEC-INT-002",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "REQ-FR-002"
+      ]
+    },
+    {
+      "id": "SPEC-INT-003",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "REQ-FR-004",
+        "REQ-FR-005"
+      ]
+    },
+    {
+      "id": "SPEC-BEH-007",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "REQ-FR-001"
+      ]
+    },
+    {
+      "id": "SPEC-ACC-001",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "REQ-FR-001"
+      ]
+    },
+    {
+      "id": "SPEC-ACC-002",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "REQ-FR-004"
+      ]
+    },
+    {
+      "id": "SPEC-DATA-001",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "REQ-FR-005"
+      ]
+    },
+    {
+      "id": "SPEC-DATA-002",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "REQ-FR-002"
+      ]
+    },
+    {
+      "id": "SPEC-VAL-001",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "REQ-FR-004"
+      ]
+    },
+    {
+      "id": "SPEC-VAL-002",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "REQ-FR-004"
+      ]
+    },
+    {
+      "id": "SPEC-VAL-003",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "REQ-FR-005"
+      ]
+    },
+    {
+      "id": "SPEC-VAL-004",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "REQ-FR-005"
+      ]
+    },
+    {
+      "id": "AC-014",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "SPEC-BEH-001"
+      ]
+    },
+    {
+      "id": "AC-015",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "SPEC-BEH-001",
+        "SPEC-BEH-007"
+      ]
+    },
+    {
+      "id": "AC-016",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "SPEC-BEH-006",
+        "SPEC-INT-001",
+        "SPEC-INT-002"
+      ]
+    },
+    {
+      "id": "AC-017",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "SPEC-BEH-003"
+      ]
+    },
+    {
+      "id": "AC-018",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "SPEC-BEH-004",
+        "SPEC-VAL-001"
+      ]
+    },
+    {
+      "id": "AC-019",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "SPEC-BEH-004",
+        "SPEC-VAL-002"
+      ]
+    },
+    {
+      "id": "AC-020",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "SPEC-BEH-005",
+        "SPEC-INT-003",
+        "SPEC-DATA-001",
+        "SPEC-VAL-003"
+      ]
+    },
+    {
+      "id": "AC-021",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "SPEC-BEH-005",
+        "SPEC-VAL-004"
+      ]
+    },
+    {
+      "id": "AC-022",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "SPEC-ACC-001",
+        "SPEC-ACC-002"
+      ]
+    },
+    {
+      "id": "AC-023",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "SPEC-DATA-002",
+        "SPEC-ACC-001"
+      ]
+    },
+    {
+      "id": "AC-024",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "SPEC-BEH-006"
+      ]
+    },
+    {
+      "id": "AC-025",
+      "owner": "ART-SPEC",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "SPEC-BEH-002",
+        "SPEC-DATA-002"
+      ]
+    },
+    {
+      "id": "PLAN-001",
+      "owner": "ART-PLAN",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "AC-014",
+        "AC-015",
+        "AC-016",
+        "AC-017",
+        "AC-024"
+      ]
+    },
+    {
+      "id": "PLAN-002",
+      "owner": "ART-PLAN",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "AC-014",
+        "AC-015",
+        "AC-016",
+        "AC-017",
+        "AC-023",
+        "AC-024",
+        "AC-025"
+      ]
+    },
+    {
+      "id": "PLAN-003",
+      "owner": "ART-PLAN",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "AC-015",
+        "AC-016",
+        "AC-018",
+        "AC-019",
+        "AC-020",
+        "AC-021",
+        "AC-022"
+      ]
+    },
+    {
+      "id": "PLAN-004",
+      "owner": "ART-PLAN",
+      "status": "Active",
+      "required": false,
+      "references": [
+        "AC-014",
+        "AC-015",
+        "AC-016",
+        "AC-017",
+        "AC-018",
+        "AC-019",
+        "AC-020",
+        "AC-021",
+        "AC-022",
+        "AC-023",
+        "AC-024",
+        "AC-025"
+      ]
+    }
+  ],
   "gates": [
     {
       "id": "GATE-001",
@@ -558,9 +1017,279 @@
       "evidence": "Fer approved ART-PLAN. The plan has two review passes, current repository verification VER-017, Time-bound Figma handling, integrated accessibility/responsiveness/errors/validation, and explicit task-level blockers without unsupported scope.",
       "recordedAt": "2026-08-14T07:57:30.519Z",
       "approvedBy": "Fer"
+    },
+    {
+      "id": "GATE-009",
+      "stage": 8,
+      "status": "Active",
+      "result": "Passed",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001"
+      ],
+      "verifications": [
+        "VER-014",
+        "VER-017"
+      ],
+      "artifacts": [
+        "ART-SOURCE-BASELINE",
+        "ART-PROJECT-CONTEXT",
+        "ART-WORKFLOW-STATE",
+        "ART-DESIGN-AUDIT",
+        "ART-REQUIREMENTS",
+        "ART-DESIGN",
+        "ART-SPEC",
+        "ART-DOCUMENT-REVIEW",
+        "ART-ARCHITECTURE",
+        "ART-PLAN",
+        "ART-PLAN-REVIEW"
+      ],
+      "evidence": "Fer approved the corrected ART-PLAN and ART-PLAN-REVIEW. Stage 8 two-pass review corrected data-bound Hero ordering and asset ownership; all residual content, CTA, lifecycle, source, and browser-policy risks are explicitly task-scoped.",
+      "recordedAt": "2026-08-14T08:03:11.062Z",
+      "approvedBy": "Fer"
     }
   ],
-  "tasks": [],
+  "tasks": [
+    {
+      "id": "P01-T01",
+      "status": "Ready",
+      "baseline": "SRC-REPO-001",
+      "prerequisites": [],
+      "references": [
+        "PLAN-001"
+      ],
+      "output": null,
+      "blocker": null,
+      "validation": [
+        {
+          "name": "Build",
+          "kind": "Build",
+          "required": true,
+          "status": "Not executed",
+          "expected": "Astro production build succeeds and emits one static page.",
+          "evidence": [],
+          "reason": "Pending Stage 10 implementation.",
+          "references": [
+            "PLAN-001"
+          ]
+        },
+        {
+          "name": "Diff",
+          "kind": "Other",
+          "required": true,
+          "status": "Not executed",
+          "expected": "git diff --check reports no whitespace errors.",
+          "evidence": [],
+          "reason": "Pending Stage 10 implementation.",
+          "references": [
+            "PLAN-001"
+          ]
+        },
+        {
+          "name": "Foundation",
+          "kind": "Manual",
+          "required": true,
+          "status": "Not executed",
+          "expected": "Header, skills, and footer meet source outcomes, keyboard focus, and overflow checks at target widths.",
+          "evidence": [],
+          "reason": "Pending Stage 10 implementation.",
+          "references": [
+            "PLAN-001"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P01-T02",
+      "status": "Ready",
+      "baseline": "SRC-REPO-001",
+      "prerequisites": [
+        "P01-T01"
+      ],
+      "references": [
+        "PLAN-002"
+      ],
+      "output": null,
+      "blocker": null,
+      "validation": [
+        {
+          "name": "Build",
+          "kind": "Build",
+          "required": true,
+          "status": "Not executed",
+          "expected": "Astro production build succeeds with complete local JSON and durable assets.",
+          "evidence": [],
+          "reason": "Pending Stage 10 implementation and owner content inputs.",
+          "references": [
+            "PLAN-002"
+          ]
+        },
+        {
+          "name": "Data",
+          "kind": "Manual",
+          "required": true,
+          "status": "Not executed",
+          "expected": "Six stable JSON records, alternatives, assets, and link/CTA behavior match approved inputs with no fallback.",
+          "evidence": [],
+          "reason": "Pending owner-provided content, CTA, and asset inputs.",
+          "references": [
+            "PLAN-002"
+          ]
+        },
+        {
+          "name": "Project",
+          "kind": "Manual",
+          "required": true,
+          "status": "Not executed",
+          "expected": "Hero and cards meet source viewport, keyboard/focus, alternative, and no-overflow outcomes.",
+          "evidence": [],
+          "reason": "Pending Stage 10 implementation.",
+          "references": [
+            "PLAN-002"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P01-T03",
+      "status": "Ready",
+      "baseline": "SRC-REPO-001",
+      "prerequisites": [
+        "P01-T01"
+      ],
+      "references": [
+        "PLAN-003"
+      ],
+      "output": null,
+      "blocker": null,
+      "validation": [
+        {
+          "name": "Build",
+          "kind": "Build",
+          "required": true,
+          "status": "Not executed",
+          "expected": "Astro production build succeeds with contact markup, browser script, and IndexedDB module.",
+          "evidence": [],
+          "reason": "Pending Stage 10 implementation.",
+          "references": [
+            "PLAN-003"
+          ]
+        },
+        {
+          "name": "Contact",
+          "kind": "Accessibility",
+          "required": true,
+          "status": "Not executed",
+          "expected": "Browser-native invalid feedback and invalid-control focus, labels, persistence status, keyboard behavior, and reflow meet the approved behavior.",
+          "evidence": [],
+          "reason": "Pending Stage 10 implementation.",
+          "references": [
+            "PLAN-003"
+          ]
+        },
+        {
+          "name": "No",
+          "kind": "Security",
+          "required": true,
+          "status": "Not executed",
+          "expected": "Network and source inspection show no remote contact transmission, analytics, or storage fallback.",
+          "evidence": [],
+          "reason": "Pending Stage 10 implementation.",
+          "references": [
+            "PLAN-003"
+          ]
+        },
+        {
+          "name": "Contact-states-IndexedDB",
+          "kind": "Manual",
+          "required": true,
+          "status": "Not executed",
+          "expected": "Invalid data stores nothing; completed local write clears and announces; failed persistence preserves values, announces failure, and retries by resubmission.",
+          "evidence": [],
+          "reason": "Pending Stage 10 implementation.",
+          "references": [
+            "PLAN-003"
+          ]
+        },
+        {
+          "name": "Contact-accessibility-responsive",
+          "kind": "Accessibility",
+          "required": true,
+          "status": "Not executed",
+          "expected": "Labels, visible focus, browser-native invalid feedback/focus, persistence status, keyboard operation, and reflow meet the approved behavior.",
+          "evidence": [],
+          "reason": "Pending Stage 10 implementation.",
+          "references": [
+            "PLAN-003"
+          ]
+        },
+        {
+          "name": "No-contact-transport",
+          "kind": "Security",
+          "required": true,
+          "status": "Not executed",
+          "expected": "Network and source inspection show no remote contact transmission, analytics, or storage fallback.",
+          "evidence": [],
+          "reason": "Pending Stage 10 implementation.",
+          "references": [
+            "PLAN-003"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P01-T04",
+      "status": "Ready",
+      "baseline": "SRC-REPO-001",
+      "prerequisites": [
+        "P01-T02",
+        "P01-T03"
+      ],
+      "references": [
+        "PLAN-004"
+      ],
+      "output": null,
+      "blocker": null,
+      "validation": [
+        {
+          "name": "Build",
+          "kind": "Build",
+          "required": true,
+          "status": "Not executed",
+          "expected": "Production build succeeds and git diff --check has no whitespace errors.",
+          "evidence": [],
+          "reason": "Pending upstream task completion.",
+          "references": [
+            "PLAN-004"
+          ]
+        },
+        {
+          "name": "Integrated",
+          "kind": "Security",
+          "required": true,
+          "status": "Not executed",
+          "expected": "Approved JSON/assets, IndexedDB success/failure/retry, and no-transport boundary pass full inspection.",
+          "evidence": [],
+          "reason": "Pending upstream tasks and owner acceptance inputs.",
+          "references": [
+            "PLAN-004"
+          ]
+        },
+        {
+          "name": "Integrated-visual-responsive-accessibility",
+          "kind": "Manual",
+          "required": true,
+          "status": "Not executed",
+          "expected": "All source viewport, reflow, keyboard, focus, semantic, alternative, browser-native invalid-feedback, persistence-status, and no-transport criteria pass.",
+          "evidence": [],
+          "reason": "Pending upstream task completion.",
+          "references": [
+            "PLAN-004"
+          ]
+        }
+      ]
+    }
+  ],
   "profileTransitions": [
     {
       "id": "PROFILE-001",
