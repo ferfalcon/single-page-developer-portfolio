@@ -6,7 +6,7 @@
     "executionMode": "Gated"
   },
   "state": {
-    "stage": 2,
+    "stage": 3,
     "status": "In progress",
     "activeInputs": [
       "SRC-DS-001",
@@ -130,6 +130,22 @@
       "method": "Git HEAD and working-tree scope reinspection",
       "evidence": "HEAD remains 5f7ec3d0781d4a3237d051e00e8893c68f0a23b0. The known AGENTS.md one-line working-tree edit is non-material; workflow artifacts and the new requirements narrative are uncommitted process output. No application implementation code was changed.",
       "checkedAt": "2026-08-14T06:39:30.886Z"
+    },
+    {
+      "id": "VER-010",
+      "snapshot": "SRC-DS-001",
+      "result": "Unchanged",
+      "method": "Figma MCP metadata reinspection of the scoped root canvas",
+      "evidence": "On 2026-08-14, root node 7:2 again resolved desktop 7:687 (1440 x 3872), tablet 7:226 (768 x 3563), mobile 7:3 (375 x 5013), Components 42:3249, and Design System / Documentation 62:5602 with the audited component/state variants. The design-context adapter returned a selection-required error and yielded no evidence. No named Figma version or checksum is available; this remains a Time-bound scope verification.",
+      "checkedAt": "2026-08-14T06:50:40.983Z"
+    },
+    {
+      "id": "VER-011",
+      "snapshot": "SRC-REPO-001",
+      "result": "Expected workflow output",
+      "method": "Git commit and scoped diff comparison",
+      "evidence": "HEAD is now 35b9d6c4109ad42a5f099651c1f31ccc69c967ae. Compared with SRC-REPO-001 commit 5f7ec3d0781d4a3237d051e00e8893c68f0a23b0, the commit contains workflow records/generated projections, source/design/context audit narratives, and REQUIREMENTS.md; it changes no frontend application code. Treat this as expected documentation workflow output. A later implementation task must pin its own task-start commit.",
+      "checkedAt": "2026-08-14T06:50:41.116Z"
     }
   ],
   "artifacts": [
@@ -198,13 +214,26 @@
       "id": "ART-REQUIREMENTS",
       "type": "REQUIREMENTS",
       "path": "REQUIREMENTS.md",
+      "status": "Approved",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001"
+      ],
+      "statusChangedAt": "2026-08-14T06:43:43.381Z",
+      "statusEvidence": "Fer approved the reviewed Stage 2 requirements on 2026-08-14.",
+      "statusBy": "Fer"
+    },
+    {
+      "id": "ART-DESIGN",
+      "type": "DESIGN",
+      "path": "DESIGN.md",
       "status": "Reviewed",
       "baseline": [
         "SRC-DS-001",
         "SRC-REPO-001"
       ],
-      "statusChangedAt": "2026-08-14T06:41:02.575Z",
-      "statusEvidence": "Stage 2 requirements completed after approved Stage 1 audit evidence, direct user decisions, source verifications VER-008/VER-009, two documented review passes, identifier reconciliation, and passing workflow/whitespace checks."
+      "statusChangedAt": "2026-08-14T06:52:00.949Z",
+      "statusEvidence": "Stage 3 design intent completed from approved requirements and audit evidence, with Figma scope reverified as VER-010, expected documentation-only repository output recorded as VER-011, two documented review passes, identifier/reference checks, workflow validation, and whitespace validation."
     }
   ],
   "traceItems": [],
@@ -252,6 +281,30 @@
       ],
       "evidence": "Fer approved Stage 1. The audit is sufficient for requirements while documented Time-bound source, responsive, content, link, contact-state, accessibility, and asset-mapping gaps are carried forward for their owning later artifacts.",
       "recordedAt": "2026-08-14T06:34:18.376Z",
+      "approvedBy": "Fer"
+    },
+    {
+      "id": "GATE-003",
+      "stage": 2,
+      "status": "Active",
+      "result": "Passed with assumptions",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001"
+      ],
+      "verifications": [
+        "VER-008",
+        "VER-009"
+      ],
+      "artifacts": [
+        "ART-SOURCE-BASELINE",
+        "ART-PROJECT-CONTEXT",
+        "ART-WORKFLOW-STATE",
+        "ART-DESIGN-AUDIT",
+        "ART-REQUIREMENTS"
+      ],
+      "evidence": "Fer approved Stage 2 requirements with documented unresolved questions retained for Stage 3 and later gates.",
+      "recordedAt": "2026-08-14T06:43:43.529Z",
       "approvedBy": "Fer"
     }
   ],
