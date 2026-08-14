@@ -6,7 +6,7 @@
     "executionMode": "Gated"
   },
   "state": {
-    "stage": 6,
+    "stage": 7,
     "status": "In progress",
     "activeInputs": [
       "SRC-DS-001",
@@ -190,6 +190,14 @@
       "method": "Git commit and scoped frontend diff comparison",
       "evidence": "On 2026-08-14, HEAD is 438ddebdc99e8ff3dd87ef448090820c58cc595e. Compared with immutable input commit 5f7ec3d0781d4a3237d051e00e8893c68f0a23b0, the committed frontend diff is empty; committed changes are workflow records and approved process documentation only. The uncommitted Stage 6 architecture record, generated projections, and ARCHITECTURE.md are current workflow output; no frontend application code changed.",
       "checkedAt": "2026-08-14T07:46:37.231Z"
+    },
+    {
+      "id": "VER-017",
+      "snapshot": "SRC-REPO-001",
+      "result": "Expected workflow output",
+      "method": "Git commit, scoped frontend diff, and repository inspection",
+      "evidence": "On 2026-08-14, HEAD is ddb7d25b48e64dad29d82e036baad3e20f9d73e1. Compared with immutable input commit 5f7ec3d0781d4a3237d051e00e8893c68f0a23b0, the committed frontend diff is empty. Inspected frontend/package.json, astro.config.mjs, tsconfig.json, src/pages/index.astro, src/layouts/Layout.astro, src/components/Welcome.astro, and starter asset inventory: the current application remains the Astro starter with no target page, client state, persistence, data module, test suite, or additional dependency. The uncommitted Stage 7 PLAN.md and generated workflow state are current process output only.",
+      "checkedAt": "2026-08-14T07:50:07.257Z"
     }
   ],
   "artifacts": [
@@ -310,13 +318,26 @@
       "id": "ART-ARCHITECTURE",
       "type": "ARCHITECTURE",
       "path": "ARCHITECTURE.md",
+      "status": "Approved",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001"
+      ],
+      "statusChangedAt": "2026-08-14T07:49:31.218Z",
+      "statusEvidence": "Fer approved the reviewed Stage 6 architecture, including the static Astro boundary, build-time local JSON content, browser-only IndexedDB persistence, no-transport form behavior, and carried-forward open decisions.",
+      "statusBy": "Fer"
+    },
+    {
+      "id": "ART-PLAN",
+      "type": "PLAN",
+      "path": "PLAN.md",
       "status": "Reviewed",
       "baseline": [
         "SRC-DS-001",
         "SRC-REPO-001"
       ],
-      "statusChangedAt": "2026-08-14T07:47:26.341Z",
-      "statusEvidence": "Stage 6 two-pass architecture review completed. The draft separates current Astro-starter observations from proposed target boundaries; records the required architecture decision; uses current repository verification VER-016 and Time-bound Figma verification VER-014; and traces local JSON, browser-only IndexedDB, no-transport form, accessibility, error/retry, privacy, and migration decisions without inventing unresolved policy."
+      "statusChangedAt": "2026-08-14T07:55:30.245Z",
+      "statusEvidence": "Stage 7 two-pass plan review completed. PLAN.md is grounded in reverified repository baseline VER-017 and Time-bound design verification VER-014; it distinguishes existing Astro starter paths from proposed portfolio modules, integrates accessibility/responsiveness/errors/tests in PLAN-001 through PLAN-003, contains no invented dependency or breakpoint, and carries JSON-content, CTA, error-icon, lifecycle, browser-policy, and URL decisions explicitly."
     }
   ],
   "traceItems": [],
@@ -466,6 +487,34 @@
       ],
       "evidence": "ART-DOCUMENT-REVIEW is approved by Fer. Its two review passes corrected source-baseline declaration, stale contact-behavior wording, source-versus-target confusion, duplicated operational state, and stale verification references; remaining questions are explicitly owned by Stage 6 or later acceptance.",
       "recordedAt": "2026-08-14T07:38:09.641Z",
+      "approvedBy": "Fer"
+    },
+    {
+      "id": "GATE-007",
+      "stage": 6,
+      "status": "Active",
+      "result": "Passed",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001"
+      ],
+      "verifications": [
+        "VER-014",
+        "VER-016"
+      ],
+      "artifacts": [
+        "ART-SOURCE-BASELINE",
+        "ART-PROJECT-CONTEXT",
+        "ART-WORKFLOW-STATE",
+        "ART-DESIGN-AUDIT",
+        "ART-REQUIREMENTS",
+        "ART-DESIGN",
+        "ART-SPEC",
+        "ART-DOCUMENT-REVIEW",
+        "ART-ARCHITECTURE"
+      ],
+      "evidence": "Fer approved ART-ARCHITECTURE. The required Full-profile architecture has two completed review passes, records local JSON and IndexedDB boundaries, and carries only explicitly visible later product/content decisions.",
+      "recordedAt": "2026-08-14T07:49:38.754Z",
       "approvedBy": "Fer"
     }
   ],
