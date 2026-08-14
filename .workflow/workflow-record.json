@@ -6,7 +6,7 @@
     "executionMode": "Gated"
   },
   "state": {
-    "stage": 5,
+    "stage": 6,
     "status": "In progress",
     "activeInputs": [
       "SRC-DS-001",
@@ -15,7 +15,11 @@
     "currentTask": null,
     "latestOutput": null,
     "latestValidationRuntime": null,
-    "architectureDecision": null
+    "architectureDecision": {
+      "result": "Required",
+      "reason": "The confirmed frontend-only IndexedDB contact persistence and local JSON content source require explicit state ownership, schema/versioning, client-failure, privacy, migration, and dependency-boundary decisions in the Full-profile Astro application.",
+      "recordedAt": "2026-08-14T07:39:33.011Z"
+    }
   },
   "snapshots": [
     {
@@ -178,6 +182,14 @@
       "method": "Git commit and scoped diff comparison",
       "evidence": "HEAD is 9a8b87587e362b80e4ede262c778bbb486889d12. Compared with SRC-REPO-001 commit 5f7ec3d0781d4a3237d051e00e8893c68f0a23b0, committed changes are workflow records/generated projections and approved process narratives including SPEC.md; the known AGENTS.md guideline change is non-material. No frontend application code changed. The uncommitted Stage 5 documentation review/corrections are current process output; a later implementation task must pin its own task-start commit.",
       "checkedAt": "2026-08-14T07:29:16.161Z"
+    },
+    {
+      "id": "VER-016",
+      "snapshot": "SRC-REPO-001",
+      "result": "Expected workflow output",
+      "method": "Git commit and scoped frontend diff comparison",
+      "evidence": "On 2026-08-14, HEAD is 438ddebdc99e8ff3dd87ef448090820c58cc595e. Compared with immutable input commit 5f7ec3d0781d4a3237d051e00e8893c68f0a23b0, the committed frontend diff is empty; committed changes are workflow records and approved process documentation only. The uncommitted Stage 6 architecture record, generated projections, and ARCHITECTURE.md are current workflow output; no frontend application code changed.",
+      "checkedAt": "2026-08-14T07:46:37.231Z"
     }
   ],
   "artifacts": [
@@ -285,13 +297,26 @@
       "id": "ART-DOCUMENT-REVIEW",
       "type": "DOCUMENT-REVIEW",
       "path": "DOCUMENT-REVIEW.md",
+      "status": "Approved",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001"
+      ],
+      "statusChangedAt": "2026-08-14T07:37:46.596Z",
+      "statusEvidence": "Fer approved the completed Stage 5 documentation review after reviewing its two-pass findings, corrections, source verification, and carried-forward decisions.",
+      "statusBy": "Fer"
+    },
+    {
+      "id": "ART-ARCHITECTURE",
+      "type": "ARCHITECTURE",
+      "path": "ARCHITECTURE.md",
       "status": "Reviewed",
       "baseline": [
         "SRC-DS-001",
         "SRC-REPO-001"
       ],
-      "statusChangedAt": "2026-08-14T07:35:07.808Z",
-      "statusEvidence": "Completed Stage 5 consolidated two-pass review. DOCUMENT-REVIEW.md verifies the active source baseline with VER-014/VER-015, records corrected cross-document findings DOC-001 through DOC-005, and carries content, CTA, asset, and architecture decisions forward without unsupported resolution."
+      "statusChangedAt": "2026-08-14T07:47:26.341Z",
+      "statusEvidence": "Stage 6 two-pass architecture review completed. The draft separates current Astro-starter observations from proposed target boundaries; records the required architecture decision; uses current repository verification VER-016 and Time-bound Figma verification VER-014; and traces local JSON, browser-only IndexedDB, no-transport form, accessibility, error/retry, privacy, and migration decisions without inventing unresolved policy."
     }
   ],
   "traceItems": [],
@@ -414,6 +439,33 @@
       ],
       "evidence": "Fer approved Stage 4 specification with architecture-owned JSON schema and IndexedDB lifecycle details carried to Stage 6.",
       "recordedAt": "2026-08-14T07:22:08.190Z",
+      "approvedBy": "Fer"
+    },
+    {
+      "id": "GATE-006",
+      "stage": 5,
+      "status": "Active",
+      "result": "Passed",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001"
+      ],
+      "verifications": [
+        "VER-014",
+        "VER-015"
+      ],
+      "artifacts": [
+        "ART-SOURCE-BASELINE",
+        "ART-PROJECT-CONTEXT",
+        "ART-WORKFLOW-STATE",
+        "ART-DESIGN-AUDIT",
+        "ART-REQUIREMENTS",
+        "ART-DESIGN",
+        "ART-SPEC",
+        "ART-DOCUMENT-REVIEW"
+      ],
+      "evidence": "ART-DOCUMENT-REVIEW is approved by Fer. Its two review passes corrected source-baseline declaration, stale contact-behavior wording, source-versus-target confusion, duplicated operational state, and stale verification references; remaining questions are explicitly owned by Stage 6 or later acceptance.",
+      "recordedAt": "2026-08-14T07:38:09.641Z",
       "approvedBy": "Fer"
     }
   ],
