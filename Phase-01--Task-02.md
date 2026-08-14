@@ -22,7 +22,7 @@ execution_mode: Gated
 
 ## 1. Status
 
-`Not started` — it has an incomplete P01-T01 prerequisite. The CLI task registry is authoritative.
+`In progress` — the CLI registry records `P01-T02` as the active Stage 10 task. Implementation and validation evidence are ready to be recorded before the task-output snapshot is created.
 
 ## 2. Objective
 
@@ -177,11 +177,14 @@ The original repository is the unmodified Astro starter described in `VER-018`; 
 
 ## 15. Implementation Discoveries
 
-No discovery exists yet. Record data-shape, asset, or source-authority deviations with the owning artifact before applying a workaround.
+- `DISC-P01-T02-001`: Fresh design-context inspection of desktop `7:687`, tablet `7:226`, and mobile `7:3` found no material drift in the source-backed hero, project grid, portrait, decorations, or action treatments (`VER-022`). The task started at clean commit `12581470c0506f403bf059af2fdf11df88c51bac`, an expected descendant of `SRC-REPO-001` containing only recorded P01-T01/workflow output (`VER-023`).
+- `DISC-P01-T02-002`: The portrait variants, circle/rings decorations, and all twelve project thumbnails map one-to-one from `docs/starter-code/assets/images/` into `frontend/src/assets/portfolio/images/`, retaining their supplied filenames. Source/destination SHA-256 values match for every copied file; no temporary Figma asset URL is used.
+- `DISC-P01-T02-003`: The local JSON reader validates the complete approved six-record set at build time, rejects missing, duplicate, unsupported, or incomplete records with an explicit local error, and exposes no remote/fallback content path.
+- `DISC-P01-T02-004`: Headless Chrome validated 2/2/1 project grids and no horizontal overflow at 1440/768/375 px. It also confirmed visible small/touch actions; desktop overlay actions are hidden by default, shown on hover or keyboard focus, and every lazy project image loads after scrolling into view.
 
 ## 16. Deviations
 
-None planned. The approved mock-record set and `#contact` are user decisions, not guessed fallbacks. A different data loading method, remote content, or unapproved replacement values would be a scope/architecture deviation.
+None. The approved mock-record set and `#contact` are user decisions, not guessed fallbacks. A different data loading method, remote content, or unapproved replacement values would be a scope/architecture deviation.
 
 ## 17. Output Lineage
 

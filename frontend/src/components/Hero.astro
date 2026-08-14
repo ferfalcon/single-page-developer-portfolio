@@ -1,0 +1,36 @@
+---
+import profileDesktop from '../assets/portfolio/images/image-profile-desktop.webp';
+import profileMobile from '../assets/portfolio/images/image-profile-mobile.webp';
+import profileTablet from '../assets/portfolio/images/image-profile-tablet.webp';
+import circlePattern from '../assets/portfolio/images/pattern-circle.svg';
+import ringsPattern from '../assets/portfolio/images/pattern-rings.svg';
+import { portfolio } from '../data/portfolio';
+---
+
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero__inner site-container">
+    <img class="hero__rings" src={ringsPattern.src} alt="" aria-hidden="true" />
+    <div class="hero__content">
+      <h1 id="hero-heading">
+        Nice to meet you! I’m <span class="hero__name">Adam Keyes.</span>
+      </h1>
+      <p>
+        Based in the UK, I’m a front-end developer passionate about building accessible web apps that
+        users love.
+      </p>
+      <a class="text-action" href={portfolio.hero.contactHref}>Contact me</a>
+    </div>
+    <picture class="hero__portrait">
+      <source media="(min-width: 75rem)" srcset={profileDesktop.src} />
+      <source media="(min-width: 45rem)" srcset={profileTablet.src} />
+      <img
+        src={profileMobile.src}
+        width={profileMobile.width}
+        height={profileMobile.height}
+        alt={portfolio.hero.portraitAlt}
+        fetchpriority="high"
+      />
+    </picture>
+    <img class="hero__circle" src={circlePattern.src} alt="" aria-hidden="true" />
+  </div>
+</section>

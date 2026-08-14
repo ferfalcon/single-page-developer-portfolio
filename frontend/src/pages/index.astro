@@ -1,7 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
 import PortfolioFooter from '../components/PortfolioFooter.astro';
 import PortfolioHeader from '../components/PortfolioHeader.astro';
+import Projects from '../components/Projects.astro';
 import Skills from '../components/Skills.astro';
 import '../styles/portfolio.css';
 ---
@@ -9,8 +11,9 @@ import '../styles/portfolio.css';
 <Layout>
   <PortfolioHeader />
   <main class="portfolio-main">
-    <h1 class="visually-hidden">Adam Keyes, front-end developer</h1>
+    <Hero />
     <Skills />
+    <Projects />
   </main>
   <PortfolioFooter />
 </Layout>

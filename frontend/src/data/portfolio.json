@@ -1,0 +1,44 @@
+{
+  "hero": {
+    "portraitAlt": "Portrait of Adam Keyes, front-end developer.",
+    "contactHref": "#contact"
+  },
+  "projects": [
+    {
+      "id": "design-portfolio",
+      "title": "Design portfolio",
+      "technologies": ["HTML", "CSS"],
+      "imageAlt": "Preview of the Design portfolio project."
+    },
+    {
+      "id": "e-learning-landing-page",
+      "title": "E-learning landing page",
+      "technologies": ["HTML", "CSS"],
+      "imageAlt": "Preview of the E-learning landing page project."
+    },
+    {
+      "id": "todo-web-app",
+      "title": "Todo web app",
+      "technologies": ["HTML", "CSS", "JavaScript"],
+      "imageAlt": "Preview of the Todo web app project."
+    },
+    {
+      "id": "entertainment-web-app",
+      "title": "Entertainment web app",
+      "technologies": ["HTML", "CSS", "JavaScript"],
+      "imageAlt": "Preview of the Entertainment web app project."
+    },
+    {
+      "id": "memory-game",
+      "title": "Memory Game",
+      "technologies": ["HTML", "CSS", "JavaScript"],
+      "imageAlt": "Preview of the Memory Game project."
+    },
+    {
+      "id": "art-gallery-showcase",
+      "title": "Art gallery showcase",
+      "technologies": ["HTML", "CSS", "JavaScript"],
+      "imageAlt": "Preview of the Art gallery showcase project."
+    }
+  ]
+}

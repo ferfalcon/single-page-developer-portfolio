@@ -27,7 +27,7 @@ html {
 }
 
 body {
-  min-block-size: 100vh;
+  min-block-size: 100dvh;
   margin: 0;
   background-color: var(--color-page);
   color: var(--color-text);
@@ -68,6 +68,17 @@ img {
   align-items: center;
   gap: 1.25rem;
   padding-block-start: 1.25rem;
+}
+
+@media (max-width: 44.999rem) {
+  .portfolio-header {
+    position: relative;
+    z-index: 3;
+  }
+
+  .portfolio-main {
+    margin-block-start: -4.5rem;
+  }
 }
 
 .portfolio-brand {
@@ -112,12 +123,170 @@ img {
 }
 
 .portfolio-main {
-  padding-block-start: 4.75rem;
+  padding-block-start: 1.75rem;
+}
+
+.hero {
+  overflow: clip;
+}
+
+.hero__inner {
+  position: relative;
+  min-block-size: 21rem;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+  max-inline-size: 35rem;
+  padding-block: 5rem 1.5rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 1.4rem + 5vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.0556em;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.hero__name {
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 0.125rem;
+  text-underline-offset: 0.25rem;
+}
+
+.hero__content p {
+  margin-block: 1.5rem 1.75rem;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.625;
+  text-wrap: pretty;
+}
+
+.hero__portrait {
+  position: absolute;
+  inset-block-start: -1.75rem;
+  inset-inline-end: 0;
+  z-index: 1;
+  display: block;
+  inline-size: min(46.5vw, 10.875rem);
+  block-size: 21rem;
+  overflow: hidden;
+  background-color: var(--color-surface);
+}
+
+.hero__portrait img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.hero__rings,
+.hero__circle {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero__rings {
+  inset-block-start: 0.75rem;
+  inset-inline-start: calc(-1 * var(--page-gutter) - 5.75rem);
+  inline-size: 33.125rem;
+  max-inline-size: none;
+}
+
+.hero__circle {
+  display: none;
 }
 
 .skills-section {
   border-block-start: 1px solid var(--color-text);
   padding-block: 2.5rem 5rem;
+}
+
+.projects-section {
+  padding-block: 0 5rem;
+}
+
+.projects-section__heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-block-end: 2.5rem;
+}
+
+.projects-section__heading h2 {
+  font-size: clamp(2.5rem, 1.8rem + 3.2vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.0556em;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.projects-list {
+  display: grid;
+  gap: 2.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.project-card {
+  position: relative;
+  min-inline-size: 0;
+}
+
+.project-card__media {
+  background-color: var(--color-surface);
+}
+
+.project-card__media img {
+  inline-size: 100%;
+  aspect-ratio: 1.35;
+  object-fit: cover;
+}
+
+.project-card__details {
+  margin-block-start: 1.25rem;
+}
+
+.project-card__details h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3334;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.project-card__details ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.125rem;
+  margin-block-start: 0.4375rem;
+  padding: 0;
+  color: var(--color-text-muted);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.5556;
+  list-style: none;
+}
+
+.project-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.875rem;
+  margin-block-start: 1.25rem;
+}
+
+.project-card__actions .text-action {
+  min-block-size: 2.5rem;
 }
 
 .skills-list {
@@ -166,6 +335,7 @@ img {
 }
 
 .text-action {
+  display: inline-block;
   color: var(--color-text);
   font-size: 1rem;
   font-weight: 700;
@@ -219,11 +389,64 @@ img {
   }
 
   .portfolio-main {
-    padding-block-start: 3.5rem;
+    padding-block-start: 0;
+  }
+
+  .hero__inner {
+    min-block-size: 31rem;
+  }
+
+  .hero__content {
+    max-inline-size: 31.25rem;
+    padding-block: 5.25rem 4rem;
+    text-align: start;
+  }
+
+  .hero__content p {
+    max-inline-size: 27.75rem;
+    margin-block: 2.25rem 2.125rem;
+    font-size: 1.125rem;
+    line-height: 1.5556;
+  }
+
+  .hero__portrait {
+    inset-block-start: 0;
+    inline-size: 20.125rem;
+    block-size: 31rem;
+  }
+
+  .hero__rings {
+    inset-block-start: 4.25rem;
+    inset-inline-start: calc(-1 * var(--page-gutter) - 16.5rem);
+  }
+
+  .hero__circle {
+    display: block;
+    inset-block-end: 0.125rem;
+    inset-inline-end: -4.625rem;
+    inline-size: 8.125rem;
   }
 
   .skills-section {
     padding-block: 3.25rem 5.5rem;
+  }
+
+  .projects-section {
+    padding-block-end: 6.25rem;
+  }
+
+  .projects-section__heading {
+    margin-block-end: 3.75rem;
+  }
+
+  .projects-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1.25rem;
+    row-gap: 3.75rem;
+  }
+
+  .project-card__details {
+    margin-block-start: 1.25rem;
   }
 
   .skills-list {
@@ -245,7 +468,35 @@ img {
   }
 
   .portfolio-main {
-    padding-block-start: 4.5rem;
+    padding-block-start: 0;
+  }
+
+  .hero__inner {
+    min-block-size: 45rem;
+  }
+
+  .hero__content {
+    max-inline-size: 44.125rem;
+    padding-block: 8.625rem 4rem;
+  }
+
+  .hero__content p {
+    max-inline-size: 27.75rem;
+  }
+
+  .hero__portrait {
+    inline-size: 27.8125rem;
+    block-size: 45rem;
+  }
+
+  .hero__rings {
+    inset-block-start: 2.25rem;
+    inset-inline-start: -17.5rem;
+  }
+
+  .hero__circle {
+    inset-block-end: 4.25rem;
+    inset-inline-end: 22.75rem;
   }
 
   .skills-section {
@@ -264,6 +515,53 @@ img {
 
   .portfolio-footer__identity {
     padding-block-start: 3rem;
+  }
+
+  .projects-section {
+    padding-block-end: 8.75rem;
+  }
+
+  .projects-section__heading {
+    margin-block-end: 5rem;
+  }
+
+  .projects-list {
+    column-gap: 1.875rem;
+    row-gap: 4.3125rem;
+  }
+
+  .project-card__actions {
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: 1;
+    display: grid;
+    min-block-size: min(27.7778vw, 25rem);
+    align-content: center;
+    justify-content: center;
+    gap: 3rem;
+    margin: 0;
+    background-color: color-mix(in oklab, var(--color-page) 75%, transparent);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 150ms ease-in-out;
+  }
+
+  .project-card:focus-within .project-card__actions,
+  .project-card:hover .project-card__actions {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  @media (hover: none) {
+    .project-card__actions {
+      position: static;
+      display: flex;
+      min-block-size: auto;
+      margin-block-start: 1.25rem;
+      background-color: transparent;
+      opacity: 1;
+      pointer-events: auto;
+    }
   }
 }
 

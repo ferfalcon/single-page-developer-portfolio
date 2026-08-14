@@ -1,0 +1,20 @@
+---
+import { getProject, projectIds } from '../data/portfolio';
+import ProjectCard from './ProjectCard.astro';
+---
+
+<section class="projects-section site-container" aria-labelledby="projects-heading">
+  <header class="projects-section__heading">
+    <h2 id="projects-heading">Projects</h2>
+    <a class="text-action" href="#contact">Contact me</a>
+  </header>
+  <ul class="projects-list">
+    {
+      projectIds.map((id) => (
+        <li>
+          <ProjectCard project={getProject(id)} />
+        </li>
+      ))
+    }
+  </ul>
+</section>

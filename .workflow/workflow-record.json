@@ -7,12 +7,12 @@
   },
   "state": {
     "stage": 10,
-    "status": "Ready",
+    "status": "In progress",
     "activeInputs": [
       "SRC-DS-001",
       "SRC-REPO-001"
     ],
-    "currentTask": null,
+    "currentTask": "P01-T02",
     "latestOutput": "SRC-REPO-002",
     "latestValidationRuntime": null,
     "architectureDecision": {
@@ -240,6 +240,22 @@
       "method": "Git task-start comparison",
       "evidence": "On 2026-08-14, HEAD 52f1380d6f3e976561ce9d46e31073a334780517 descends from immutable input 5f7ec3d0781d4a3237d051e00e8893c68f0a23b0. The working tree is clean and git diff --name-only from the input baseline over frontend/ is empty; all prior differences are expected workflow output only.",
       "checkedAt": "2026-08-14T14:57:57.234Z"
+    },
+    {
+      "id": "VER-022",
+      "snapshot": "SRC-DS-001",
+      "result": "Unchanged",
+      "method": "Figma MCP design-context reinspection",
+      "evidence": "Immediately before P01-T02 code edits, get_design_context inspected the scoped Product / Home desktop (7:687), tablet (7:226), and mobile (7:3) frames. The hero, project grid, responsive 2/2/1 cards, portrait, decoration, and action treatments showed no material drift from the active Time-bound source; no named Figma version or checksum is available.",
+      "checkedAt": "2026-08-14T15:45:04.334Z"
+    },
+    {
+      "id": "VER-023",
+      "snapshot": "SRC-REPO-001",
+      "result": "Expected workflow output",
+      "method": "Git task-start comparison",
+      "evidence": "Immediately before P01-T02 code edits, HEAD 12581470c0506f403bf059af2fdf11df88c51bac was clean, descends from SRC-REPO-001, and contains recorded P01-T01 output plus expected workflow documentation; there was no unrecorded frontend change.",
+      "checkedAt": "2026-08-14T15:45:04.443Z"
     }
   ],
   "artifacts": [
@@ -1181,7 +1197,7 @@
     },
     {
       "id": "P01-T02",
-      "status": "Ready",
+      "status": "In progress",
       "baseline": "SRC-REPO-001",
       "prerequisites": [
         "P01-T01"

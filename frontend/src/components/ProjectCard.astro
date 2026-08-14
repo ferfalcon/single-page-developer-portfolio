@@ -1,0 +1,57 @@
+---
+import projectOneLarge from '../assets/portfolio/images/thumbnail-project-1-large.webp';
+import projectOneSmall from '../assets/portfolio/images/thumbnail-project-1-small.webp';
+import projectTwoLarge from '../assets/portfolio/images/thumbnail-project-2-large.webp';
+import projectTwoSmall from '../assets/portfolio/images/thumbnail-project-2-small.webp';
+import projectThreeLarge from '../assets/portfolio/images/thumbnail-project-3-large.webp';
+import projectThreeSmall from '../assets/portfolio/images/thumbnail-project-3-small.webp';
+import projectFourLarge from '../assets/portfolio/images/thumbnail-project-4-large.webp';
+import projectFourSmall from '../assets/portfolio/images/thumbnail-project-4-small.webp';
+import projectFiveLarge from '../assets/portfolio/images/thumbnail-project-5-large.webp';
+import projectFiveSmall from '../assets/portfolio/images/thumbnail-project-5-small.webp';
+import projectSixLarge from '../assets/portfolio/images/thumbnail-project-6-large.webp';
+import projectSixSmall from '../assets/portfolio/images/thumbnail-project-6-small.webp';
+import type { ProjectId, ProjectRecord } from '../data/portfolio';
+
+interface Props {
+  project: ProjectRecord;
+}
+
+const { project } = Astro.props;
+
+const projectImages: Record<ProjectId, { large: ImageMetadata; small: ImageMetadata }> = {
+  'design-portfolio': { large: projectOneLarge, small: projectOneSmall },
+  'e-learning-landing-page': { large: projectTwoLarge, small: projectTwoSmall },
+  'todo-web-app': { large: projectThreeLarge, small: projectThreeSmall },
+  'entertainment-web-app': { large: projectFourLarge, small: projectFourSmall },
+  'memory-game': { large: projectFiveLarge, small: projectFiveSmall },
+  'art-gallery-showcase': { large: projectSixLarge, small: projectSixSmall },
+};
+
+const images = projectImages[project.id];
+---
+
+<article class="project-card">
+  <div class="project-card__media">
+    <picture>
+      <source media="(min-width: 45rem)" srcset={images.large.src} />
+      <img
+        src={images.small.src}
+        width={images.small.width}
+        height={images.small.height}
+        alt={project.imageAlt}
+        loading="lazy"
+      />
+    </picture>
+  </div>
+  <div class="project-card__details">
+    <h3>{project.title}</h3>
+    <ul aria-label={`${project.title} technologies`}>
+      {project.technologies.map((technology) => <li>{technology}</li>)}
+    </ul>
+  </div>
+  <nav class="project-card__actions" aria-label={`${project.title} links`}>
+    <a class="text-action" href="#">View project</a>
+    <a class="text-action" href="#">View code</a>
+  </nav>
+</article>
