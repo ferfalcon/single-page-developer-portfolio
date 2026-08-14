@@ -78,7 +78,7 @@
 }
 
 @media (min-width: 45rem) {
-.projects-section {
+  .projects-section {
     padding-block-end: 6.25rem;
   }
 
@@ -98,7 +98,7 @@
 }
 
 @media (min-width: 75rem) {
-.projects-section {
+  .projects-section {
     padding-block-end: 8.75rem;
   }
 
@@ -111,38 +111,37 @@
     row-gap: 4.3125rem;
   }
 
-  .project-card__actions {
-    position: absolute;
-    inset: 0 0 auto;
-    z-index: 1;
-    display: grid;
-    min-block-size: min(27.7778vw, 25rem);
-    align-content: center;
-    justify-content: center;
-    gap: 3rem;
-    margin: 0;
-    background-color: color-mix(in oklab, var(--color-page) 75%, transparent);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 150ms ease-in-out;
-  }
+  @media (hover: hover) {
+    .project-card {
+      display: grid;
+    }
 
-  .project-card:focus-within .project-card__actions,
-  .project-card:hover .project-card__actions {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  @media (hover: none) {
+    .project-card__media,
     .project-card__actions {
-      position: static;
-      display: flex;
-      min-block-size: auto;
-      margin-block-start: 1.25rem;
-      background-color: transparent;
+      grid-area: 1 / 1;
+    }
+
+    .project-card__details {
+      grid-row: 2;
+    }
+
+    .project-card__actions {
+      z-index: 1;
+      display: grid;
+      align-content: center;
+      justify-content: center;
+      gap: 3rem;
+      margin: 0;
+      background-color: rgb(0 0 0 / 75%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 150ms ease-in-out;
+    }
+
+    .project-card:focus-within .project-card__actions,
+    .project-card:hover .project-card__actions {
       opacity: 1;
       pointer-events: auto;
     }
   }
-
 }
