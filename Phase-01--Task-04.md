@@ -139,11 +139,14 @@ No new broad cleanup abstraction, route, framework, backend, or generated workfl
 
 ## 15. Implementation Discoveries
 
-No discovery exists yet. Propagate a confirmed documentation/source defect to its owner before masking it in code.
+- `DISC-P01-T04-001`: Fresh Figma reinspection of desktop `7:687`, tablet `7:226`, and mobile `7:3` found no material drift in the scoped responsive composition, project cards, contact form, focus variants, or local-asset intent (`VER-026`). Task execution began from the clean expected descendant `1ffdceea7917d6efb240318dcd9300222eea5df3` (`VER-027`).
+- `DISC-P01-T04-002`: The final Astro production build generated exactly one static page. Headless Chromium inspection at 320, 375, 768, 1024, and 1440 px found no horizontal page overflow, preserved DOM/tab order, visible focus, one `h1`, semantic landmarks/headings, named actions, and correct informative/decorative image alternatives. The local JSON and durable local asset mappings render the complete approved project set; no temporary Figma URL is present.
+- `DISC-P01-T04-003`: Browser checks confirmed native blank and malformed validation focus with no IndexedDB writes; valid Name/Email/Message saved as a technical `id` plus those three fields, cleared the controls, and announced local success. Simulated unavailable IndexedDB preserved values and announced failure; re-submitting after restoration saved successfully. Submission issued no contact transport: observed post-submit activity was limited to deferred local image assets.
+- `DISC-P01-T04-004`: No source-backed implementation defect or unapproved behavior was found, so no correction was made. The first isolated record-inspection helper accidentally created an empty database before the app initialised it; correcting the helper to inspect only an existing database produced the confirmed success path above. This was test-harness setup, not an application finding.
 
 ## 16. Deviations
 
-None planned. This task may correct validated defects, not introduce a new feature or decision.
+No new deviation. The existing user-approved browser-native invalid feedback and native invalid-control focus remain validated; this task introduced no new feature, transport, storage policy, content, or focus decision.
 
 ## 17. Output Lineage
 
