@@ -6,7 +6,7 @@
     "executionMode": "Gated"
   },
   "state": {
-    "stage": 3,
+    "stage": 4,
     "status": "In progress",
     "activeInputs": [
       "SRC-DS-001",
@@ -146,6 +146,22 @@
       "method": "Git commit and scoped diff comparison",
       "evidence": "HEAD is now 35b9d6c4109ad42a5f099651c1f31ccc69c967ae. Compared with SRC-REPO-001 commit 5f7ec3d0781d4a3237d051e00e8893c68f0a23b0, the commit contains workflow records/generated projections, source/design/context audit narratives, and REQUIREMENTS.md; it changes no frontend application code. Treat this as expected documentation workflow output. A later implementation task must pin its own task-start commit.",
       "checkedAt": "2026-08-14T06:50:41.116Z"
+    },
+    {
+      "id": "VER-012",
+      "snapshot": "SRC-DS-001",
+      "result": "Unchanged",
+      "method": "Figma MCP metadata reinspection of the scoped root canvas",
+      "evidence": "On 2026-08-14, root node 7:2 again resolved desktop 7:687 (1440 x 3872), tablet 7:226 (768 x 3563), mobile 7:3 (375 x 5013), Components 42:3249, and Design System / Documentation 62:5602 with the audited component/state variants. No named Figma version or checksum is available; this remains a Time-bound scope verification.",
+      "checkedAt": "2026-08-14T07:01:00.293Z"
+    },
+    {
+      "id": "VER-013",
+      "snapshot": "SRC-REPO-001",
+      "result": "Expected workflow output",
+      "method": "Git commit and scoped diff comparison",
+      "evidence": "HEAD is 41d4974fc5e2107f4bdf3e9600bca11ac281f91a. Compared with SRC-REPO-001 commit 5f7ec3d0781d4a3237d051e00e8893c68f0a23b0, committed changes are workflow records/generated projections and approved process narratives including DESIGN.md; the known AGENTS.md guideline change is non-material. No frontend application code changed. The uncommitted SPEC.md and Stage 4 workflow updates are current process output; a later implementation task must pin its own task-start commit.",
+      "checkedAt": "2026-08-14T07:01:00.391Z"
     }
   ],
   "artifacts": [
@@ -227,13 +243,26 @@
       "id": "ART-DESIGN",
       "type": "DESIGN",
       "path": "DESIGN.md",
+      "status": "Approved",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001"
+      ],
+      "statusChangedAt": "2026-08-14T06:54:54.625Z",
+      "statusEvidence": "Fer approved the reviewed Stage 3 design intent on 2026-08-14.",
+      "statusBy": "Fer"
+    },
+    {
+      "id": "ART-SPEC",
+      "type": "SPEC",
+      "path": "SPEC.md",
       "status": "Reviewed",
       "baseline": [
         "SRC-DS-001",
         "SRC-REPO-001"
       ],
-      "statusChangedAt": "2026-08-14T06:52:00.949Z",
-      "statusEvidence": "Stage 3 design intent completed from approved requirements and audit evidence, with Figma scope reverified as VER-010, expected documentation-only repository output recorded as VER-011, two documented review passes, identifier/reference checks, workflow validation, and whitespace validation."
+      "statusChangedAt": "2026-08-14T07:20:09.722Z",
+      "statusEvidence": "Stage 4 specification was reopened and revised after direct user decisions: successful local persistence clears fields and exposes a message; failed persistence preserves fields, exposes a message, and retries by resubmission; project technology labels and image alternatives use frontend-local JSON data. Two review passes, source verifications VER-012/VER-013, identifier checks, workflow validation, and whitespace validation passed."
     }
   ],
   "traceItems": [],
@@ -305,6 +334,31 @@
       ],
       "evidence": "Fer approved Stage 2 requirements with documented unresolved questions retained for Stage 3 and later gates.",
       "recordedAt": "2026-08-14T06:43:43.529Z",
+      "approvedBy": "Fer"
+    },
+    {
+      "id": "GATE-004",
+      "stage": 3,
+      "status": "Active",
+      "result": "Passed with assumptions",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001"
+      ],
+      "verifications": [
+        "VER-010",
+        "VER-011"
+      ],
+      "artifacts": [
+        "ART-SOURCE-BASELINE",
+        "ART-PROJECT-CONTEXT",
+        "ART-WORKFLOW-STATE",
+        "ART-DESIGN-AUDIT",
+        "ART-REQUIREMENTS",
+        "ART-DESIGN"
+      ],
+      "evidence": "Fer approved Stage 3 design intent with documented source limitations and open behavior decisions carried into specification.",
+      "recordedAt": "2026-08-14T06:54:54.777Z",
       "approvedBy": "Fer"
     }
   ],
