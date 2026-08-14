@@ -5,9 +5,6 @@ import profileMobile from '../assets/portfolio/images/image-profile-mobile.webp'
 import profileTablet from '../assets/portfolio/images/image-profile-tablet.webp';
 import profileDesktop from '../assets/portfolio/images/image-profile-desktop.webp';
 
-import circlePattern from '../assets/portfolio/images/pattern-circle.svg';
-import ringsPattern from '../assets/portfolio/images/pattern-rings.svg';
-
 import { portfolio } from '../data/portfolio';
 
 import '../styles/hero.css';
@@ -24,14 +21,14 @@ const tabletImage = await getImage({
 ---
 
 <section class="hero" aria-labelledby="hero-heading">
+  <picture class="hero__portrait">
+    <source media="(min-width: 75rem)" srcset={desktopImage.src} />
+    <source media="(min-width: 45rem)" srcset={tabletImage.src} />
+    <Image src={profileMobile} alt={portfolio.hero.portraitAlt} priority />
+  </picture>
+
   <div class="hero__inner site-container">
-    <img class="hero__rings" src={ringsPattern.src} alt="" aria-hidden="true" />
     <div class="hero__content">
-      <picture class="hero__portrait">
-        <source media="(min-width: 75rem)" srcset={desktopImage.src} />
-        <source media="(min-width: 45rem)" srcset={tabletImage.src} />
-        <Image src={profileMobile} alt={portfolio.hero.portraitAlt} priority />
-      </picture>
       <h1 id="hero-heading">
         Nice to meet you! I’m <span class="hero__name">Adam Keyes.</span>
       </h1>
@@ -40,6 +37,5 @@ const tabletImage = await getImage({
       </p>
       <a class="text-action" href={portfolio.hero.contactHref}>Contact me</a>
     </div>
-    <img class="hero__circle" src={circlePattern.src} alt="" aria-hidden="true" />
   </div>
 </section>
