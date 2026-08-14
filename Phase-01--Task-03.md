@@ -158,11 +158,14 @@ No custom error-icon asset, error summary, or focus relocation is permitted. No 
 
 ## 15. Implementation Discoveries
 
-No discovery exists yet. Record source drift, API behavior, schema deviation, or unmet accessibility state with the owning artifact before changing scope.
+- `DISC-P01-T03-001`: Fresh Figma reinspection of desktop `7:687`, tablet `7:226`, and mobile `7:3` found no material drift in the contact composition, responsive desktop/stacked layouts, fields, send action, or illustrated field states (`VER-024`). The task began at clean expected descendant `9ec41c968d74d32a149b48cbc047dcf3d74e56ec` (`VER-025`).
+- `DISC-P01-T03-002`: `ContactForm.astro` can retain native semantic controls and validation while `method="dialog"` plus the module submit listener prevents contact transport. The controller invokes its sole IndexedDB boundary only after a valid native submission; it clears only after the transaction completes.
+- `DISC-P01-T03-003`: The adapter uses one version-1 `portfolio-contact` database and one `contact-entries` store. Records contain a generated technical `id` plus Name, Email, and Message only; no timestamp, analytics, fallback store, transport, or console logging path was introduced.
+- `DISC-P01-T03-004`: Headless Chrome checks covered blank and malformed invalid submissions, successful local persistence, an unavailable-IndexedDB failure/retry path, form keyboard traversal, 375/768/1440 px reflow, network activity, and console output. The checks observed no invalid writes, correct local record shape, clear-on-success/preserve-on-failure behavior, no submit-time request, no console error, visible keyboard focus, and no horizontal overflow.
 
 ## 16. Deviations
 
-User-approved deviation: browser-native validation errors and native invalid-control focus replace the source error icon/custom error UI. Any alternative storage, remote transport, extra data, retry mechanism, dependency, custom error icon/summary, or custom focus behavior requires explicit approval.
+User-approved deviation: browser-native validation errors and native invalid-control focus replace the source error icon/custom error UI. Native invalid feedback is supplemented only by the standard browser presentation and an accent/error divider treatment; no custom field-error text, icon, summary, or focus relocation was added. Any alternative storage, remote transport, extra data, retry mechanism, dependency, custom error icon/summary, or custom focus behavior requires explicit approval.
 
 ## 17. Output Lineage
 

@@ -1,0 +1,58 @@
+---
+---
+
+<section id="contact" class="contact-section" aria-labelledby="contact-heading">
+  <div class="contact-section__content site-container">
+    <div class="contact-section__intro">
+      <h2 id="contact-heading">Contact</h2>
+      <p>
+        I would love to hear about your project and how I could help. Please fill in the form, and I’ll
+        get back to you as soon as possible.
+      </p>
+    </div>
+    <form class="contact-form" data-contact-form method="dialog">
+      <div class="contact-field">
+        <label for="contact-name">Name</label>
+        <input
+          id="contact-name"
+          class="form-control"
+          name="name"
+          type="text"
+          autocomplete="name"
+          enterkeyhint="next"
+          required
+        />
+      </div>
+      <div class="contact-field">
+        <label for="contact-email">Email</label>
+        <input
+          id="contact-email"
+          class="form-control"
+          name="email"
+          type="email"
+          autocomplete="email"
+          inputmode="email"
+          enterkeyhint="next"
+          required
+        />
+      </div>
+      <div class="contact-field contact-field--message">
+        <label for="contact-message">Message</label>
+        <textarea
+          id="contact-message"
+          class="form-control"
+          name="message"
+          rows="4"
+          enterkeyhint="send"
+          required
+        ></textarea>
+      </div>
+      <p class="contact-form__status" data-contact-status role="status" aria-atomic="true"></p>
+      <button class="contact-form__submit text-action" type="submit">Send message</button>
+    </form>
+  </div>
+</section>
+
+<script>
+  import '../scripts/contact-form';
+</script>

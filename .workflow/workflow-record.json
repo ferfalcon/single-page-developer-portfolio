@@ -7,12 +7,12 @@
   },
   "state": {
     "stage": 10,
-    "status": "Ready",
+    "status": "In progress",
     "activeInputs": [
       "SRC-DS-001",
       "SRC-REPO-001"
     ],
-    "currentTask": null,
+    "currentTask": "P01-T03",
     "latestOutput": "SRC-REPO-003",
     "latestValidationRuntime": null,
     "architectureDecision": {
@@ -266,6 +266,22 @@
       "method": "Git task-start comparison",
       "evidence": "Immediately before P01-T02 code edits, HEAD 12581470c0506f403bf059af2fdf11df88c51bac was clean, descends from SRC-REPO-001, and contains recorded P01-T01 output plus expected workflow documentation; there was no unrecorded frontend change.",
       "checkedAt": "2026-08-14T15:45:04.443Z"
+    },
+    {
+      "id": "VER-024",
+      "snapshot": "SRC-DS-001",
+      "result": "Unchanged",
+      "method": "Figma MCP design-context reinspection",
+      "evidence": "Immediately before P01-T03, get_design_context rechecked Product / Home desktop (7:687), tablet (7:226), and mobile (7:3). The contact section remains present with the observed desktop horizontal and tablet/mobile stacked layout, Name/Email/Message fields, Send Message action, and visual active/error variants; no material scope drift was observed. The user-approved browser-native validation/focus deviation remains applicable; no named Figma version or checksum is available.",
+      "checkedAt": "2026-08-14T16:07:09.258Z"
+    },
+    {
+      "id": "VER-025",
+      "snapshot": "SRC-REPO-001",
+      "result": "Expected workflow output",
+      "method": "Git task-start comparison",
+      "evidence": "Immediately before P01-T03, HEAD 9ec41c968d74d32a149b48cbc047dcf3d74e56ec was clean, descends from SRC-REPO-001, and contains only recorded P01-T01/P01-T02 application outputs plus expected workflow documentation; no unrecorded frontend change was present.",
+      "checkedAt": "2026-08-14T16:07:09.346Z"
     }
   ],
   "artifacts": [
@@ -1273,7 +1289,7 @@
     },
     {
       "id": "P01-T03",
-      "status": "Ready",
+      "status": "In progress",
       "baseline": "SRC-REPO-001",
       "prerequisites": [
         "P01-T01"
