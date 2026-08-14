@@ -1,0 +1,148 @@
+.hero {
+  overflow: clip;
+}
+
+.hero__inner {
+  position: relative;
+  min-block-size: 21rem;
+  display: grid;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+  max-inline-size: 35rem;
+  padding-block: 1rem 1.5rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 1.4rem + 5vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.0556em;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.hero__name {
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 0.125rem;
+  text-underline-offset: 0.25rem;
+}
+
+.hero__content p {
+  margin-block: 1.5rem 1.75rem;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.625;
+  text-wrap: pretty;
+}
+
+.hero__portrait {
+  /* position: absolute; */
+  inset-block-start: -1.75rem;
+  inset-inline-end: 0;
+  z-index: 1;
+  display: block;
+  inline-size: min(46.5vw, 10.875rem);
+  block-size: 21rem;
+  overflow: hidden;
+  background-color: var(--color-surface);
+  margin: auto;
+}
+
+.hero__portrait img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.hero__rings,
+.hero__circle {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero__rings {
+  inset-block-start: 0.75rem;
+  inset-inline-start: calc(-1 * var(--page-gutter) - 5.75rem);
+  inline-size: 33.125rem;
+  max-inline-size: none;
+}
+
+.hero__circle {
+  display: none;
+}
+
+@media (min-width: 45rem) {
+  .hero__inner {
+    min-block-size: 31rem;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero__content {
+    max-inline-size: 31.25rem;
+    padding-block: 5.25rem 4rem;
+    text-align: start;
+  }
+
+  .hero__content p {
+    max-inline-size: 27.75rem;
+    margin-block: 2.25rem 2.125rem;
+    font-size: 1.125rem;
+    line-height: 1.5556;
+  }
+
+  .hero__portrait {
+    inset-block-start: 0;
+    inline-size: 20.125rem;
+    block-size: 31rem;
+  }
+
+  .hero__rings {
+    inset-block-start: 4.25rem;
+    inset-inline-start: calc(-1 * var(--page-gutter) - 16.5rem);
+  }
+
+  .hero__circle {
+    display: block;
+    inset-block-end: 0.125rem;
+    inset-inline-end: -4.625rem;
+    inline-size: 8.125rem;
+  }
+}
+
+@media (min-width: 75rem) {
+  .hero__inner {
+    min-block-size: 45rem;
+  }
+
+  .hero__content {
+    max-inline-size: 44.125rem;
+    padding-block: 8.625rem 4rem;
+  }
+
+  .hero__content p {
+    max-inline-size: 27.75rem;
+  }
+
+  .hero__portrait {
+    inline-size: 27.8125rem;
+    block-size: 45rem;
+  }
+
+  .hero__rings {
+    inset-block-start: 2.25rem;
+    inset-inline-start: -17.5rem;
+  }
+
+  .hero__circle {
+    inset-block-end: 4.25rem;
+    inset-inline-end: 22.75rem;
+  }
+}

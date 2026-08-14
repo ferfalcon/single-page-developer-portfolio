@@ -1,0 +1,148 @@
+.projects-section {
+  padding-block: 0 5rem;
+}
+
+.projects-section__heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-block-end: 2.5rem;
+}
+
+.projects-section__heading h2 {
+  font-size: clamp(2.5rem, 1.8rem + 3.2vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.0556em;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.projects-list {
+  display: grid;
+  gap: 2.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.project-card {
+  position: relative;
+  min-inline-size: 0;
+}
+
+.project-card__media {
+  background-color: var(--color-surface);
+}
+
+.project-card__media img {
+  inline-size: 100%;
+  aspect-ratio: 1.35;
+  object-fit: cover;
+}
+
+.project-card__details {
+  margin-block-start: 1.25rem;
+}
+
+.project-card__details h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3334;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.project-card__details ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.125rem;
+  margin-block-start: 0.4375rem;
+  padding: 0;
+  color: var(--color-text-muted);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.5556;
+  list-style: none;
+}
+
+.project-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.875rem;
+  margin-block-start: 1.25rem;
+}
+
+.project-card__actions .text-action {
+  min-block-size: 2.5rem;
+}
+
+@media (min-width: 45rem) {
+.projects-section {
+    padding-block-end: 6.25rem;
+  }
+
+  .projects-section__heading {
+    margin-block-end: 3.75rem;
+  }
+
+  .projects-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1.25rem;
+    row-gap: 3.75rem;
+  }
+
+  .project-card__details {
+    margin-block-start: 1.25rem;
+  }
+}
+
+@media (min-width: 75rem) {
+.projects-section {
+    padding-block-end: 8.75rem;
+  }
+
+  .projects-section__heading {
+    margin-block-end: 5rem;
+  }
+
+  .projects-list {
+    column-gap: 1.875rem;
+    row-gap: 4.3125rem;
+  }
+
+  .project-card__actions {
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: 1;
+    display: grid;
+    min-block-size: min(27.7778vw, 25rem);
+    align-content: center;
+    justify-content: center;
+    gap: 3rem;
+    margin: 0;
+    background-color: color-mix(in oklab, var(--color-page) 75%, transparent);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 150ms ease-in-out;
+  }
+
+  .project-card:focus-within .project-card__actions,
+  .project-card:hover .project-card__actions {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  @media (hover: none) {
+    .project-card__actions {
+      position: static;
+      display: flex;
+      min-block-size: auto;
+      margin-block-start: 1.25rem;
+      background-color: transparent;
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+}
