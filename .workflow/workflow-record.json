@@ -12,7 +12,7 @@
       "SRC-DS-001",
       "SRC-REPO-001"
     ],
-    "currentTask": null,
+    "currentTask": "P01-T01",
     "latestOutput": null,
     "latestValidationRuntime": null,
     "architectureDecision": {
@@ -214,6 +214,22 @@
       "method": "Pinned starter-page content reinspection and Git scoped-diff comparison",
       "evidence": "On 2026-08-14, docs/starter-code/index.html is unchanged from immutable input commit 5f7ec3d0781d4a3237d051e00e8893c68f0a23b0 and SHA-256 remains c476fa0b639219d5b01652b722ad82f2195fb0e068d8d403bdab1b196e740d8e. It contains six observed project titles and technology labels: Design portfolio (HTML, CSS); E-learning landing page (HTML, CSS); Todo web app (HTML, CSS, JavaScript); Entertainment web app (HTML, CSS, JavaScript); Memory Game (HTML, CSS, JavaScript); Art gallery showcase (HTML, CSS, JavaScript). It contains no image alternatives or error-icon asset reference. Fer explicitly approved it as the source for mock local-JSON records; generated alternatives must be clearly marked as mock content derived from these titles.",
       "checkedAt": "2026-08-14T08:26:24.117Z"
+    },
+    {
+      "id": "VER-020",
+      "snapshot": "SRC-DS-001",
+      "result": "Unchanged",
+      "method": "Figma MCP design-context reinspection",
+      "evidence": "On 2026-08-14, get_design_context resolved the scoped Product / Home desktop 7:687, tablet 7:226, and mobile 7:3 frames. Each returned its expected node context; the shared Site Identity and Skills structures remain present. No named Figma version or checksum is available, so SRC-DS-001 remains Time-bound.",
+      "checkedAt": "2026-08-14T14:57:50.606Z"
+    },
+    {
+      "id": "VER-021",
+      "snapshot": "SRC-REPO-001",
+      "result": "Expected workflow output",
+      "method": "Git task-start comparison",
+      "evidence": "On 2026-08-14, HEAD 52f1380d6f3e976561ce9d46e31073a334780517 descends from immutable input 5f7ec3d0781d4a3237d051e00e8893c68f0a23b0. The working tree is clean and git diff --name-only from the input baseline over frontend/ is empty; all prior differences are expected workflow output only.",
+      "checkedAt": "2026-08-14T14:57:57.234Z"
     }
   ],
   "artifacts": [
@@ -1092,7 +1108,7 @@
   "tasks": [
     {
       "id": "P01-T01",
-      "status": "Ready",
+      "status": "In progress",
       "baseline": "SRC-REPO-001",
       "prerequisites": [],
       "references": [
@@ -1105,10 +1121,15 @@
           "name": "Build",
           "kind": "Build",
           "required": true,
-          "status": "Not executed",
+          "status": "Passed",
           "expected": "Astro production build succeeds and emits one static page.",
-          "evidence": [],
-          "reason": "Pending Stage 10 implementation.",
+          "actual": "The pnpm Corepack wrapper failed with ERR_SQLITE_ERROR; the prescribed local Astro fallback completed successfully and built one page.",
+          "command": "./node_modules/.bin/astro build",
+          "environment": "frontend/ with the NVM-managed WSL Node runtime",
+          "executedAt": "2026-08-14T15:17:19Z",
+          "evidence": [
+            "Astro 7.2.2 completed successfully; frontend/dist contains one index.html page."
+          ],
           "references": [
             "PLAN-001"
           ]
@@ -1117,10 +1138,15 @@
           "name": "Diff",
           "kind": "Other",
           "required": true,
-          "status": "Not executed",
+          "status": "Passed",
           "expected": "git diff --check reports no whitespace errors.",
-          "evidence": [],
-          "reason": "Pending Stage 10 implementation.",
+          "actual": "git diff --check completed with no output.",
+          "command": "git diff --check",
+          "environment": "Repository worktree",
+          "executedAt": "2026-08-14T15:17:19Z",
+          "evidence": [
+            "No whitespace errors reported."
+          ],
           "references": [
             "PLAN-001"
           ]
@@ -1129,10 +1155,14 @@
           "name": "Foundation",
           "kind": "Manual",
           "required": true,
-          "status": "Not executed",
+          "status": "Passed",
           "expected": "Header, skills, and footer meet source outcomes, keyboard focus, and overflow checks at target widths.",
-          "evidence": [],
-          "reason": "Pending Stage 10 implementation.",
+          "actual": "Production captures confirmed the 3/2/1 skill layouts at 1440/768/375 px; runtime reflow checks found no overflow through intermediate widths or long skill content; keyboard checks reached all eight named social links with focus-visible state.",
+          "environment": "Headless Chromium production build inspection",
+          "executedAt": "2026-08-14T15:17:19Z",
+          "evidence": [
+            "Production screenshots at 1440, 768, and 375 px; runtime grid/no-overflow matrix for 1440, 1024, 768, 520, and 375 px; sequential Tab test returned GitHub, Frontend Mentor, LinkedIn, Twitter in both header and footer."
+          ],
           "references": [
             "PLAN-001"
           ]

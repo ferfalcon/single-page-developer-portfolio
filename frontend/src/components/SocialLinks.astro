@@ -1,0 +1,38 @@
+---
+import frontendMentorIcon from '../assets/portfolio/icons/icon-frontend-mentor.svg';
+import githubIcon from '../assets/portfolio/icons/icon-github.svg';
+import linkedInIcon from '../assets/portfolio/icons/icon-linkedin.svg';
+import twitterIcon from '../assets/portfolio/icons/icon-twitter.svg';
+
+interface Props {
+  label: string;
+}
+
+const { label } = Astro.props;
+
+const socialLinks = [
+  { label: 'GitHub', icon: githubIcon, width: 25, height: 24 },
+  { label: 'Frontend Mentor', icon: frontendMentorIcon, width: 26, height: 23 },
+  { label: 'LinkedIn', icon: linkedInIcon, width: 25, height: 24 },
+  { label: 'Twitter', icon: twitterIcon, width: 24, height: 20 },
+];
+---
+
+<nav class="social-links" aria-label={label}>
+  <ul class="social-links__list">
+    {
+      socialLinks.map((socialLink) => (
+        <li>
+          <a class="social-link" href="#" aria-label={socialLink.label}>
+            <img
+              src={socialLink.icon.src}
+              width={socialLink.width}
+              height={socialLink.height}
+              alt=""
+            />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

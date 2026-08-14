@@ -161,18 +161,21 @@ At `SRC-REPO-001` (rechecked by `VER-018`), `frontend/` is an Astro 7 applicatio
 
 ## 15. Implementation Discoveries
 
-No discovery exists yet. Record any new source conflict, source drift, or reusable-style interface change with its owning artifact before working around it.
+- `DISC-P01-T01-001`: Fresh inspection verified the scoped desktop (`7:687`), tablet (`7:226`), and mobile (`7:3`) Figma foundations without material drift (`VER-020`). Repository verification (`VER-021`) confirmed that the task began from the expected Stage 9 descendant of `SRC-REPO-001`, with no prior frontend implementation.
+- `DISC-P01-T01-002`: The durable foundation asset mapping is exact and local: `docs/starter-code/assets/fonts/SpaceGrotesk-VariableFont_wght.ttf` maps to `frontend/src/assets/portfolio/fonts/SpaceGrotesk-VariableFont_wght.ttf`; the four supplied social SVGs map from `docs/starter-code/assets/images/` to `frontend/src/assets/portfolio/icons/`, retaining their filenames. Each source/destination pair has an identical SHA-256 checksum. Hero, project, decoration, form, JSON, IndexedDB, and remote Figma assets remain intentionally unmapped.
+- `DISC-P01-T01-003`: The WSL `pnpm` wrapper still fails with `ERR_SQLITE_ERROR` while opening its package-manager database. The repository-prescribed local Astro CLI fallback completed the production build successfully, so no dependency or application change was needed.
+- `DISC-P01-T01-004`: `index.astro` provides the temporary visually hidden page `h1` needed for the semantic foundation. `P01-T02` owns replacing it with the visible hero `h1`; it must keep exactly one page heading.
 
 ## 16. Deviations
 
-None planned. Any departure from the component/file ownership or validated source outcomes requires documented evidence and approval where scope changes.
+None. The implementation stays within P01-T01: it introduces no hero, project, contact, client-side, persistence, remote-asset, or destination-guessing behavior.
 
 ## 17. Output Lineage
 
-- Parent task-start snapshot: record at execution after fresh verification; expected lineage starts at `SRC-REPO-001`.
-- Implementation output snapshot/commit: pending.
+- Parent task-start verification: `VER-020` reconfirmed `SRC-DS-001`; `VER-021` reconfirmed the repository starting state at `52f1380d6f3e976561ce9d46e31073a334780517`, an expected Stage 9 descendant of `SRC-REPO-001`.
+- Implementation output snapshot/commit: pending CLI completion after the implementation commit.
 - Produced by task: `P01-T01`.
-- Approved as next task start: pending task completion and its validation.
+- Downstream interface: `P01-T02` and `P01-T03` may consume `portfolio.css` tokens, `.site-container`, `.portfolio-main`, and the shared interaction/error hooks while preserving P01-T01-owned header, skills, and footer geometry.
 
 ## 18. Definition of Done
 
@@ -183,6 +186,9 @@ None planned. Any departure from the component/file ownership or validated sourc
 
 ## 19. Completion Report
 
-- Files and output snapshot: pending.
-- Source verification, behavior, validation, discoveries, and deviations: pending execution.
-- Next unblocked task: `P01-T02` and `P01-T03`, subject to their own entry conditions.
+- Files: `frontend/src/pages/index.astro`, `frontend/src/layouts/Layout.astro`, `frontend/src/styles/portfolio.css`, `PortfolioHeader.astro`, `SocialLinks.astro`, `Skills.astro`, `PortfolioFooter.astro`, and only the five mapped local portfolio assets.
+- Behavior: the source order is semantic header, main/interim `h1`, skills, then footer. Both identity regions contain the four named `#` social actions; skill copy is HTML, CSS, Javascript, and Accessibility with four years of experience, plus React and Sass with three years.
+- Validation: the local `./node_modules/.bin/astro build` fallback generated one static page successfully; `git diff --check` passed. Headless production captures at 1440, 768, and 375 px verified the intended 3/2/1 skill layouts and readable mobile identity/footer. Runtime checks found no horizontal overflow at 1440, 1024, 768, 520, or 375 px, including a long skill name. Keyboard navigation reached GitHub, Frontend Mentor, LinkedIn, and Twitter in the header and then footer, with all eight links reporting `:focus-visible`.
+- Assets: the font and four social SVG checksum mappings are recorded in `DISC-P01-T01-002`; no other starter or Figma asset was introduced.
+- Deviations: none.
+- Next unblocked task: `P01-T02` and `P01-T03`, subject to their own fresh entry verification.

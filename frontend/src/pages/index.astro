@@ -1,11 +1,16 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import PortfolioFooter from '../components/PortfolioFooter.astro';
+import PortfolioHeader from '../components/PortfolioHeader.astro';
+import Skills from '../components/Skills.astro';
+import '../styles/portfolio.css';
 ---
 
 <Layout>
-	<Welcome />
+  <PortfolioHeader />
+  <main class="portfolio-main">
+    <h1 class="visually-hidden">Adam Keyes, front-end developer</h1>
+    <Skills />
+  </main>
+  <PortfolioFooter />
 </Layout>
