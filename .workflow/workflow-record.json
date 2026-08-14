@@ -13,7 +13,7 @@
       "SRC-REPO-001"
     ],
     "currentTask": null,
-    "latestOutput": "SRC-REPO-004",
+    "latestOutput": "SRC-REPO-005",
     "latestValidationRuntime": null,
     "architectureDecision": {
       "result": "Required",
@@ -90,6 +90,16 @@
       "commit": "98f256f5684768c84cabd040f7680c4ad0445cc4",
       "parent": "SRC-REPO-001",
       "task": "P01-T03"
+    },
+    {
+      "id": "SRC-REPO-005",
+      "role": "Implementation output",
+      "pinStrength": "Immutable",
+      "status": "Active",
+      "reference": "/home/fer/code/Single-page developer portfolio/single-page-developer-portfolio",
+      "commit": "efc4eabaebdb88fccbeeab1e45f0e0b600282bcb",
+      "parent": "SRC-REPO-001",
+      "task": "P01-T04"
     }
   ],
   "verifications": [
@@ -292,6 +302,22 @@
       "method": "Git task-start comparison",
       "evidence": "Immediately before P01-T03, HEAD 9ec41c968d74d32a149b48cbc047dcf3d74e56ec was clean, descends from SRC-REPO-001, and contains only recorded P01-T01/P01-T02 application outputs plus expected workflow documentation; no unrecorded frontend change was present.",
       "checkedAt": "2026-08-14T16:07:09.346Z"
+    },
+    {
+      "id": "VER-026",
+      "snapshot": "SRC-DS-001",
+      "result": "Unchanged",
+      "method": "Figma MCP metadata and design-context reinspection",
+      "evidence": "Immediately before P01-T04, Figma MCP rechecked the Product / Home desktop (7:687), tablet (7:226), and mobile (7:3) frames and their component/state references. The supplied responsive sections, contact form, project cards, focus variants, and local-asset design intent remain in scope with no material drift; the source remains Time-bound without a named version or checksum.",
+      "checkedAt": "2026-08-14T16:26:41.248Z"
+    },
+    {
+      "id": "VER-027",
+      "snapshot": "SRC-REPO-001",
+      "result": "Expected workflow output",
+      "method": "Git task-start lineage and working-tree inspection",
+      "evidence": "Before P01-T04 start, HEAD 1ffdcee was clean, descends from SRC-REPO-001, and contains the recorded P01-T01 through P01-T03 outputs plus expected workflow documentation only. The current workflow-record/generated-view changes are the expected P01-T04 task-start mutation; no unrecorded frontend change is present.",
+      "checkedAt": "2026-08-14T16:26:41.376Z"
     }
   ],
   "artifacts": [
@@ -1411,7 +1437,7 @@
     },
     {
       "id": "P01-T04",
-      "status": "Ready",
+      "status": "Complete",
       "baseline": "SRC-REPO-001",
       "prerequisites": [
         "P01-T02",
@@ -1420,17 +1446,22 @@
       "references": [
         "PLAN-004"
       ],
-      "output": null,
+      "output": "SRC-REPO-005",
       "blocker": null,
       "validation": [
         {
           "name": "Build",
           "kind": "Build",
           "required": true,
-          "status": "Not executed",
+          "status": "Passed",
           "expected": "Production build succeeds and git diff --check has no whitespace errors.",
-          "evidence": [],
-          "reason": "Pending upstream task completion.",
+          "actual": "WSL Astro production build succeeded, generated exactly one static page, and git diff --check reported no whitespace errors.",
+          "command": "source ~/.nvm/nvm.sh && cd frontend && ./node_modules/.bin/astro build; git diff --check",
+          "environment": "WSL Node 24.18.0 with Astro 5.16.6",
+          "executedAt": "2026-08-14T16:39:57Z",
+          "evidence": [
+            "Astro reported 1 page built successfully; frontend/dist contains only index.html at the static-route level."
+          ],
           "references": [
             "PLAN-004"
           ]
@@ -1439,10 +1470,15 @@
           "name": "Integrated",
           "kind": "Security",
           "required": true,
-          "status": "Not executed",
+          "status": "Passed",
           "expected": "Approved JSON/assets, IndexedDB success/failure/retry, and no-transport boundary pass full inspection.",
-          "evidence": [],
-          "reason": "Pending upstream tasks and owner acceptance inputs.",
+          "actual": "Browser and source inspection confirmed the approved local JSON/assets, IndexedDB invalid/success/failure/retry states, and no contact transport.",
+          "environment": "Headless Chromium 139 via Chrome DevTools Protocol against local Astro production output",
+          "executedAt": "2026-08-14T16:39:57Z",
+          "evidence": [
+            "Blank and malformed submissions wrote no records; valid input saved id/name/email/message, cleared controls, and announced success.",
+            "Unavailable IndexedDB retained values and announced failure; restored IndexedDB saved a retry. Post-submit requests were only deferred local image assets."
+          ],
           "references": [
             "PLAN-004"
           ]
@@ -1451,10 +1487,15 @@
           "name": "Integrated-visual-responsive-accessibility",
           "kind": "Manual",
           "required": true,
-          "status": "Not executed",
+          "status": "Passed",
           "expected": "All source viewport, reflow, keyboard, focus, semantic, alternative, browser-native invalid-feedback, persistence-status, and no-transport criteria pass.",
-          "evidence": [],
-          "reason": "Pending upstream task completion.",
+          "actual": "Source comparisons and browser inspection passed at 320, 375, 768, 1024, and 1440 px with no horizontal overflow or reordered interaction sequence.",
+          "environment": "Headless Chromium 139 via Chrome DevTools Protocol against local Astro production output",
+          "executedAt": "2026-08-14T16:39:57Z",
+          "evidence": [
+            "Visual comparison covered the Figma desktop/tablet/mobile frames; semantic landmarks, one h1, alternatives, named actions, labels, status role, native invalid focus, visible focus, and keyboard traversal passed.",
+            "No app console error, pointer-only card action, or contact transport was observed."
+          ],
           "references": [
             "PLAN-004"
           ]

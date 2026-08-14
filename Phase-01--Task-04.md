@@ -21,7 +21,7 @@ execution_mode: Gated
 
 ## 1. Status
 
-`Not started` — it requires completed P01-T02 and P01-T03, current Figma/repository verification, and resolution of their acceptance-specific owner inputs. The CLI task registry is authoritative.
+`Complete` — the CLI registry records `P01-T04` complete with implementation output `SRC-REPO-005` at commit `efc4eabaebdb88fccbeeab1e45f0e0b600282bcb`.
 
 ## 2. Objective
 
@@ -123,10 +123,10 @@ No new broad cleanup abstraction, route, framework, backend, or generated workfl
 
 ## 13. Acceptance Criteria
 
-- [ ] Every applicable `AC-014`–`AC-025` is checked with observed evidence or explicitly blocked by a documented owner decision.
-- [ ] Build/diff pass and all permitted manual checks pass after final corrections.
-- [ ] No upstream source conflict, hidden placeholder, contact transport, or unapproved behavior remains concealed.
-- [ ] Fresh snapshot verification, output lineage, task/index documentation, discoveries, and deviations are complete.
+- [x] Every applicable `AC-014`–`AC-025` is checked with observed evidence or explicitly blocked by a documented owner decision.
+- [x] Build/diff pass and all permitted manual checks pass after final corrections.
+- [x] No upstream source conflict, hidden placeholder, contact transport, or unapproved behavior remains concealed.
+- [x] Fresh snapshot verification, output lineage, task/index documentation, discoveries, and deviations are complete.
 
 ## 14. Risks and Considerations
 
@@ -150,18 +150,21 @@ No new deviation. The existing user-approved browser-native invalid feedback and
 
 ## 17. Output Lineage
 
-- Parent task-start snapshot: combined completed upstream output/current verified descendant, recorded at execution.
-- Implementation output snapshot/commit: pending.
+- Parent task-start verification: `VER-027`, at clean descendant `1ffdceea7917d6efb240318dcd9300222eea5df3` of immutable input `SRC-REPO-001`.
+- Implementation output snapshot/commit: `SRC-REPO-005`, immutable implementation output at `efc4eabaebdb88fccbeeab1e45f0e0b600282bcb`.
 - Produced by task: `P01-T04`.
-- Approved as next task start: final implementation review pending.
+- Approved next action: review Stage 10 and obtain its human approval before advancing to the final implementation review.
 
 ## 18. Definition of Done
 
-- [ ] All applicable acceptance checks have actual evidence and pass; blockers are surfaced, not hidden.
-- [ ] Every declared validation passes or is explicitly unavailable/not applicable with evidence.
-- [ ] Output lineage, documentation, discoveries, risks, and deviations are current.
+- [x] All applicable acceptance checks have actual evidence and pass; blockers are surfaced, not hidden.
+- [x] Every declared validation passes or is explicitly unavailable/not applicable with evidence.
+- [x] Output lineage, documentation, discoveries, risks, and deviations are current.
 
 ## 19. Completion Report
 
-- Files, snapshots, validation, evidence, deviations, and final-review handoff: pending execution.
-- Next unblocked work: Stage 11 final implementation review after its human gate.
+- Completed the P01-T04 integrated validation task without a product-code correction: the rendered Astro portfolio already met the scoped responsive, semantic, asset/data, contact-persistence, and no-transport requirements.
+- Fresh task-start source/repository checks are `VER-026`/`VER-027`; the immutable task output is `SRC-REPO-005` at `efc4eabaebdb88fccbeeab1e45f0e0b600282bcb`. The declared Build, Integrated, and Integrated-visual-responsive-accessibility checks passed with recorded command, browser, viewport, and behavior evidence.
+- The final Astro production build generated one static page and `git diff --check` passed. Headless Chromium covered 320/375/768/1024/1440 px reflow, keyboard/focus/semantics/alternatives, native invalid focus, IndexedDB success/failure/retry, record shape, and no contact transport.
+- No new deviation or risk was introduced. The previously approved browser-native invalid feedback/focus remains the only relevant deviation.
+- Next unblocked work: obtain the required human Stage 10 review approval, then advance to Stage 11 final implementation review.
