@@ -38,7 +38,7 @@ For visual changes, serve the `frontend/` app and check desktop, tablet, and mob
 
 ## Development Environment
 
-The host system is Windows, but development commands run inside WSL 2. The repository is available at `/home/fer/code/Single-page developer portfolio/single-page-developer-portfolio`; use Linux paths and WSL tools for project work.
+The host system is Windows, but development commands run inside WSL 2. Use Linux paths and WSL tools for project work.
 
 Verified WSL tools:
 

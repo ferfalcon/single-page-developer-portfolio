@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 2,
+  "project": {
+    "name": "Single-page developer portfolio",
+    "profile": "Full",
+    "executionMode": "Gated"
+  },
+  "state": {
+    "stage": 1,
+    "status": "In progress",
+    "activeInputs": [
+      "SRC-DS-001",
+      "SRC-REPO-001"
+    ],
+    "currentTask": null,
+    "latestOutput": null,
+    "latestValidationRuntime": null,
+    "architectureDecision": null
+  },
+  "snapshots": [
+    {
+      "id": "SRC-DS-001",
+      "role": "Input baseline",
+      "pinStrength": "Time-bound",
+      "status": "Active",
+      "reference": "https://www.figma.com/design/Y1ek1Bv1Rj48asEqLChUSA/single-page-developer-portfolio?node-id=7-2"
+    },
+    {
+      "id": "SRC-REPO-001",
+      "role": "Input baseline",
+      "pinStrength": "Immutable",
+      "status": "Active",
+      "reference": "/home/fer/code/Single-page developer portfolio/single-page-developer-portfolio",
+      "commit": "5f7ec3d0781d4a3237d051e00e8893c68f0a23b0"
+    },
+    {
+      "id": "SRC-DOC-001",
+      "role": "Supporting source",
+      "pinStrength": "Immutable",
+      "status": "Active",
+      "reference": "docs/implementation-workflow/AGENTS-instructions.md and workflow governance documents",
+      "commit": "5f7ec3d0781d4a3237d051e00e8893c68f0a23b0"
+    },
+    {
+      "id": "SRC-DOC-002",
+      "role": "Supporting source",
+      "pinStrength": "Immutable",
+      "status": "Active",
+      "reference": "docs/starter-code/index.html",
+      "commit": "5f7ec3d0781d4a3237d051e00e8893c68f0a23b0"
+    },
+    {
+      "id": "SRC-ASSET-001",
+      "role": "Supporting source",
+      "pinStrength": "Immutable",
+      "status": "Active",
+      "reference": "docs/starter-code/assets",
+      "commit": "5f7ec3d0781d4a3237d051e00e8893c68f0a23b0"
+    }
+  ],
+  "verifications": [
+    {
+      "id": "VER-001",
+      "snapshot": "SRC-DS-001",
+      "result": "Unchanged",
+      "method": "Figma MCP metadata on node 7:2 plus design context on 7:687",
+      "evidence": "Configured file key Y1ek1Bv1Rj48asEqLChUSA and root node 7:2 resolved; Product / Home desktop (7:687), tablet (7:226), and mobile (7:3) frames were present. No named version was exposed, so the snapshot remains Time-bound.",
+      "checkedAt": "2026-08-14T05:57:27.098Z"
+    },
+    {
+      "id": "VER-002",
+      "snapshot": "SRC-REPO-001",
+      "result": "Unchanged",
+      "method": "Git commit and repository inspection",
+      "evidence": "HEAD resolved to 5f7ec3d0781d4a3237d051e00e8893c68f0a23b0; frontend is the Astro application with pnpm lockfile. The later AGENTS.md working-tree edit is a non-material concurrent instruction change, documented in WORKFLOW-STATE.md, not a change to this commit baseline.",
+      "checkedAt": "2026-08-14T05:57:27.153Z"
+    },
+    {
+      "id": "VER-003",
+      "snapshot": "SRC-DOC-001",
+      "result": "Unchanged",
+      "method": "Path and commit inspection",
+      "evidence": "The required governance and Stage 0 workflow documents exist under docs/implementation-workflow at commit 5f7ec3d0781d4a3237d051e00e8893c68f0a23b0.",
+      "checkedAt": "2026-08-14T05:57:27.200Z"
+    },
+    {
+      "id": "VER-004",
+      "snapshot": "SRC-DOC-002",
+      "result": "Unchanged",
+      "method": "Path, checksum, and content inspection",
+      "evidence": "docs/starter-code/index.html exists at the pinned commit; SHA-256 c476fa0b639219d5b01652b722ad82f2195fb0e068d8d403bdab1b196e740d8e.",
+      "checkedAt": "2026-08-14T05:57:27.241Z"
+    },
+    {
+      "id": "VER-005",
+      "snapshot": "SRC-ASSET-001",
+      "result": "Unchanged",
+      "method": "Directory inventory and checksum inspection",
+      "evidence": "docs/starter-code/assets contains 25 files at the pinned commit; the supplied Space Grotesk variable font SHA-256 is e13b56b9bc84600ac672b2785c052bc2011aa8d503177e8b041981ab498f105c.",
+      "checkedAt": "2026-08-14T05:57:27.284Z"
+    },
+    {
+      "id": "VER-006",
+      "snapshot": "SRC-DS-001",
+      "result": "Unchanged",
+      "method": "Figma MCP design-context inspection of scoped responsive frames and component/design-system metadata",
+      "evidence": "On 2026-08-14, file key Y1ek1Bv1Rj48asEqLChUSA resolved Product / Home desktop 7:687, tablet 7:226, mobile 7:3, Components 42:3249, and Design System / Documentation 62:5602. Current accessible content matches the recorded scope; no named Figma version or checksum is exposed, so this remains a Time-bound verification rather than an immutable comparison.",
+      "checkedAt": "2026-08-14T06:24:11.132Z"
+    },
+    {
+      "id": "VER-007",
+      "snapshot": "SRC-REPO-001",
+      "result": "Unchanged",
+      "method": "Git HEAD and scoped source-material inspection",
+      "evidence": "HEAD remains 5f7ec3d0781d4a3237d051e00e8893c68f0a23b0. The known one-line AGENTS.md working-tree change remains non-material; workflow artifacts are uncommitted process output. docs/starter-code source material and frontend Astro structure were inspected without application code changes.",
+      "checkedAt": "2026-08-14T06:24:11.245Z"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "ART-SOURCE-BASELINE",
+      "type": "SOURCE-BASELINE",
+      "path": "SOURCE-BASELINE.md",
+      "status": "Approved",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001",
+        "SRC-DOC-001",
+        "SRC-DOC-002",
+        "SRC-ASSET-001"
+      ],
+      "statusChangedAt": "2026-08-14T06:20:11.287Z",
+      "statusEvidence": "Fer approved the verified source identity, source authority, Time-bound Figma limitation, and immutable repository baseline.",
+      "statusBy": "Fer"
+    },
+    {
+      "id": "ART-PROJECT-CONTEXT",
+      "type": "PROJECT-CONTEXT",
+      "path": "PROJECT-CONTEXT.md",
+      "status": "Approved",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001",
+        "SRC-DOC-001",
+        "SRC-DOC-002",
+        "SRC-ASSET-001"
+      ],
+      "statusChangedAt": "2026-08-14T06:20:11.882Z",
+      "statusEvidence": "Fer approved the Stage 0 context, including frontend-only IndexedDB persistence and literal # placeholders for unavailable external destinations.",
+      "statusBy": "Fer"
+    },
+    {
+      "id": "ART-WORKFLOW-STATE",
+      "type": "WORKFLOW-STATE",
+      "path": "WORKFLOW-STATE.md",
+      "status": "Approved",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001",
+        "SRC-DOC-001",
+        "SRC-DOC-002",
+        "SRC-ASSET-001"
+      ],
+      "statusChangedAt": "2026-08-14T06:20:11.937Z",
+      "statusEvidence": "Fer approved the recorded scope, Full profile, Gated execution mode, risks, assumptions, and next-stage workflow state.",
+      "statusBy": "Fer"
+    },
+    {
+      "id": "ART-DESIGN-AUDIT",
+      "type": "DESIGN-AUDIT",
+      "path": "DESIGN-AUDIT.md",
+      "status": "Reviewed",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001"
+      ],
+      "statusChangedAt": "2026-08-14T06:31:07.673Z",
+      "statusEvidence": "Stage 1 audit completed after Figma MCP inspection of desktop, tablet, mobile, Components, and Design System evidence; source verification VER-006/VER-007; documented review pass 1 and pass 2; validation and whitespace checks passed."
+    }
+  ],
+  "traceItems": [],
+  "gates": [
+    {
+      "id": "GATE-001",
+      "stage": 0,
+      "status": "Active",
+      "result": "Passed with assumptions",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001"
+      ],
+      "verifications": [
+        "VER-001",
+        "VER-002"
+      ],
+      "artifacts": [
+        "ART-SOURCE-BASELINE",
+        "ART-PROJECT-CONTEXT",
+        "ART-WORKFLOW-STATE"
+      ],
+      "evidence": "Fer approved Stage 0 after both review passes. The Figma URL remains a Time-bound mutable source; actual external destinations remain intentionally deferred and use # placeholders; IndexedDB implementation details will be resolved in later Full-profile architecture and specification stages.",
+      "recordedAt": "2026-08-14T06:20:12.003Z",
+      "approvedBy": "Fer"
+    }
+  ],
+  "tasks": [],
+  "profileTransitions": [
+    {
+      "id": "PROFILE-001",
+      "from": "Standard",
+      "to": "Full",
+      "resumeStage": 0,
+      "reason": "User decided that the frontend-only contact flow will persist submissions in IndexedDB; the workflow's Full profile is required for persistence and its architecture/data-ownership review.",
+      "status": "Complete",
+      "sourceArtifacts": [
+        "ART-SOURCE-BASELINE",
+        "ART-PROJECT-CONTEXT",
+        "ART-WORKFLOW-STATE"
+      ],
+      "targetArtifacts": [
+        "ART-SOURCE-BASELINE",
+        "ART-PROJECT-CONTEXT",
+        "ART-WORKFLOW-STATE"
+      ],
+      "startedAt": "2026-08-14T06:13:35.681Z",
+      "completedAt": "2026-08-14T06:19:27.482Z",
+      "evidence": "Fer approved the Full-profile transition after reviewing the updated Stage 0 context: frontend-only contact persistence uses IndexedDB and unresolved external destinations use literal # placeholders.",
+      "approvedBy": "Fer"
+    }
+  ],
+  "implementationReviews": []
+}
