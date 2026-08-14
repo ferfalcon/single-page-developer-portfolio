@@ -6,13 +6,21 @@ import PortfolioFooter from '../components/PortfolioFooter.astro';
 import PortfolioHeader from '../components/PortfolioHeader.astro';
 import Projects from '../components/Projects.astro';
 import Skills from '../components/Skills.astro';
+
+import circlePattern from '../assets/portfolio/images/pattern-circle.svg';
+import ringsPattern from '../assets/portfolio/images/pattern-rings.svg';
+
 import '../styles/portfolio.css';
 ---
 
 <Layout>
   <PortfolioHeader />
   <main class="portfolio-main">
-    <Hero />
+    <div class="portfolio-intro">
+      <Hero />
+      <img class="portfolio-intro__rings" src={ringsPattern.src} alt="" aria-hidden="true" />
+      <img class="portfolio-intro__circle" src={circlePattern.src} alt="" aria-hidden="true" />
+    </div>
     <Skills />
     <Projects />
     <ContactForm />

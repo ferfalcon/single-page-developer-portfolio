@@ -1,26 +1,23 @@
 .hero {
-  overflow: clip;
+  position: relative;
+  min-block-size: 41.6875rem;
 }
 
 .hero__inner {
   position: relative;
-  min-block-size: 21rem;
-  display: grid;
+  z-index: 2;
+  min-block-size: inherit;
+  padding-block-start: 26.4375rem;
 }
 
 .hero__content {
-  position: relative;
-  z-index: 2;
-  box-sizing: border-box;
-  max-inline-size: 35rem;
-  padding-block: 1rem 1.5rem;
   text-align: center;
 }
 
 .hero h1 {
-  font-size: clamp(2.5rem, 1.4rem + 5vw, 5.5rem);
+  font-size: 2.5rem;
   font-weight: 700;
-  letter-spacing: -0.0556em;
+  letter-spacing: -0.071rem;
   line-height: 1;
   text-wrap: balance;
 }
@@ -28,12 +25,12 @@
 .hero__name {
   text-decoration-line: underline;
   text-decoration-color: var(--color-accent);
-  text-decoration-thickness: 0.125rem;
+  text-decoration-thickness: 0.25rem;
   text-underline-offset: 0.25rem;
 }
 
 .hero__content p {
-  margin-block: 1.5rem 1.75rem;
+  margin-block-start: 1.5rem;
   color: var(--color-text-muted);
   font-size: 1rem;
   font-weight: 500;
@@ -41,108 +38,107 @@
   text-wrap: pretty;
 }
 
+.hero__content .text-action {
+  margin-block-start: 1.5rem;
+}
+
 .hero__portrait {
-  /* position: absolute; */
-  inset-block-start: -1.75rem;
-  inset-inline-end: 0;
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 50%;
   z-index: 1;
   display: block;
-  inline-size: min(46.5vw, 10.875rem);
-  block-size: 21rem;
+  inline-size: 10.875rem;
+  block-size: 23.9375rem;
   overflow: hidden;
-  background-color: var(--color-surface);
-  margin: auto;
+  translate: -50% 0;
+  background: linear-gradient(to bottom, rgb(36 36 36 / 0), var(--color-surface));
 }
 
 .hero__portrait img {
   inline-size: 100%;
   block-size: 100%;
   object-fit: cover;
-  object-position: center top;
-}
-
-.hero__rings,
-.hero__circle {
-  position: absolute;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.hero__rings {
-  inset-block-start: 0.75rem;
-  inset-inline-start: calc(-1 * var(--page-gutter) - 5.75rem);
-  inline-size: 33.125rem;
-  max-inline-size: none;
-}
-
-.hero__circle {
-  display: none;
+  object-position: center bottom;
 }
 
 @media (min-width: 45rem) {
+  .hero {
+    min-block-size: 37.5rem;
+  }
+
   .hero__inner {
-    min-block-size: 31rem;
-    grid-template-columns: 1fr 1fr;
+    padding-block-start: 9.4375rem;
   }
 
   .hero__content {
-    max-inline-size: 31.25rem;
-    padding-block: 5.25rem 4rem;
+    max-inline-size: 27.8125rem;
+    margin-inline-start: 0.125rem;
     text-align: start;
   }
 
+  .hero h1 {
+    max-inline-size: 27.6875rem;
+    font-size: 4.5rem;
+    letter-spacing: -0.128rem;
+  }
+
+  .hero__name {
+    text-decoration-thickness: 0.375rem;
+  }
+
   .hero__content p {
-    max-inline-size: 27.75rem;
-    margin-block: 2.25rem 2.125rem;
+    max-inline-size: 27.8125rem;
+    margin-block-start: 4.8125rem;
     font-size: 1.125rem;
     line-height: 1.5556;
   }
 
+  .hero__content .text-action {
+    margin-block-start: 2.125rem;
+  }
+
   .hero__portrait {
-    inset-block-start: 0;
+    inset-inline: auto 0;
     inline-size: 20.125rem;
-    block-size: 31rem;
-  }
-
-  .hero__rings {
-    inset-block-start: 4.25rem;
-    inset-inline-start: calc(-1 * var(--page-gutter) - 16.5rem);
-  }
-
-  .hero__circle {
-    display: block;
-    inset-block-end: 0.125rem;
-    inset-inline-end: -4.625rem;
-    inline-size: 8.125rem;
+    block-size: 37.5rem;
+    translate: none;
+    background: var(--color-surface);
   }
 }
 
 @media (min-width: 75rem) {
-  .hero__inner {
+  .hero {
     min-block-size: 45rem;
+  }
+
+  .hero__inner {
+    padding-block-start: 12.375rem;
   }
 
   .hero__content {
     max-inline-size: 44.125rem;
-    padding-block: 8.625rem 4rem;
+    margin-inline-start: 0;
+  }
+
+  .hero h1 {
+    max-inline-size: 44.125rem;
+    font-size: 5.5rem;
+    letter-spacing: -0.15625rem;
   }
 
   .hero__content p {
-    max-inline-size: 27.75rem;
+    max-inline-size: 27.8125rem;
+    margin-block-start: 2.6875rem;
+  }
+
+  .hero__content .text-action {
+    margin-block-start: 4.125rem;
   }
 
   .hero__portrait {
+    inset-inline-end: max(var(--page-gutter), calc((100vw - var(--content-max)) / 2));
     inline-size: 27.8125rem;
     block-size: 45rem;
-  }
-
-  .hero__rings {
-    inset-block-start: 2.25rem;
-    inset-inline-start: -17.5rem;
-  }
-
-  .hero__circle {
-    inset-block-end: 4.25rem;
-    inset-inline-end: 22.75rem;
   }
 }
