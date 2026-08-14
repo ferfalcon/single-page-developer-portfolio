@@ -6,8 +6,8 @@
     "executionMode": "Gated"
   },
   "state": {
-    "stage": 10,
-    "status": "Ready",
+    "stage": 11,
+    "status": "In progress",
     "activeInputs": [
       "SRC-DS-001",
       "SRC-REPO-001"
@@ -318,6 +318,22 @@
       "method": "Git task-start lineage and working-tree inspection",
       "evidence": "Before P01-T04 start, HEAD 1ffdcee was clean, descends from SRC-REPO-001, and contains the recorded P01-T01 through P01-T03 outputs plus expected workflow documentation only. The current workflow-record/generated-view changes are the expected P01-T04 task-start mutation; no unrecorded frontend change is present.",
       "checkedAt": "2026-08-14T16:26:41.376Z"
+    },
+    {
+      "id": "VER-028",
+      "snapshot": "SRC-DS-001",
+      "result": "Unchanged",
+      "method": "Figma MCP metadata reinspection of workflow canvas and responsive frames",
+      "evidence": "The current Figma metadata retains the Product / Home desktop 7:687 (1440x3872), tablet 7:226 (768x3563), and mobile 7:3 (375x5013) frames; header, hero, skills, projects, contact, footer, responsive component variants, focus variants, and project-image set remain present. The direct design-context request was unavailable because the Figma desktop connector had no selected layer; this verification therefore records the structural metadata and retains the source's Time-bound limitation.",
+      "checkedAt": "2026-08-14T16:45:01.355Z"
+    },
+    {
+      "id": "VER-029",
+      "snapshot": "SRC-REPO-005",
+      "result": "Expected workflow output",
+      "method": "Git immutable-output lineage and tree inspection",
+      "evidence": "Implementation-output commit efc4eabaebdb88fccbeeab1e45f0e0b600282bcb descends from immutable input SRC-REPO-001. Its only change is the P01-T04 validation narrative; later committed changes are workflow completion records only, and the frontend tree is unchanged after SRC-REPO-005.",
+      "checkedAt": "2026-08-14T16:45:01.462Z"
     }
   ],
   "artifacts": [
@@ -537,6 +553,18 @@
       "statusChangedAt": "2026-08-14T14:43:55.264Z",
       "statusEvidence": "Fer approved the reviewed P01-T04 integrated validation task.",
       "statusBy": "Fer"
+    },
+    {
+      "id": "ART-IMPLEMENTATION-REVIEW",
+      "type": "IMPLEMENTATION-REVIEW",
+      "path": "IMPLEMENTATION-REVIEW.md",
+      "status": "Reviewed",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001"
+      ],
+      "statusChangedAt": "2026-08-14T16:49:58.019Z",
+      "statusEvidence": "Completed final implementation review against SRC-DS-001, SRC-REPO-001, and reverified immutable output SRC-REPO-005. The review records passed build, visual/reflow, accessibility/keyboard, data/error/retry, and no-transport evidence; it recommends acceptance with the existing approved native-validation deviation and explicit non-blocking limitations."
     }
   ],
   "traceItems": [
@@ -1190,6 +1218,41 @@
       ],
       "evidence": "Fer approved the complete reviewed Stage 9 task set. All tasks are Ready, required traceability paths resolve, validation definitions are declared, and only task-start re-verification remains before execution.",
       "recordedAt": "2026-08-14T14:43:55.329Z",
+      "approvedBy": "Fer"
+    },
+    {
+      "id": "GATE-011",
+      "stage": 10,
+      "status": "Active",
+      "result": "Passed",
+      "baseline": [
+        "SRC-DS-001",
+        "SRC-REPO-001"
+      ],
+      "verifications": [
+        "VER-026",
+        "VER-027"
+      ],
+      "artifacts": [
+        "ART-SOURCE-BASELINE",
+        "ART-PROJECT-CONTEXT",
+        "ART-WORKFLOW-STATE",
+        "ART-DESIGN-AUDIT",
+        "ART-REQUIREMENTS",
+        "ART-DESIGN",
+        "ART-SPEC",
+        "ART-DOCUMENT-REVIEW",
+        "ART-ARCHITECTURE",
+        "ART-PLAN",
+        "ART-PLAN-REVIEW",
+        "ART-TASKS-INDEX",
+        "ART-TASK-P01-T01",
+        "ART-TASK-P01-T02",
+        "ART-TASK-P01-T03",
+        "ART-TASK-P01-T04"
+      ],
+      "evidence": "Fer approved the completed P01-T04 implementation validation. All declared task checks passed, SRC-REPO-005 records the immutable output, and no unresolved implementation finding remains.",
+      "recordedAt": "2026-08-14T16:43:35.397Z",
       "approvedBy": "Fer"
     }
   ],
