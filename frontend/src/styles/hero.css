@@ -73,6 +73,7 @@
 
   .hero__content {
     max-inline-size: 27.8125rem;
+    margin-inline-start: 0.125rem;
     text-align: start;
   }
 
@@ -117,6 +118,7 @@
 
   .hero__content {
     max-inline-size: 44.125rem;
+    margin-inline-start: 0;
   }
 
   .hero h1 {
